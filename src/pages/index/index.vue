@@ -4,6 +4,9 @@
 		<view>
 			<text class="title">{{title}}</text>
 		</view>
+        <view class="abc">
+
+        </view>
 	</view>
 </template>
 
@@ -15,7 +18,7 @@
 			}
 		},
 		onLoad() {
-
+            
 		},
 		methods: {
 
