@@ -251,5 +251,9 @@ button {
   border-radius: 8upx;
   font-size: 26upx;
 }
+.right-butn:active {
+  background: #3a89ff;
+  color: #fff;
+}
 
 /*# sourceMappingURL=style.css.map */
