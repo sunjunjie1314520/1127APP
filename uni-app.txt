@@ -1,0 +1,18 @@
+
+生命周期
+https://www.cnblogs.com/cisum/p/10011103.html
+
+接口配置
+https://www.cnblogs.com/gqx-html/p/10967570.html
+
+
+uni-app 事件处理、事件绑定、事件传参
+http://www.hcoder.net/tutorials/info/id/1344
+
+
+uni-app - Class 与 Style 绑定
+https://www.cnblogs.com/cisum/p/10012492.html
+
+
+uni-app 里的#ifdef MP是什么意思？条件编译
+https://blog.csdn.net/weixin_39644462/article/details/97821783

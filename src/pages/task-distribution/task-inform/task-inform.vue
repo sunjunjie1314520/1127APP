@@ -1,5 +1,8 @@
 <template>
 	<view class="container bg-one">
+        <!-- 标题栏 -->
+		<uni-nav-bar left-icon="back" title="任务详情"></uni-nav-bar>
+
 		<view class="task-inform">
 			<view class="task-inform-inf">
 				<view class="task-inform-state">

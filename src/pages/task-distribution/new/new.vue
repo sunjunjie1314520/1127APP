@@ -1,5 +1,9 @@
 <template>
 	<view class="container bg-one">
+
+        <!-- 标题栏 -->
+		<uni-nav-bar left-icon="back" title="新增任务"></uni-nav-bar>
+
 		<view class="new">
 			<view class="new-task">
 				<view class="new-task-list">

@@ -15,8 +15,7 @@
 		{
 			"path": "pages/task-distribution/index/index",
 			"style": {
-				"navigationBarTitleText": "任务实发",
-				"navigationStyle":"custom"
+				"navigationBarTitleText": "任务实发"
 			}
 		},
 		{
@@ -102,7 +101,8 @@
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",
 		"navigationBarBackgroundColor": "#fff",
-		"backgroundColor": "#F8F8F8"
+        "backgroundColor": "#F8F8F8",
+        "navigationStyle": "custom"
 	},
 	"condition" : {
 		"current": 0,

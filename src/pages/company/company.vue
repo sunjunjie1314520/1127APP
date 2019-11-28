@@ -1,5 +1,9 @@
 <template>
 	<view class="container">
+
+        <!-- 标题栏 -->
+		<uni-nav-bar left-icon="back" title="南京溧水智能化工程"></uni-nav-bar>
+
         <view class="company">
 			<view class="company-bann">
 				<image src="../../static/img/bann1.jpg" mode="widthFix"></image>
