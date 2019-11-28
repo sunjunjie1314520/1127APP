@@ -69,11 +69,6 @@
 						    console.log(e);
 						}
 					}
-					
-					// const user = uni.getStorageSync('user');
-					// if (user) {
-					// 	console.log(user);
-					// }
                     uni.showToast({
         　　　　　　　  title: res.msg,
         　　　　　　　　icon: 'none'

@@ -1,8 +1,7 @@
 <template>
-	<view class="container back">
-		<view class="status_bar"></view>
+	<view class="container bg-one">
 		<uni-nav-bar left-icon="back" title="任务派发">
-			<view @tap="newabc" class="right-butn" slot="right">新建</view>
+			<view @tap="gotoNew" class="right-butn" slot="right">新建</view>
 		</uni-nav-bar>
 		<view class="task-list">
             <view class="ul">
@@ -109,9 +108,8 @@
 </template>
 
 <script>
-	import uniNavBar from "@/components/uni-nav-bar/uni-nav-bar.vue"
+	
 	export default {
-		components: {uniNavBar},
 		data() {
 			return {
 				list: '',
@@ -125,17 +123,15 @@
                 console.log('init');
                 
             },
-			new(){
-                
+			gotoNew(){
+                uni.navigateTo({
+                    url:'../new/new'
+                })
 			}
 		}
 	}
 </script>
 
 <style>
-	.status_bar {
-		height: var(--status-bar-height);
-		width: 100%;
-		background: #fff;
-	}
+	
 </style>

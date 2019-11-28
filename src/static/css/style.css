@@ -2,11 +2,14 @@ view,
 text {
   line-height: 1;
   box-sizing: border-box;
-  font-size: 30rpx;
+  font-size: 30upx;
 }
 input {
   box-sizing: border-box;
-  font-size: 30rpx;
+  font-size: 30upx;
+}
+textarea {
+  font-size: 30upx;
 }
 checkbox {
   padding: 0;

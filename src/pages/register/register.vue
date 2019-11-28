@@ -58,7 +58,7 @@
                 )
                 .then(res => {
                     console.log(res);
-					if(res.code){
+					if(res['code']){
 						uni.navigateBack({
 							delta: 1
 						})

@@ -1397,9 +1397,67 @@
 	width: 100%;
 	height: 100upx;
 }
-.task-inform-inform  uni-view{
+.task-inform-inform uni-view{
 	width: 100%;
 	height: 100upx;
 	float: left;
 	line-height: 100upx;
+}
+.task-inform-select{
+	background: url(../../static/img/e1acb_14x10.png) right center no-repeat;
+	background-size: 14upx 10upx;
+}
+.task-inform-picker{
+	background: url(../../static/img/e9b15_49x49.png) right center no-repeat;
+	background-size: 50upx 50upx;
+}
+.task-inform-upload{
+	width: 100%;
+	display: table;
+	padding: 30upx 0;
+	border-bottom: .5px solid #ededed;
+}
+/* .task-inform-box{
+	width: 150upx;
+	height: 150upx;
+	border: .5px dashed #999999;
+	border-radius:5upx;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+} */
+.task-inform-box image{
+	width: 55upx;
+	height: 55upx;
+}
+.task-inform-evaluation{
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	border-bottom: .5px solid #ededed;
+}
+.task-inform-evaluation .task-inform-tit{
+	width: 180upx;
+}
+.inform-evaluation-list{
+	width: calc(100% - 180upx);
+}
+.inform-evaluation-list .uni-rate{
+	display: flex !important;
+	justify-content: flex-start;
+	align-items: center;
+	height: 100%;
+}
+.task-inform-button{
+	width: 100%;
+	padding:20upx 0;
+}
+.task-inform-button button{
+	width: 100%;
+	height: 70upx;
+	background-color: #3a89ff;
+	color: #fff;
+	line-height: 70upx;
+	font-size: 30upx;
+	border-radius: 35upx;
 }

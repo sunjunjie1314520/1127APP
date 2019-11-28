@@ -6,6 +6,10 @@ import request from './tool/utils/request.js'  //请求配置
 import api from './tool/module/index.js' //接口入口
 import url from './tool/common/config.js' //接口地址配置
 
+// 注册组件
+import uniNavBar from "@/components/uni-nav-bar/uni-nav-bar.vue"
+Vue.component('uni-nav-bar', uniNavBar)
+
 // 全局挂载
 Vue.prototype.$request = request
 Vue.prototype.$api = api

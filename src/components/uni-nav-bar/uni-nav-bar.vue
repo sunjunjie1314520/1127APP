@@ -1,12 +1,13 @@
 <template>
 	<view class="uni-navbar">
-		<view :class="{ 'uni-navbar--fixed': fixed, 'uni-navbar--shadow': shadow, 'uni-navbar--border': border }" :style="{ 'background-color': backgroundColor }"
+        <view class="status_bar"></view>
+		<view :class="{ 'uni-navbar--fixed': fixed, 'uni-navbar--shadow': shadow}" :style="{ 'background-color': backgroundColor }"
 		 class="uni-navbar__content">
 			<uni-status-bar v-if="statusBar" />
 			<view :style="{ color: color,backgroundColor: backgroundColor }" class="uni-navbar__header uni-navbar__content_view">
 				<view @tap="onClickLeft" class="uni-navbar__header-btns uni-navbar__header-btns-left uni-navbar__content_view">
 					<view class="uni-navbar__content_view" v-if="leftIcon.length">
-						<uni-icons :color="color" :type="leftIcon" size="24" />
+						<uni-icons @click="gotoBack" :color="color" :type="leftIcon" size="24" />
 					</view>
 					<view :class="{ 'uni-navbar-btn-icon-left': !leftIcon.length }" class="uni-navbar-btn-text uni-navbar__content_view"
 					 v-if="leftText.length">
@@ -102,6 +103,10 @@
           }
         },
 		methods: {
+            // 返回
+            gotoBack(){
+                uni.navigateBack()
+            },
 			onClickLeft() {
 				this.$emit("clickLeft");
 			},
@@ -113,8 +118,16 @@
 </script>
 
 <style lang="scss" scoped>
-	$nav-height: 44px;
+    $nav-height: 44px;
+    .status_bar {
+		height: var(--status-bar-height);
+		width: 100%;
+		background: #fff;
+	}
 	.uni-nav-bar-text {
+        /* #ifdef H5 */
+        font-weight: 700;
+        /* #endif */
 		/* #ifdef APP-PLUS */
 		font-size: 34rpx;
 		/* #endif */

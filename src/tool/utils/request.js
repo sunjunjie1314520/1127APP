@@ -1,6 +1,5 @@
 import url_config from '../common/config.js'
 
-
 const request = {}
 // 头部
 const headers = {'content-type':'application/x-www-form-urlencoded'}
@@ -12,11 +11,11 @@ request.globalRequest = (url, method, data, power) => {
 			if (user) {
 				headers['Authorization'] = user.cookie
 			}else{
-				headers['Authorization'] = '未登录'
+				headers['Authorization'] = 'no loagin'
 			}
             break;
         default:
-            headers['Authorization'] = '未登录'
+            headers['Authorization'] = 'no loagin'
             break;
     }
     return uni.request({
@@ -27,33 +26,35 @@ request.globalRequest = (url, method, data, power) => {
 		header: headers
 	})
 	.then(res => {
-		// console.log(res)
+        // console.log(res);
 		if(res[0]){
-			throw {
-				msg:'请求数据出错'
-			}
+            throw { statusCode : 500 }
 		}else if (res[1].statusCode == 200) {
 			return res[1].data
         } 
 		else{
 			throw res[1]
         }
-    }).catch(parmas => {
-        // console.log(parmas);
+    })
+    .catch(parmas => {
         switch (parmas.statusCode) {
 		    case 401:
 				uni.clearStorageSync()
 　　　　　　　　　break
 		    case 404:
 				uni.showToast({
-				    title: parmas.data,
+				    title: '404 : No Found',
 				    icon: 'none'
                 })
                 break
+            case 500:
+                uni.showToast({
+                    title: '网络接口数据异常',
+                    icon: 'none'
+                })
 　　　　　　 default:
-                console.log('error');
-	　　　　　　　return Promise.reject()
-　　　　　　}
+                return Promise.reject()
+        }
 　　})
  } 
 

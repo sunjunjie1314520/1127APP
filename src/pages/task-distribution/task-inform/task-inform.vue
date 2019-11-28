@@ -75,7 +75,7 @@
 						</view>
 				</view>
 				<view class="task-inform-upload">
-					<view class="inform-upload-file">
+					<view class="inform-upload-file" @tap="upload()">
 						<image src="../../../static/img/0c2f3_55x55.png" mode=""></image>
 					</view>
 				</view>
@@ -88,26 +88,71 @@
 					<view class="task-inform-tit">
 						任务状态
 					</view>
-					<view class="task-inform-inform">
+					<view class="task-inform-inform task-inform-select">
 						<picker @change="bindPickerChange" :value="index" :range="array">
 						     <view class="uni-input">{{array[index]}}</view>
 						 </picker>
 					</view>
-					
 				</view>
+				<view class="task-inform-list">
+					<view class="task-inform-tit">
+						修改完成时间
+					</view>
+					<view class="task-inform-inform task-inform-picker">
+						<picker mode="date" :value="date" :start="startDate" :end="endDate" @change="bindDateChange">
+							<view class="uni-input">{{date}}</view>
+						</picker>
+					</view>
+				</view>
+				<view class="task-inform-upload">
+					<view class="inform-upload-file" @tap="upload()">
+						<image src="../../../static/img/0c2f3_55x55.png" mode=""></image>
+					</view>
+				</view>
+				<view class="task-inform-evaluation">
+					<view class="task-inform-tit">
+						工作效率
+					</view>
+					<view class="inform-evaluation-list">
+						<uni-rate value="2" max="7" size="30"></uni-rate>
+					</view>
+				</view>	
+				<view class="task-inform-evaluation">
+					<view class="task-inform-tit">
+						工作效率
+					</view>
+					<view class="inform-evaluation-list">
+						<uni-rate value="2" max="7" size="30"></uni-rate>
+					</view>
+				</view>	
+				<view class="task-inform-evaluation">
+					<view class="task-inform-tit">
+						工作效率
+					</view>
+					<view class="inform-evaluation-list">
+						<uni-rate value="2" max="7" size="30"></uni-rate>
+					</view>
+				</view>	
+			</view>
+			<view class="task-inform-button">
+				<button type="primary">确定</button>
 			</view>
 		</view>
 	</view>
 </template>
 <script>
+ 	import uniRate from '@/components/uni-rate/uni-rate.vue'
 	export default {
+		components: {
+            uniRate,
+        },
 	    data() {
 	            const currentDate = this.getDate({
 	                format: true
 	            })
 	            return {
 	                title: 'picker',
-	                array: ['中国', '美国', '巴西', '日本'],
+	                array: ['请选择任务状态','中国', '美国', '巴西', '日本'],
 	                index: 0,
 	                date: currentDate,
 	                time: '12:01'

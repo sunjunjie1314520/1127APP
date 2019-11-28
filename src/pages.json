@@ -94,7 +94,7 @@
 		{
             "path" : "pages/test/test",
             "style" : {
-				"navigationStyle":"custom"
+				"navigationBarTitleText":"4564654654"
 			}
         }
     ],
