@@ -91,6 +91,18 @@
 			}
 		},
 		{
+			"path": "pages/project/project",
+			"style": {
+				"navigationBarTitleText": "项目详情"
+			}
+		},
+		{
+			"path": "pages/management/management",
+			"style": {
+				"navigationBarTitleText": "项目管理"
+			}
+		},
+		{
             "path" : "pages/test/test",
             "style" : {
 				"navigationBarTitleText":"4564654654"
