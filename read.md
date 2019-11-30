@@ -25,4 +25,6 @@
     # 任务实发 ../task-distribution/index/index
     # 任务详情 ../task-distribution/task-inform/task-inform
     # 新增任务 ../task-distribution/new/new
-# 项目详情          ../project/project  
+# 参建单位          ../participation/participation  
+# 新建合同          ../add-contract/add-contract  
+# 新增发票          ../invoice/invoice  

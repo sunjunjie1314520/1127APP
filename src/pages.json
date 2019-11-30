@@ -103,6 +103,24 @@
 			}
 		},
 		{
+			"path": "pages/participation/participation",
+			"style": {
+				"navigationBarTitleText": "参建单位"
+			}
+		},
+		{
+			"path": "pages/add-contract/add-contract",
+			"style": {
+				"navigationBarTitleText": "新建合同"
+			}
+		},
+		{
+			"path": "pages/invoice/invoice",
+			"style": {
+				"navigationBarTitleText": "新建合同"
+			}
+		},
+		{
             "path" : "pages/test/test",
             "style" : {
 				"navigationBarTitleText":"4564654654"
