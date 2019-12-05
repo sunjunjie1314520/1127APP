@@ -91,13 +91,18 @@
 			}
 		},
 		{
-			"path": "pages/project/project",
+			"path": "pages/project/details/details",
 			"style": {
 				"navigationBarTitleText": "项目详情"
 			}
+		},{
+			"path": "pages/project/newly/newly",
+			"style": {
+				"navigationBarTitleText": "新建项目"
+			}
 		},
 		{
-			"path": "pages/management/management",
+			"path": "pages/project/manage/manage",
 			"style": {
 				"navigationBarTitleText": "项目管理"
 			}

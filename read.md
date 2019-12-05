@@ -27,4 +27,7 @@
     # 新增任务 ../task-distribution/new/new
 # 参建单位          ../participation/participation  
 # 新建合同          ../add-contract/add-contract  
-# 新增发票          ../invoice/invoice  
+# 新增发票          ../invoice/invoice
+# 项目详情 			../project
++ 	管理 				/manage/manage 
++ 	详情 				/details/details 

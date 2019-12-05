@@ -1492,6 +1492,10 @@
 	line-height: 100upx;
 	font-size: 30upx;
 	color: #333333;
+	
+}
+.project-inform-inf input{
+	height: 100upx;
 }
 .project-inform-inf picker{
 	height: 100upx;
@@ -1572,7 +1576,7 @@
 }
 .project-button{
 	width: 100%;
-	padding: 0 20upx;
+	padding: 0 20upx 20upx;
 	padding-top: 20upx;
 }
 .project-button button{

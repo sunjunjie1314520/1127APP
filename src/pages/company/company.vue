@@ -15,12 +15,14 @@
 					</view>
 					<view class="company-list-col">
 						<view class="company-list-box">
-							<view class="company-list-img">
-								<image src="../../static/img/ic2.png" mode=""></image>
-							</view>
-							<view class="company-list-txt">
-								项目详情
-							</view>
+							<navigator url="../project/manage/manage">
+								<view class="company-list-img">
+									<image src="../../static/img/ic2.png" mode=""></image>
+								</view>
+								<view class="company-list-txt">
+									项目详情
+								</view>
+							</navigator>
 						</view>
 						<view class="company-list-box">
 							<view class="company-list-img">
