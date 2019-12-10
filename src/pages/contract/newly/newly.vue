@@ -1,5 +1,9 @@
 <template>
 	<view class="container bg-one">
+
+        <!-- 标题 -->
+        <uni-nav-bar title="新建合同" left-icon="back"></uni-nav-bar>
+
 		<view class="contract">
 			<view class="contract-inform">
 				<view class="contract-inform-box">

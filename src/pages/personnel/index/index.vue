@@ -1,10 +1,15 @@
 <template class="bg">
+
 	<view class="container container-none">
+
+        <!-- 标题栏 -->
+        <uni-nav-bar left-icon="back" title="人员管理"></uni-nav-bar>
+
 		<view class="personnel">
 			<view class="personnel-search">
 				<view class="personnel-search-col">
 					<view class="personnel-search-ico">
-						<image src="../../static/img/ic38.png" mode="widthFix"></image>
+						<image src="../../../static/img/ic38.png" mode="widthFix"></image>
 					</view>
 					<view class="personnel-search-input">
 						<input type="text" value="" placeholder="请输入人员姓名查找" />
@@ -13,11 +18,11 @@
 			</view>
 			<view class="personnel-type">
 				<view class="personnel-type-list">
-					<text class="active">所有</text>
-					<text>总经理</text>
-					<text>总负责</text>
-					<text>项目经理</text>
-					<text>技术负责</text>
+					<text @tap="tabs" id="1" :class="{active:index==1}">所有</text>
+					<text @tap="tabs" id="2" :class="{active:index==2}">总经理</text>
+					<text @tap="tabs" id="3" :class="{active:index==3}">总负责</text>
+					<text @tap="tabs" id="4" :class="{active:index==4}">项目经理</text>
+					<text @tap="tabs" id="5" :class="{active:index==5}">技术负责</text>
 				</view>
 				<view class="personnel-type-add"></view>
 			</view>
@@ -29,7 +34,7 @@
 					<view class="personnel-list-col">
 						<view class="personnel-list-box">
 							<view class="personnel-list-img">
-								<image src="../../static/img/im5.png" mode=""></image>
+								<image src="../../../static/img/im5.png" mode=""></image>
 							</view>
 							<view class="personnel-list-inf">
 								<view class="personnel-list-inf-name">
@@ -43,7 +48,7 @@
 						</view>
 						<view class="personnel-list-box">
 							<view class="personnel-list-img">
-								<image src="../../static/img/im6.png" mode=""></image>
+								<image src="../../../static/img/im6.png" mode=""></image>
 							</view>
 							<view class="personnel-list-inf">
 								<view class="personnel-list-inf-name">
@@ -58,13 +63,11 @@
 					</view>
 				</view>
 				<view class="personnel-list-content">
-					<view class="personnel-list-number">
-						B
-					</view>
+					<view class="personnel-list-number">B</view>
 					<view class="personnel-list-col">
 						<view class="personnel-list-box">
 							<view class="personnel-list-img">
-								<image src="../../static/img/im7.png" mode=""></image>
+								<image src="../../../static/img/im7.png" mode=""></image>
 							</view>
 							<view class="personnel-list-inf">
 								<view class="personnel-list-inf-name">
@@ -78,7 +81,7 @@
 						</view>
 						<view class="personnel-list-box">
 							<view class="personnel-list-img">
-								<image src="../../static/img/im8.png" mode=""></image>
+								<image src="../../../static/img/im8.png" mode=""></image>
 							</view>
 							<view class="personnel-list-inf">
 								<view class="personnel-list-inf-name">
@@ -93,13 +96,11 @@
 					</view>
 				</view>
 				<view class="personnel-list-content">
-					<view class="personnel-list-number">
-						C
-					</view>
+					<view class="personnel-list-number">C</view>
 					<view class="personnel-list-col">
 						<view class="personnel-list-box">
 							<view class="personnel-list-img">
-								<image src="../../static/img/im7.png" mode=""></image>
+								<image src="../../../static/img/im7.png" mode=""></image>
 							</view>
 							<view class="personnel-list-inf">
 								<view class="personnel-list-inf-name">
@@ -113,7 +114,7 @@
 						</view>
 						<view class="personnel-list-box">
 							<view class="personnel-list-img">
-								<image src="../../static/img/im8.png" mode=""></image>
+								<image src="../../../static/img/im8.png" mode=""></image>
 							</view>
 							<view class="personnel-list-inf">
 								<view class="personnel-list-inf-name">
@@ -134,7 +135,7 @@
 						<view class="personnel-list-col">
 							<view class="personnel-list-box">
 								<view class="personnel-list-img">
-									<image src="../../static/img/im5.png" mode=""></image>
+									<image src="../../../static/img/im5.png" mode=""></image>
 								</view>
 								<view class="personnel-list-inf">
 									<view class="personnel-list-inf-name">
@@ -148,7 +149,7 @@
 							</view>
 							<view class="personnel-list-box">
 								<view class="personnel-list-img">
-									<image src="../../static/img/im6.png" mode=""></image>
+									<image src="../../../static/img/im6.png" mode=""></image>
 								</view>
 								<view class="personnel-list-inf">
 									<view class="personnel-list-inf-name">
@@ -169,7 +170,7 @@
 						<view class="personnel-list-col">
 							<view class="personnel-list-box">
 								<view class="personnel-list-img">
-									<image src="../../static/img/im7.png" mode=""></image>
+									<image src="../../../static/img/im7.png" mode=""></image>
 								</view>
 								<view class="personnel-list-inf">
 									<view class="personnel-list-inf-name">
@@ -183,7 +184,7 @@
 							</view>
 							<view class="personnel-list-box">
 								<view class="personnel-list-img">
-									<image src="../../static/img/im8.png" mode=""></image>
+									<image src="../../../static/img/im8.png" mode=""></image>
 								</view>
 								<view class="personnel-list-inf">
 									<view class="personnel-list-inf-name">
@@ -204,7 +205,7 @@
 						<view class="personnel-list-col">
 							<view class="personnel-list-box">
 								<view class="personnel-list-img">
-									<image src="../../static/img/im7.png" mode=""></image>
+									<image src="../../../static/img/im7.png" mode=""></image>
 								</view>
 								<view class="personnel-list-inf">
 									<view class="personnel-list-inf-name">
@@ -218,7 +219,7 @@
 							</view>
 							<view class="personnel-list-box">
 								<view class="personnel-list-img">
-									<image src="../../static/img/im8.png" mode=""></image>
+									<image src="../../../static/img/im8.png" mode=""></image>
 								</view>
 								<view class="personnel-list-inf">
 									<view class="personnel-list-inf-name">
@@ -269,3 +270,20 @@
 	</view>
 </template>
 
+<script>
+export default {
+    data() {
+        return {
+            index:1
+        }
+    },
+    computed: {
+        
+    },
+    methods: {
+        tabs(e){
+            this.index = e.currentTarget.id
+        }
+    }
+}
+</script>

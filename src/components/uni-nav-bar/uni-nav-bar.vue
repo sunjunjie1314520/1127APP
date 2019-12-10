@@ -125,9 +125,6 @@
 		background: #fff;
 	}
 	.uni-nav-bar-text {
-        /* #ifdef H5 */
-        font-weight: 700;
-        /* #endif */
 		/* #ifdef APP-PLUS */
 		font-size: 34rpx;
 		/* #endif */

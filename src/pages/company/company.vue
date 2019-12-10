@@ -19,58 +19,58 @@
 								<view class="company-list-img">
 									<image src="../../static/img/ic2.png" mode=""></image>
 								</view>
-								<view class="company-list-txt">
-									项目详情
-								</view>
+								<view class="company-list-txt">项目详情</view>
 							</navigator>
 						</view>
 						<view class="company-list-box">
-							<view class="company-list-img">
-								<image src="../../static/img/ic3.png" mode=""></image>
-							</view>
-							<view class="company-list-txt">
-								人员管理
-							</view>
+                            <navigator url="../personnel/index/index">
+                                <view class="company-list-img">
+                                    <image src="../../static/img/ic3.png" mode=""></image>
+                                </view>
+                                <view class="company-list-txt">人员管理</view>
+                            </navigator>
 						</view>
 						<view class="company-list-box">
-							<view class="company-list-img">
-								<image src="../../static/img/ic4.png" mode=""></image>
-							</view>
-							<view class="company-list-txt">
-								权限设置
-							</view>
+                            <navigator url="../participation/newUnit/newUnit">
+                                <view class="company-list-img">
+                                    <image src="../../static/img/ic4.png" mode=""></image>
+                                </view>
+                                <view class="company-list-txt">权限设置</view>
+                            </navigator>
 						</view>
 						<view class="company-list-box">
-							<view class="company-list-img">
-								<image src="../../static/img/ic5.png" mode=""></image>
-							</view>
-							<view class="company-list-txt">
-								出勤管理
-							</view>
+                            <navigator url="../attendanceManagement/manage/manage">
+                                <view class="company-list-img">
+                                    <image src="../../static/img/ic5.png" mode=""></image>
+                                </view>
+                                <view class="company-list-txt">出勤管理</view>
+                            </navigator>
 						</view>
 						<view class="company-list-box">
-							<view class="company-list-img">
-								<image src="../../static/img/ic6.png" mode=""></image>
-							</view>
-							<view class="company-list-txt">
-								参建单位
-							</view>
+                            <navigator url="../participation/newUnit/newUnit">
+                                <view class="company-list-img">
+                                    <image src="../../static/img/ic6.png" mode=""></image>
+                                </view>
+                                <view class="company-list-txt">
+                                    参建单位
+                                </view>
+                            </navigator>
 						</view>
 						<view class="company-list-box">
-							<view class="company-list-img">
-								<image src="../../static/img/ic7.png" mode=""></image>
-							</view>
-							<view class="company-list-txt">
-								合同管理
-							</view>
+                            <navigator url="../contract/contract_manage/contract_manage">
+                                <view class="company-list-img">
+                                    <image src="../../static/img/ic7.png" mode=""></image>
+                                </view>
+                                <view class="company-list-txt">合同管理</view>
+                            </navigator>
 						</view>
 						<view class="company-list-box">
-							<view class="company-list-img">
-								<image src="../../static/img/ic8.png" mode=""></image>
-							</view>
-							<view class="company-list-txt">
-								发票管理
-							</view>
+                            <navigator url="../invoices/newly/newly">
+                                <view class="company-list-img">
+                                    <image src="../../static/img/ic8.png" mode=""></image>
+                                </view>
+                                <view class="company-list-txt">发票管理</view>
+                            </navigator>
 						</view>
 						<view class="company-list-box">
 							<view class="company-list-img">
@@ -230,8 +230,8 @@
 				</view>
 				
 			</view>
-				
 		</view>
-		</view>
-	</view>
+
+    </view>
+    
 </template>

@@ -1,5 +1,9 @@
 <template>
 	<view class="container">
+
+        <!-- 标题 -->
+        <uni-nav-bar left-icon="back" title="材料管理"></uni-nav-bar>
+
 		<view class="outbound">
 			<view class="outbound-tabs">
 				<text @tap="tabs" id="0" :class="[{'active':index==0},'text-li']">
@@ -13,59 +17,10 @@
 					<text class="mess-ico">2</text>
 				</text>
 			</view>
-			<!-- <view class="outbound-product">
-				<view class="outbound-product-section">
-					<view class="outbound-product-title">
-						南京溧水万达智能化项目
-					</view>
-					<view class="outbound-product-list">
-						<view class="product-list-li">
-							<view class="product-list-img">
-								<image src="../../../static/img/im1.png" mode=""></image>
-							</view>
-							<view class="product-list-inf">
-								<div class="product-list-inf-name">
-									<text class="name">张三</text>
-									<text class="job">项目经理</text>
-									<text class="label">未出库</text>
-								</div>
-								<view class="product-list-inf-list">
-									<text class="tit">施工位置:</text>
-									<text class="txt">四楼主题街区</text>
-								</view>
-								<view class="product-list-inf-list">
-									<text class="tit">领用日期:</text>
-									<text class="txt">2019-11-08</text>
-								</view>
-							</view>
-						</view>
-						<view class="product-list-li">
-							<view class="product-list-img">
-								<image src="../../../static/img/im1.png" mode=""></image>
-							</view>
-							<view class="product-list-inf">
-								<div class="product-list-inf-name">
-									<text class="name">张三</text>
-									<text class="job">项目经理</text>
-									<text class="label out">已出库</text>
-								</div>
-								<view class="product-list-inf-list">
-									<text class="tit">施工位置:</text>
-									<text class="txt">四楼主题街区</text>
-								</view>
-								<view class="product-list-inf-list">
-									<text class="tit">领用日期:</text>
-									<text class="txt">2019-11-08</text>
-								</view>
-							</view>
-						</view>
-					</view>
-				</view>
-			</view> -->
 			<view class="outbound-product">
 				<view class="page-section swiper">
 					<view class="page-section-spacing">
-						<swiper class="swiper" :current="current" @change="slideChange"> <!--:indicator-dots="indicatorDots" :autoplay="autoplay" :interval="interval" :duration="duration"-->
+						<swiper class="swiper" :current="current" @change="slideChange"> 
 							<swiper-item>
 								<view class="swiper-item outbound-product-section">
 									<view class="outbound-product-title">

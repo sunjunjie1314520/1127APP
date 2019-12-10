@@ -1,5 +1,9 @@
 <template>
 	<view class="container bg-one">
+
+        <!-- 标题 -->
+		<uni-nav-bar left-icon="back" title="项目详情"></uni-nav-bar>
+
 		<view class="project">
 			<view class="project-inform">
 				<view class="project-inform-box">

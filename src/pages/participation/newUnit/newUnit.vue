@@ -1,5 +1,8 @@
 <template>
 	<view class="container bg-one">
+        <!-- 标题栏 -->
+		<uni-nav-bar left-icon="back" title="添加参建单位"></uni-nav-bar>
+
 		<view class="participation">
 			<view class="participation-inf">
 				<view class="participation-inf-box">
@@ -50,13 +53,13 @@
 					</view>
 					<view class="contact-title-func">
 						<text>添加</text>
-						<image src="../../static/img/ic40.png" mode=""></image>
+						<image src="../../../static/img/ic40.png" mode=""></image>
 					</view>
 				</view>
 				<view class="participation-contact-list">
 					<view class="participation-contact-list-inf">
 						<view class="contact-list-inf-img">
-							<image src="../../static/img/im14.png" mode=""></image>
+							<image src="../../../static/img/im14.png" mode=""></image>
 						</view>
 						<view class="contact-list-inf-col">
 							<view class="contact-list-inf-name">
@@ -65,7 +68,7 @@
 									<text class="label">木工</text>
 								</view>
 								<view class="contact-list-inf-name-tel">
-									<image src="../../static/img/ic41.png" mode=""></image>
+									<image src="../../../static/img/ic41.png" mode=""></image>
 								</view>
 							</view>
 							<view class="contact-list-inf-txt">
@@ -79,7 +82,7 @@
 							<text>1</text>
 						</view>
 						<view class="list-num-box">
-							<text class="tit">总访问量</text>
+							<text class="tit">总访问</text>
 							<text>0</text>
 						</view>
 					</view>

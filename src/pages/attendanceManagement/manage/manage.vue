@@ -1,13 +1,15 @@
 <template class="bg">
 	<view class="container">
+
+        <uni-nav-bar left-icon="back" title="出勤管理"></uni-nav-bar>
+
 		<view class="att-manage">
 			<view class="att-manage-tab">
-				<text class="active">出勤管理</text>
-				<text>加班管理</text>
+				<text @tap="toggle" id="0" :class="{'active':current==0}">出勤管理</text>
+				<text @tap="toggle" id="1" :class="{'active':current==1}">加班管理</text>
 			</view>
 			<view class="att-manage-content">
 				<swiper class="swiper" :current="current" @change="slideChange">
-					<!--:indicator-dots="indicatorDots" :autoplay="autoplay" :interval="interval" :duration="duration"-->
 					<swiper-item>
 						<view class="att-manage-list">
 							<view class="att-manage-list-box">
@@ -19,7 +21,7 @@
 								</view>
 								<view class="att-manage-list-col">
 									<view class="manage-list-img">
-										<image src="../../static/img/im4.png" mode=""></image>
+										<image src="../../../static/img/im4.png" mode=""></image>
 										<view class="manage-list-label">
 											异常
 										</view>
@@ -51,7 +53,7 @@
 								</view>
 								<view class="att-manage-list-col">
 									<view class="manage-list-img">
-										<image src="../../static/img/im4.png" mode=""></image>
+										<image src="../../../static/img/im4.png" mode=""></image>
 										<view class="manage-list-label">
 											异常
 										</view>
@@ -83,7 +85,7 @@
 								</view>
 								<view class="att-manage-list-col">
 									<view class="manage-list-img">
-										<image src="../../static/img/im4.png" mode=""></image>
+										<image src="../../../static/img/im4.png" mode=""></image>
 										<view class="manage-list-label">
 											正常
 										</view>
@@ -115,7 +117,7 @@
 								</view>
 								<view class="att-manage-list-col">
 									<view class="manage-list-img">
-										<image src="../../static/img/im4.png" mode=""></image>
+										<image src="../../../static/img/im4.png" mode=""></image>
 										<view class="manage-list-label">
 											异常
 										</view>
@@ -151,7 +153,7 @@
 								</view>
 								<view class="att-manage-list-col">
 									<view class="manage-list-img">
-										<image src="../../static/img/im4.png" mode=""></image>
+										<image src="../../../static/img/im4.png" mode=""></image>
 									</view>
 									<view class="manage-list-inf">
 										<view class="manage-list-inf-name">
@@ -184,7 +186,7 @@
 								</view>
 								<view class="att-manage-list-col">
 									<view class="manage-list-img">
-										<image src="../../static/img/im4.png" mode=""></image>
+										<image src="../../../static/img/im4.png" mode=""></image>
 									</view>
 									<view class="manage-list-inf">
 										<view class="manage-list-inf-name">
@@ -217,7 +219,7 @@
 								</view>
 								<view class="att-manage-list-col">
 									<view class="manage-list-img">
-										<image src="../../static/img/im4.png" mode=""></image>
+										<image src="../../../static/img/im4.png" mode=""></image>
 									</view>
 									<view class="manage-list-inf">
 										<view class="manage-list-inf-name">
@@ -250,7 +252,7 @@
 								</view>
 								<view class="att-manage-list-col">
 									<view class="manage-list-img">
-										<image src="../../static/img/im4.png" mode=""></image>
+										<image src="../../../static/img/im4.png" mode=""></image>
 									</view>
 									<view class="manage-list-inf">
 										<view class="manage-list-inf-name">
@@ -281,3 +283,24 @@
 		</view>
 	</view>
 </template>
+
+<script>
+    export default {
+        data(){
+            return {
+                current:0,
+            }
+        },
+        created(){
+            console.log('init');
+        },
+        methods:{
+            toggle(e){
+                this.current = e.target.id
+            },
+            slideChange(e){
+                this.current = e.detail.current
+            }
+        }
+    }
+</script>

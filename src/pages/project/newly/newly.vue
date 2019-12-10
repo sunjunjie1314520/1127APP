@@ -18,7 +18,7 @@
 						项目地址
 					</div>
 					<div class="project-inform-inf">
-						<input type="text" v-model="address" />
+						<input type="text" v-model="address" placeholder="请输入项目地址"/>
 					</div>
 				</view>
 				<view class="project-inform-box">
@@ -88,8 +88,8 @@
 	            format: true
 	        })
 	        return {
-				name:'南京溧水万达智能化工程',
-				address:'6465465456',
+				name:'',
+				address:'',
 	            date1: currentDate,
 	            date2: currentDate,
 	            date3: currentDate,

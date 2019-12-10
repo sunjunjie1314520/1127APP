@@ -1,10 +1,15 @@
 <template>
 	<view class="container">
+        <!-- 标题 -->
+        <uni-nav-bar left-icon="back" title="新建合同">
+            <navigator slot="right" url="../newly/newly" class="right-butn">新建</navigator>
+        </uni-nav-bar>
+
         <view class="contract">
 			<view class="contract-list">
 				<view class="contract-list-box">
 					<view class="contract-list-img">
-						<image src="../../static/img/im3.png" mode=""></image>
+						<image src="../../../static/img/im3.png" mode=""></image>
 					</view>
 					<view class="contract-list-inform">
 						<view class="contract-list-name">
@@ -23,7 +28,7 @@
 				</view>
 				<view class="contract-list-box">
 					<view class="contract-list-img">
-						<image src="../../static/img/im3.png" mode=""></image>
+						<image src="../../../static/img/im3.png" mode=""></image>
 					</view>
 					<view class="contract-list-inform">
 						<view class="contract-list-name">

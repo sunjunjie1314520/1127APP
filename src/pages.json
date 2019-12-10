@@ -1,135 +1,72 @@
 {
 	"pages": [
 		{
-			"path": "pages/login/login",
-			"style": {
-				"navigationBarTitleText": "登录"
-			}
+			"path": "pages/login/login"
 		},
 		{
-			"path": "pages/register/register",
-			"style": {
-				"navigationBarTitleText": "注册"
-			}
+			"path": "pages/register/register"
 		},
 		{
-			"path": "pages/task-distribution/index/index",
-			"style": {
-				"navigationBarTitleText": "任务实发"
-			}
+			"path": "pages/task-distribution/index/index"
 		},
 		{
-			"path": "pages/task-distribution/new/new",
-			"style": {
-				"navigationBarTitleText": "新增任务"
-			}
+			"path": "pages/task-distribution/new/new"
 		},
 		{
-			"path": "pages/task-distribution/task-inform/task-inform",
-			"style": {
-				"navigationBarTitleText": "任务详情"
-			}
+			"path": "pages/task-distribution/task-inform/task-inform"
 		},
 		{
-			"path": "pages/material/outbound/outbound",
-			"style": {
-				"navigationBarTitleText": "材料管理"
-			}
+			"path": "pages/material/outbound/outbound"
 		},
 		{
-			"path": "pages/material/apply/apply",
-			"style": {
-				"navigationBarTitleText": "出库申请"
-			}
+			"path": "pages/material/apply/apply"
 		},
 		{
-			"path": "pages/material/give-back/give-back",
-			"style": {
-				"navigationBarTitleText": "材料归还"
-			}
+			"path": "pages/material/give-back/give-back"
 		},
 		{
-			"path": "pages/material/archive/archive",
-			"style": {
-				"navigationBarTitleText": "入库申请"
-			}
+			"path": "pages/material/archive/archive"
 		},
 		{
-			"path": "pages/company/company",
-			"style": {
-				"navigationBarTitleText": "南京溧水智能化工程"
-			}
+			"path": "pages/company/company"
+
 		},
 		{
-			"path": "pages/construction/construction",
-			"style": {
-				"navigationBarTitleText": "参建单位"
-			}
+			"path": "pages/construction/construction"
+	
 		},
 		{
-			"path": "pages/contract/contract",
-			"style": {
-				"navigationBarTitleText": "合同管理"
-			}
+			"path": "pages/attendance/attendance"
 		},
 		{
-			"path": "pages/attendance/attendance",
-			"style": {
-				"navigationBarTitleText": "考勤设置"
-			}
+			"path": "pages/attendanceManagement/manage/manage"
 		},
 		{
-			"path": "pages/att-manage/att-manage",
-			"style": {
-				"navigationBarTitleText": "出勤管理"
-			}
+			"path": "pages/personnel/index/index"
 		},
 		{
-			"path": "pages/personnel/personnel",
-			"style": {
-				"navigationBarTitleText": "人员管理"
-			}
+			"path": "pages/project/details/details"
+        },
+        {
+			"path": "pages/project/newly/newly"
 		},
 		{
-			"path": "pages/project/details/details",
-			"style": {
-				"navigationBarTitleText": "项目详情"
-			}
-		},{
-			"path": "pages/project/newly/newly",
-			"style": {
-				"navigationBarTitleText": "新建项目"
-			}
+			"path": "pages/project/manage/manage"
 		},
 		{
-			"path": "pages/project/manage/manage",
-			"style": {
-				"navigationBarTitleText": "项目管理"
-			}
+			"path": "pages/participation/newUnit/newUnit"
+		},
+        {
+            "path": "pages/contract/contract_manage/contract_manage"
+		},
+        {
+            "path": "pages/contract/newly/newly"
+        },
+		{
+			"path": "pages/invoices/newly/newly"
 		},
 		{
-			"path": "pages/participation/participation",
-			"style": {
-				"navigationBarTitleText": "参建单位"
-			}
-		},
-		{
-			"path": "pages/add-contract/add-contract",
-			"style": {
-				"navigationBarTitleText": "新建合同"
-			}
-		},
-		{
-			"path": "pages/invoice/invoice",
-			"style": {
-				"navigationBarTitleText": "新建合同"
-			}
-		},
-		{
-            "path" : "pages/test/test",
-            "style" : {
-				"navigationBarTitleText":"4564654654"
-			}
+            "path" : "pages/test/test"
         }
     ],
 	"globalStyle": {

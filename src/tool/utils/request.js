@@ -11,11 +11,11 @@ request.globalRequest = (url, method, data, power) => {
 			if (user) {
 				headers['Authorization'] = user.cookie
 			}else{
-				headers['Authorization'] = 'no loagin'
+				headers['Authorization'] = '...'
 			}
             break;
         default:
-            headers['Authorization'] = 'no loagin'
+            headers['Authorization'] = 'no'
             break;
     }
     return uni.request({
