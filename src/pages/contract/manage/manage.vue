@@ -1,7 +1,7 @@
 <template>
 	<view class="container">
         <!-- 标题 -->
-        <uni-nav-bar left-icon="back" title="新建合同">
+        <uni-nav-bar left-icon="back" title="合同列表">
             <navigator slot="right" url="../newly/newly" class="right-butn">新建</navigator>
         </uni-nav-bar>
 
@@ -33,7 +33,7 @@
 					<view class="contract-list-inform">
 						<view class="contract-list-name">
 							<text>摄像机采购合同</text>
-							<text class="label procurement">采购合同</text>
+							<text class="label color">采购合同</text>
 						</view>
 						<view class="contract-list-text">
 							<text class="title">甲方名称：</text>
@@ -49,3 +49,26 @@
 		</view>
     </view>
 </template>
+
+<script>
+export default {
+    data(){
+        return {
+
+        }
+    },
+    created(){
+        this.getAll()
+    },
+    methods:{
+        getAll(){
+            this.$api.contract.AllContract({
+                project_id:'46545646546sd4f6as6df4'
+            })
+            .then(res=>{
+                console.log(res);
+            })
+        }
+    }
+}
+</script>

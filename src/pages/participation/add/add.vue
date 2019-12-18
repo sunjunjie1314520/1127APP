@@ -1,6 +1,6 @@
 <template>
 	<view class="container bg-one">
-        <!-- 标题栏 -->
+
 		<uni-nav-bar left-icon="back" title="添加参建单位"></uni-nav-bar>
 
 		<view class="participation">
@@ -10,15 +10,15 @@
 						单位名称
 					</view>
 					<view class="participation-inf-txt">
-						南京溧水万达
+						<input v-model="page.company_kind" type="text" placeholder="" />
 					</view>
 				</view>
 				<view class="participation-inf-box">
 					<view class="participation-inf-tit">
-						注册资金
+						注册公司
 					</view>
 					<view class="participation-inf-txt">
-						50000万
+                        <input v-model="page.company_name" type="text" />
 					</view>
 				</view>
 				<view class="participation-inf-box">
@@ -26,7 +26,7 @@
 						办公电话
 					</view>
 					<view class="participation-inf-txt">
-						025-58271533
+                        <input v-model="page.company_phone" type="text" />
 					</view>
 				</view>
 				<view class="participation-inf-box">
@@ -34,7 +34,7 @@
 						详细地址
 					</view>
 					<view class="participation-inf-txt">
-						南京市溧水区万达路190号
+						<input v-model="page.company_address" type="text" />
 					</view>
 				</view>
 				<view class="participation-inf-textarea">
@@ -90,9 +90,44 @@
 			</view>
 			<view class="nulls"></view>
 			<view class="participation-submit">
-				<button type="primary">确定</button>
+				<button @tap="submit" type="primary">确定</button>
 			</view>
 		</view>
 	</view>
 </template>
 
+<script>
+    export default {
+        data(){
+            return {
+                page:{
+                    project_id:'0015765828443602fb87fde455145ac918e4b5700ca330a',
+                    company_kind:'建筑单位',
+                    company_name:'XX建筑有限公司',
+                    company_phone:'2969544',
+                    company_address:'上海',
+                    company_contacts:'27777777777,47777777777'
+                }
+            }
+        },
+        created(){
+            
+        },
+        methods:{
+            submit(){
+                this.$api.participation.add(
+                    this.page
+                )
+                .then(res=>{
+                    console.log(res);
+                    if(res.code){
+                        uni.showToast({
+            　　　　　　　  title: '创建成功',
+            　　　　　　　　icon: 'none'
+            　　　　　　　})
+                    }
+                })
+            }
+        }
+    }
+</script>

@@ -1,7 +1,6 @@
 <template>
 	<view class="container bg-one">
 
-        <!-- 标题栏 -->
         <uni-nav-bar left-icon="back" title="新建发票类型"></uni-nav-bar>
 
 		<view class="invoice">

@@ -1,4 +1,6 @@
-
+*{
+	box-sizing: border-box;
+}
 .bg{
 	background-color: #f9fbfc;
 }
@@ -399,15 +401,15 @@
 }
 
 .company-bann{
-	width: 100%;
+    height: 230upx;
+    background-color: #f3f3f3;
+    overflow: hidden;
 }
 .company-bann image{
-	width: 100%;
+    width: 100%;
+    height: 100%;
 }
-.company-bann uni-image{
-	width: 100%;
-	height: 230upx;
-}
+
 .company{
 	width: 100vw;
 	display: table;
@@ -461,12 +463,7 @@
 	line-height: 40upx;
 	padding-bottom: 8upx;
 }
-.construction{
-	width: 100vw;
-	display: table;
-	min-height: 100vh;
-	background-color: #f5f5f5;
-}
+
 .construction-list{
 	padding: 0 20upx;
 	width: 100%;
@@ -477,9 +474,13 @@
 	background-color: #fff;
 	border-radius: 5upx;
 	margin-top: 20upx;
-	padding: 0 30upx;
-	display: flex;
-	justify-content: space-between;
+}
+.construction-list-box navigator{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    padding: 0 30upx;
 }
 .construction-list-img{
 	width: 56upx;
@@ -497,6 +498,7 @@
 	color: #333333;
 	font-size: 28upx;
 }
+
 .construction-list-img image{
 	height: 56upx;
 	width: 56upx;
@@ -521,9 +523,6 @@
 	background-size: 100% 100%;
 }
 .contract{
-	width: 100vw;
-	display: table;
-	min-height: 100vh;
 	background-color: #f8fafc;
 }
 
@@ -594,12 +593,11 @@
 .contract-list-text text.title{
 	color: #999999;
 }
-.contract-list-name text.procurement{
+.contract-list-name text.color{
 	background-color: #0bb5b3;
 }
 .construction{
 	width: 100%;
-	height: 100vh;
 	position: relative;
 }
 .construction-map{
@@ -1502,7 +1500,7 @@
 	line-height: 100upx;
 	width: 100%;
 }
-.project-inform-inf picker uni-view{
+.project-inform-inf picker .uni-input{
 	height: 100upx;
 	line-height: 100upx;
 }
@@ -1633,13 +1631,16 @@
 	border-radius: 10upx;
 	min-height: 100upx;
 	margin-top: 20upx;
-	padding:38upx 20upx;
+	padding:0 20upx;
 	display: flex;
-	justify-content: space-between;
+    justify-content: space-between;
+    box-shadow: 0 0 10px rgba(183,207,255,.3);
 }
+
 .management-list-img{
 	width: 148upx;
-	height: 148upx;
+    height: 148upx;
+    margin: 20upx 0;
 }
 .management-list-img image{
 	width: 100%;
@@ -1647,8 +1648,7 @@
 }
 .management-list-inf{
 	width: calc(100% - 148upx);
-	display: table;
-	padding-left: 20upx;
+    padding: 20upx;
 }
 .management-list-inf-name{
 	line-height: 54upx;
@@ -1721,6 +1721,9 @@
 	height: 30upx;
 	background-color: #dbdbdb;
 }
+.list-time-txt:last-child:after {
+    display: none;
+}
 .participation{
 	width: 100%;
 	display: table;
@@ -1758,6 +1761,9 @@
 	height: 200upx;
 	padding: 20upx 0;
 	line-height:60upx;
+}
+.participation-inf-txt input{
+    height: 100%;
 }
 .participation-inf-textarea{
 	width: 100%;
@@ -2217,4 +2223,371 @@
 	line-height: 70upx;
 	color: #fff;
 	border-radius: 35upx;
+}
+.procurement{
+	width: 100%;
+	padding: 0 30upx;
+	padding-top: 20upx;
+}
+.procurement-col{
+	width: 100%;
+	display: table;
+	min-height: 100upx;
+	background-color: #fff;
+	border-radius: 10upx;
+	padding-left: 20upx;
+}
+.procurement-data{
+	width: 100%;
+	display: table;
+}
+.procurement-data-box{
+	width: 100%;
+	display: table;
+	border-bottom: 1px solid #ededed;
+	padding-right: 20upx;
+	display: flex;
+	justify-content: space-between;
+}
+.procurement-data-label{
+	width: 235upx;
+	height: 104upx;
+	display: inline-block;
+	line-height: 104upx;
+	color: #666;
+}
+.procurement-data-input{
+	width: calc(100% - 235upx);
+	height: 104upx;
+	position: relative;
+}
+.procurement-data-input input{
+	width: 100%;
+	height: 104upx;
+	line-height: 60upx;
+	padding: 22upx 0;
+}
+.procurement-data-input .datas{
+	display: inline-block;
+	width: 50upx;
+	height: 50upx;
+	background: url(../img/ic36.png)center no-repeat;
+	background-size: 50upx 50upx;
+	position: absolute;
+	right: 10upx;
+	top: 50%;
+	margin-top: -25upx;
+}
+.procurement-data-text{
+	width: calc(100% - 235upx);
+	padding-top: 20upx;
+}
+.procurement-data-text textarea{
+	width: 100%;
+	min-height: 200upx;
+	color: #333;
+	font-size: 28upx;
+	line-height: 60upx;
+}
+.procurement-data-file{
+	width: 100%;
+	padding-top: 45upx;
+	padding-bottom: 30upx;
+}
+.procurement-data-title{
+	line-height: 74upx;
+	color: #666;
+}
+.procurement-data-file-col{
+	width: 100%;
+}
+.procurement-file-box{
+	width: 150upx;
+	height: 150upx;
+	border: 1px dashed #999;
+	border-radius: 5upx;
+	background: url(../img/0c2f3_55x55.png) center no-repeat;
+	background-size: 56upx 56upx;
+}
+
+.procurement-button{
+	width: 100%;
+	padding: 20upx 0;
+}
+.procurement-button button{
+	width: 100%;
+	height: 70upx;
+	background-color: #3a89ff;
+	border-radius: 35upx;
+	line-height: 70upx;
+	font-size: 30upx;
+	color: #fff;
+}
+.cost{
+	width: 100%;
+	display: table;
+}
+.cost-list{
+	width: 100%;
+	display: table;
+	padding: 20upx;
+	box-sizing: border-box;
+}
+.cost-list-li{
+	width: 100%;
+	padding: 0 20upx;
+	box-sizing: border-box;
+	background-color: #fff;
+	border-radius: 10upx;
+	padding-bottom: 30upx;
+	margin-bottom:20upx;
+}
+.cost-list-title{
+	width: 100%;
+	height: 76upx;
+	line-height: 76upx;
+	
+	border-radius: 10upx;
+	display: flex;
+	justify-content: space-between;
+}
+.cost-title-txt{
+	font-size: 30upx;
+	color: #444;
+}
+.cost-state-item{
+	display: inline-block;
+	height: 36upx;
+	padding: 0 15upx;
+	background-color: #ff6569;
+	line-height: 36upx;
+	font-size: 24upx;
+	color: #fff;
+	border-radius: 5upx;
+}
+.cost-list-col{
+	width: 100%;
+	display: table;
+	display: flex;
+	justify-content: space-between;
+}
+.cost-list-img{
+	width: 132upx;
+	height: 132upx;
+	background-color: #f00;
+	border-radius: 10upx;
+}
+.cost-list-img image{
+	width: 100%;
+	height: 100%;
+}
+.cost-list-inform{
+	width: calc(100% - 132upx);
+	padding-left: 30upx;
+}
+.cost-list-name{
+	width: 100%;
+	height: 66upx;
+	line-height: 66upx;
+	display: flex;
+	justify-content: space-between;
+}
+.cost-name-price{
+	color: #589bff;
+	font-size: 32upx;
+}
+.cost-list-time{
+	width: 100%;
+	height: 56upx;
+	line-height: 56upx;
+	display: flex;
+	justify-content: space-between;
+	font-size: 26upx;
+	color: #999999;
+}
+.cost-state-item.item2{
+	background-color: #589bff;
+}
+.null{
+	height: 100upx;
+}
+.cost-total-fix{
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	background-color: #fff;
+	height: 90upx;
+	padding: 0 30upx;
+	line-height: 90upx;
+	display: flex;
+	justify-content: space-between;
+	box-shadow: 0 -0.04rem .1rem rgba(51, 51, 51, .1);
+}
+.cost-total-tit{
+	line-height: 90upx;
+	font-size: 28upx;
+	color: #444;
+}
+.cost-total-tit .tit{
+	color: #999;
+}
+.cost-total-price{
+	font-size: 40upx;
+	color: #ff6569;
+}
+.cost-total-price .tit{
+	font-size: 24upx;
+	padding-left: 5upx;
+}
+.lease{
+	width: 100%;
+	padding:20upx;
+}
+.lease-col{
+	width: 100%;
+	display: table;
+}
+.lease-li{
+	width: 100%;
+	display: table;
+	padding: 30upx 20upx;
+	background-color: #fff;
+	border-radius: 10upx;
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 20upx;
+}
+.lease-li-img{
+	width: 132upx;
+	height: 132upx;
+	border-radius: 10upx;
+}
+.lease-li-img image{
+	width: 100%;
+	height: 100%;
+}
+.lease-li-inform{
+	width: calc(100% - 132upx);
+	display: table;
+	padding-left: 20upx;
+}
+.lease-inform-name{
+	width: 100%;
+	height: 40upx;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	font-size: 26upx;
+	margin-bottom: 12upx;
+}
+.lease-name-txt text{
+	font-size: 26upx;
+}
+.lease-name-txt{
+	margin-right: 80upx;
+	position: relative;
+}
+.lease-name-txt::after{
+	content: '';
+	position: absolute;
+	right: -40upx;
+	top: 50%;
+	margin-top: -11upx;
+	width: 1px;
+	height: 22upx;
+	background-color: #adb2b8;
+}
+.lease-name-txt text.tit{
+	color: #999;
+}
+.lease-name-txt:last-child::after{
+	width: 0;
+}
+.lease-inform-list{
+	width: 100%;
+	height: 40upx;
+	line-height: 40upx;
+	font-size: 26upx;
+}
+.lease-inform-list text{
+	font-size: 26upx;
+}
+.lease-inform-list text.tit{
+	color: #999;
+}
+.procurement-data-note{
+	width: 100%;
+	display: table;
+	min-height: 200upx;
+	padding-right: 20upx;
+	border-bottom: 1px solid #ededed;
+}
+.procurement-data-note text{
+	font-size: 28upx;
+	line-height: 60upx;
+}
+.procurement-data-note text.tit{
+	color: #666;
+	min-width: 235upx;
+	display: inline-block;
+}
+.procurement-credential{
+	width: 100%;
+	display: table;
+	padding-top: 25upx;
+	padding-right: 20upx;
+}
+.procurement-credential-img{
+	width: 100%;
+	padding: 15upx 0;
+}
+.procurement-credential-img image{
+	width: 100%;
+	height: 296upx;
+}
+.procurement-copy{
+	width: 100%;
+	display: table;
+	padding-top: 25upx;
+}
+.procurement-copy-title{
+	width: 100%;
+}
+.procurement-copy-col{
+	width: 100%;
+	display: table;
+	padding: 20upx 0;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+.procurement-copy-box{
+	width: 98upx;
+	height: 98upx;
+	border-radius: 50%;
+	margin-right: 40upx;
+}
+.procurement-copy-img{
+	width: 98upx;
+	height: 98upx;
+}
+.procurement-copy-img image{
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+}
+.procurement-copy-file{
+	width: 98upx;
+	height: 98upx;
+	border: 1px dashed #999;
+	border-radius: 5upx;
+	border-radius: 50%;
+	background: url(../img/b2fa1_40x40.png)center no-repeat;
+	background-size: 40upx 40upx;
+}
+.procurement-copy-file input{
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
 }

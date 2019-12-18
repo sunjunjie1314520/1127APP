@@ -15,6 +15,7 @@ Vue.prototype.$request = request
 Vue.prototype.$api = api
 Vue.prototype.$url = url
 
+// debug
 console.log('接口地址:', url)
 
 // 全局样式

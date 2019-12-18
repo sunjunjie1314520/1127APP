@@ -1,8 +1,11 @@
 {
 	"pages": [
-		{
-			"path": "pages/login/login"
-		},
+        {
+            "path": "pages/login/login"
+        },
+        {
+            "path": "pages/company/company"
+        },
 		{
 			"path": "pages/register/register"
 		},
@@ -27,14 +30,7 @@
 		{
 			"path": "pages/material/archive/archive"
 		},
-		{
-			"path": "pages/company/company"
 
-		},
-		{
-			"path": "pages/construction/construction"
-	
-		},
 		{
 			"path": "pages/attendance/attendance"
 		},
@@ -52,22 +48,95 @@
 		},
 		{
 			"path": "pages/project/manage/manage"
-		},
-		{
-			"path": "pages/participation/newUnit/newUnit"
-		},
+        },
+        // 添加新建单位
         {
-            "path": "pages/contract/contract_manage/contract_manage"
+            "path": "pages/participation/construction/construction"
+        },
+		{
+			"path": "pages/participation/add/add"
+        },
+        // 合同管理
+        {
+            "path": "pages/contract/manage/manage"
 		},
         {
             "path": "pages/contract/newly/newly"
         },
+        // 发票管理
+		{
+			"path": "pages/invoices/manage/manage"
+        },
 		{
 			"path": "pages/invoices/newly/newly"
+        },
+		{
+			"path": "pages/invoices/detail/detail"
+        },
+        // 安全管理
+		{
+			"path": "pages/security/manage/manage"
 		},
 		{
+			"path": "pages/security/detail/detail"
+        },
+        //零星采购
+        {
+            "path": "pages/purchase/list/list"
+        },
+        {
+            "path": "pages/purchase/detail/detail"
+        },
+        //成本管理
+        {
+            "path": "pages/costcontrol/manage/manage"
+        },
+        // 工资管理
+        {
+            "path":"pages/wages/manage/manage"
+        },
+        // 新建管理
+        {
+            "path":"pages/journal/manage/manage"
+        },
+        {
+            "path":"pages/journal/newly/newly"
+        },
+        {
+            "path":"pages/journal/detail/detail"
+        },
+
+		{
+            "path" : "pages/audit/materialProcurement/materialProcurement"
+        },
+		{
+            "path" : "pages/audit/costApproval/costApproval"
+		},
+		{
+            "path" : "pages/audit/projectPaymentApproval/projectPaymentApproval"
+        },
+		{
+            "path" : "pages/audit/lease/lease"
+        },
+		{
+            "path" : "pages/audit/loanApplication/loanApplication"
+        },
+		{
+            "path" : "pages/audit/procurement/procurement"
+        },
+		{
+            "path" : "pages/audit/businessCosts/businessCosts"
+        },
+        // 巡检管理
+        {
+            "path" : "pages/patrol/manage/manage"
+        },
+        {
             "path" : "pages/test/test"
         }
+        
+
+
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
@@ -81,7 +150,7 @@
 		"list": [
 			{
 				"name": "主入口",
-				"path": "pages/task-distribution/index/index",
+				"path": "pages/invoices/manage/manage",
 				"query": ""
 			}
 		]

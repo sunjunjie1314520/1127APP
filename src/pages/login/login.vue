@@ -11,7 +11,7 @@
 				<view class="ul">
 					<view class="li">
 						<text class="ico ico-i1"></text>
-						<input v-model="phone" placeholder-class="placeholder-class" type="text" placeholder="请输入手机号" maxlength="11">
+						<input v-model="phone" placeholder-class="placeholder-class" type="number" placeholder="请输入手机号" maxlength="11">
 					</view>
 					<view class="li">
 						<text class="ico ico-i3"></text>
@@ -42,8 +42,8 @@
     export default {
         data(){
             return {
-                phone : '15971345754',
-                password : '123456'
+                phone : '',
+                password : ''
             }
         },
         onLoad(){
@@ -63,16 +63,17 @@
 						try {
 						    uni.setStorageSync('user', res.data.user);
 							uni.redirectTo({
-							    url: '../../pages/company/company?id=1&name=uniapp'
+							    url: '../../pages/company/company'
 							});
 						} catch (e) {
 						    console.log(e);
 						}
-					}
-                    uni.showToast({
-        　　　　　　　  title: res.msg,
-        　　　　　　　　icon: 'none'
-        　　　　　　　})
+					}else{
+                        uni.showToast({
+            　　　　　　　  title: res.msg,
+            　　　　　　　　icon: 'none'
+            　　　　　　　})
+                    }
                 })
             },
             

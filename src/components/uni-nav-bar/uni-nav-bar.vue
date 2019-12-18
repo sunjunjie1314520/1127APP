@@ -118,7 +118,7 @@
 </script>
 
 <style lang="scss" scoped>
-    $nav-height: 44px;
+    $nav-height: 80upx;
     .status_bar {
 		height: var(--status-bar-height);
 		width: 100%;
@@ -137,12 +137,12 @@
 	}
 
 	.uni-navbar {
-		width: 750rpx;
+		width: 100vw;
 	}
 
 	.uni-navbar__content {
 		position: relative;
-		width: 750rpx;
+		width: 100vw;
 		background-color: $uni-bg-color;
 		overflow: hidden;
 	}
@@ -161,7 +161,7 @@
 		display: flex;
 		/* #endif */
 		flex-direction: row;
-		width: 750rpx;
+		width: 100vw;
 		height: $nav-height;
 		line-height: $nav-height;
 		font-size: 16px;

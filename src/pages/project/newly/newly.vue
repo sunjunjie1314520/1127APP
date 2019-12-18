@@ -10,7 +10,7 @@
 						项目名称
 					</div>
 					<div class="project-inform-inf">
-						<input type="text" v-model="name" placeholder="请输入工程项目" />
+						<input type="text" v-model="name" placeholder="请输入工程项目" placeholder-class="place-class"/>
 					</div>
 				</view>
 				<view class="project-inform-box">
@@ -18,7 +18,15 @@
 						项目地址
 					</div>
 					<div class="project-inform-inf">
-						<input type="text" v-model="address" placeholder="请输入项目地址"/>
+						<input type="text" v-model="address" placeholder="请输入项目地址" placeholder-class="place-class"/>
+					</div>
+				</view>
+				<view class="project-inform-box">
+					<div class="project-inform-tit">
+						项目经理
+					</div>
+					<div class="project-inform-inf">
+						<input type="text" v-model="manager" placeholder="请输入项目经理" placeholder-class="place-class"/>
 					</div>
 				</view>
 				<view class="project-inform-box">
@@ -57,7 +65,7 @@
 					项目详情
 				</view>
 				<view class="project-input-col">
-					<textarea v-model="bid_time" placeholder="请输入项目详情" />
+					<textarea v-model="bid_time" placeholder="请输入项目详情" placeholder-class="place-class"/>
 				</view>
 			</view>
 			<view class="project-photo">
@@ -89,7 +97,8 @@
 	        })
 	        return {
 				name:'',
-				address:'',
+                address:'',
+                manager:'',
 	            date1: currentDate,
 	            date2: currentDate,
 	            date3: currentDate,
@@ -109,7 +118,8 @@
 				this.$api.project({
 					"project_name":this.name,
 					"project_address":this.address,
-					"project_longitude":this.date1,
+                    "project_longitude":this.date1,
+                    "manager":this.manager,
 					// "project_latitude":'1052',
 					// "project_radius":'1052',
 					// "project_get_date":'1052',
@@ -118,7 +128,12 @@
 					// "project_description":'1052',
 				})
 				.then(res=>{
-					console.log(res);
+                    console.log(res);
+                    if(res.code){
+                        uni.showToast({
+                            'title':'创建成功'
+                        })
+                    }
 				})
 			},
 			upload(){
@@ -149,7 +164,6 @@
 			bindDateChange3: function(e) {
 	            this.date3 = e.target.value
 	        },
-
 	        getDate(type) {
 	            const date = new Date();
 	            let year = date.getFullYear();

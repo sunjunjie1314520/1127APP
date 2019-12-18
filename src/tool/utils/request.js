@@ -2,12 +2,13 @@ import url_config from '../common/config.js'
 
 const request = {}
 // 头部
-const headers = {'content-type':'application/x-www-form-urlencoded'}
+const headers = {}
 
 request.globalRequest = (url, method, data, power) => {
     switch (power){
         case 1:
-			const user = uni.getStorageSync('user');
+            const user = uni.getStorageSync('user');
+            console.log(user);
 			if (user) {
 				headers['Authorization'] = user.cookie
 			}else{

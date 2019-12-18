@@ -1,12 +1,8 @@
 
 @import "F:\Sourse\网页模版\fn\fn.styl"
 @import "init.styl"
-
-.bg-one
-    background #ecf3fc
-    
-c1 = #5488f8
-
+@import "public.styl"
+ 
 .container
     float left
     width 100%
@@ -186,19 +182,535 @@ c1 = #5488f8
             navigator
                 display inline-block
 
-.right-butn
-    border solid 1px #3a89ff
-    color #3a89ff
-    padding 6upx 20upx
-    border-radius 8upx
-    font-size 26upx
-    &:active
-        background #3a89ff
-        color #fff
 
-.nodata
-    text-align center
-    padding 200upx 0
-    margin-top 10px
-    color #999
-    ov 2
+
+
+.prolist
+    display block
+    .h2
+        font-size 30upx
+        color #333333
+        line-height 95upx
+        display block
+        padding 0 20upx
+        box-shadow 0 0 50upx rgba(#f9fbfc,.8)
+    .ul
+        padding 0 20upx
+        .li
+            float left
+            width 100%
+            background #fdfeff
+            margin-bottom 20upx
+            padding 30upx
+            border-radius 18upx
+            ty()
+            .time
+                float left
+                width 100%
+                .date
+                    float left
+                    color #adb2b8
+                    font-size 24upx
+                .status
+                    float right
+                    color #fff
+                    border-radius 4upx
+                    font-size 24upx
+                    width 92upx
+                    heightL 36upx
+                    text-align center
+                    &.c1
+                        background #ff6569
+                    &.c2
+                        background #3a89ff
+                
+            .content-wrap
+                display flex
+                float left
+                width 100%
+                margin-top 30upx
+                .pict
+                    width 132upx
+                    height 132upx
+                    flex-shrink 0
+                    overflow hidden
+                    image
+                        width 100%
+                        height 100%
+                .fr-box
+                    flex 1
+                    margin-left 30upx
+                    flex-shrink 0
+                    display flex
+                    flex-direction column
+                    justify-content space-around
+                    padding 20upx 0
+                    .item
+                        float 0
+                        .s1
+                            color #999999
+                            font-size 26upx
+                            margin-left 40upx
+                            ml 0
+                            .s2
+                                color #333
+                                font-size 26upx
+                            .s3
+                                font-size 26upx
+
+
+.remind
+    padding 0 20upx
+    .ul
+        background #fff
+        border-radius 10upx
+        float 0
+        margin-top 20upx
+        padding 0 25upx
+        .li
+            float left
+            width 100%
+            border-bottom 1upx solid #ededed
+            .sp
+                float left
+                line-height 101upx
+                width 160upx
+                color #666666
+            .fr
+                widthC 180rpx
+                float right
+                input
+                    height 101upx
+                text
+                    display block
+                    padding 27upx 0
+                    line-height 1.8
+                textarea
+                    padding-top 32upx
+                    width 100%
+            .wrap
+                border-radius 10upx
+                overflow hidden
+                margin 20upx auto
+                display block
+                image
+                    width 100%
+
+.zero-list
+    float left
+    width 100%
+    padding 0 20upx
+    .ul
+        .li
+            navigator
+                padding 30upx 20upx
+                background #fff
+                border-radius 10upx
+                display flex
+                margin-top 20upx
+                width 100%
+            .pict
+                width 132upx
+                height 132upx
+                border-radius 10px
+                overflow hidden
+                image
+                    width 100%
+                    height 100%
+            .text
+                flex 1
+                margin-left 20upx
+                display flex
+                flex-direction column
+                justify-content space-between
+                .p
+                    color #333
+                    font-size 26upx
+                    &.mt
+                        margin-top 10upx
+                .color
+                    color #999
+                    font-size 26upx
+
+// 成本管理
+.total
+    background url(../img/4f7ba_750x329.png) center top/100% no-repeat no-repeat
+    padding 55upx 20upx 0
+    float 0
+    .money
+        text-align center
+        color #fff
+        .h2
+            display block
+        .h3
+            display block
+            font-size 50upx
+            margin-top 26upx
+            .small
+                font-size 30upx
+        
+    .wrap
+        float 0
+        background #fff
+        border-radius 10upx
+        padding 0 0 42upx
+        margin-top 38upx
+        .ul
+            .li
+                width 50%
+                float left
+                display flex
+                padding 0 14upx
+                margin-top 42upx
+                position relative
+                &:nth-child(even)
+                    &:after
+                        content ''
+                        position absolute
+                        width 1px
+                        height 45upx
+                        background #adb2b8
+                        left 0
+                        top 20upx
+                image
+                    float left
+                    width 100upx
+                    height 100upx
+                .text
+                    margin-left 10upx
+                    .p
+                        display block
+                        color #999999
+                    .span
+                        display block
+                        margin-top 23upx
+                        font-size 34upx
+.list-cost
+    float 0
+    padding 0 20upx 20upx
+    .ul
+        .li
+            float 0
+            background #fff
+            border-radius 10upx
+            margin-top 20upx
+            padding 0 20upx
+            .h2
+                float 0
+                .title
+                    display block
+                    float left
+                    width 313upx
+                    line-height 76upx
+                    font-size 34upx
+                .name
+                    line-height 76upx
+                    font-size 34upx
+            .wrap
+                float 0
+                border-top 1px solid #ededed
+                &:nth-of-type(2)
+                    border-top none
+                .date
+                    float left
+                    width 313upx
+                    color #bababa
+                    line-height 76upx
+                .fr
+                    &.color
+                        .charge
+                            color #3a89ff
+                        .money
+                            color #3a89ff
+                    .charge
+                        color #999999
+                        line-height 76upx
+                    .money
+                        line-height 76upx
+                    
+.wages-table
+    padding 20upx 20upx
+    float 0
+    .ul
+        background #fff
+        border-radius 10upx
+        float 0
+        .li
+            float 0
+            border-top 1px solid #e7e7e7
+            &.head
+                border-top none
+                text
+                    color #999999
+            text
+                float left
+                line-height 90upx
+                border-left 1px solid #e7e7e7
+                text-align center
+                width 11%
+                color #666
+                &.s1
+                    border-left none
+                &.w1
+                    width 20%
+                &.w2
+                    width 16%
+                &.color
+                    color c1
+.wages-name
+    float 0
+    back('09a9c_750x228.png')
+    padding 35upx 0
+    height 228upx
+    overflow hidden
+    .h2
+        color #fff
+        font-size 36upx
+        float 0
+        padding 0 45upx
+    .wrap
+        float 0
+        margin-top 46upx
+        .item
+            float 0
+            &.item-one
+                width 226upx
+                position relative
+                padding-left 45upx
+                &:after
+                    content ''
+                    position absolute
+                    width 1px
+                    height 50upx
+                    background #90c7ff
+                    right 0
+                    bottom 15upx
+                .h3
+                    .small
+                        background url(../img/e690e_14x10.png) right center/14upx no-repeat
+            &.item-two
+                width 226upx
+                position relative
+                padding-left 45upx
+            .p
+                color #b9dbff
+                display block
+            .h3
+                font-size 46upx
+                color #fff
+                margin-top 15upx
+                display block
+                .small
+                    padding-right 20upx
+                    font-size 26upx
+
+.journal
+    float 0
+    padding 0 20upx
+    .ul
+        .li
+            width 100%
+            background #feffff
+            border-radius 10upx
+            float left
+            margin-top 20upx
+            box-shadow 0 0 10px rgba(#b7cfff,.6)
+            navigator
+                float 0
+                padding 0 20upx 30upx
+            .h2
+                display block
+                line-height 3
+                .edit
+                    display inline-block
+                    width 22upx
+                    height 22upx
+                    back('28e16_22x22.png')
+                    margin-left 10upx
+            .wrap
+                float 0
+                display flex
+                .pic
+                    float left
+                    widthZ 110upx
+                    overflow hidden
+                    border-radius 50%
+                    image
+                        width 100%
+                        height 100%
+                .text
+                    flex 1
+                    margin-left 20upx
+                    height 110upx
+                    display flex
+                    flex-direction column
+                    justify-content center
+                    .p
+                        margin-top 15upx
+                        mt 0
+                        text
+                            color #333
+                            &.c
+                                color #777b80
+                            &.ml
+                                margin-left 70upx
+.list-invoices
+    padding 0 20upx
+    float 0
+    .ul
+        .li
+            margin-top 20upx
+            float 0
+            &.box
+                background #fff
+                box-shadow 0 0 50px rgba(#b7cfff,.3)
+            .navigator
+                padding 20upx
+            navigator
+                background #fff
+                box-shadow 0 0 50px rgba(#b7cfff,.3)
+                padding 20upx
+                width 100%
+                display flex
+                border-radius 10upx
+                box-sizing border-box
+            .pict
+                float left
+                width 148upx
+                flex-basis 148upx
+                height 148upx
+                border-radius 10upx
+                overflow hidden
+                flex-shrink 0
+                image
+                    width 100%
+                    height 100%
+            .text
+                padding-left 20upx
+                display flex
+                height 148upx
+                flex-direction column
+                justify-content space-between
+                flex 1
+                .h2
+                    .name
+                        color #232d31
+                        font-size 36upx
+                        line-height 1.4
+                        ov 1
+                        width calc(100% - 150upx)
+                        float left
+                    .label
+                        color #fff
+                        padding 0 10upx
+                        height 45upx
+                        line-height 45upx
+                        border-radius 5upx
+                        font-size 28upx
+                        white-space nowrap
+                        margin-left 20upx
+                        float right
+                        &.c1
+                            background #3a89ff
+                        &.c2
+                            background #14c8bd
+                .wrap
+                    .p
+                        display block
+                        margin-top 10upx
+                        &:nth-child(1)
+                            margin-top 0
+                        .c1
+                            color #999
+
+
+.invoices-card
+    float 0
+    padding 20upx
+    .ul
+        white-space nowrap
+        width 100%
+        .li
+            width 240upx
+            height 150upx
+            display inline-block
+            margin-left 20upx
+            ml 0
+            .flex
+                padding 15upx 0
+                display flex
+                flex-direction column
+                justify-content space-around
+                align-items center
+                height 150upx
+                width 240upx
+            &.li0
+                back('76f31_240x150.png')
+            &.li1
+                back('977c2_240x150.png')
+            &.li2
+                back('ac1ae_240x150.png')
+            .h3
+                color #fff
+                display block
+                opacity 0.8
+            .p
+                color #fff
+                font-size 36upx
+
+.step
+    float 0
+    border-top .5px solid #ededed
+    margin-top 0upx
+    padding-top 50upx
+    .box
+        float 0
+        .date
+            width 150upx
+            float left
+            text-align center
+            .b
+                display block
+            .p
+                display block
+                color #999999
+                margin-top 15upx
+        .fr
+            widthC 170upx
+            float right
+            position relative
+            padding-left 70upx
+            border-left .5px solid #ededed
+            padding-bottom 120upx
+            .icon
+                width 70upx
+                height 70upx
+                back('cd844_70x70.png')
+                position absolute
+                left -35upx
+                top 0
+            .p
+                display block
+                margin-top 30upx
+                .c
+                    color #999999
+
+.new-add
+    float 0
+    padding-left 22upx
+    .fr
+        border-top 0.5px solid #ededed
+        height 80upx
+        text-align center
+        .icon
+            display inline-block
+            width 26upx
+            height 100%
+            vertical-align top
+            back1('54ef1_26x26.png',26upx)
+        .txt
+            color #3a89ff
+            line-height 80upx
+            display inline-block
+            vertical-align top
+            margin-left 10upx

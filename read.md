@@ -15,9 +15,8 @@
 # 入库申请-归还详情  ../material/give-back/give-back
 # 入库申请-入库详情  ../material/archive/archive
 
-# 南京溧水智能化工程 ../company/company
+# 南京溧水智能化工程 pages/company/company
 
-# 参建单位          ../construction/construction
 
 # 考勤设置          ../attendance/attendance
 # 管理              ../att-manage/att-manage
@@ -32,7 +31,8 @@
 	# 新增任务 ../task-distribution/new/new
 
 # 参建单位          ../participation/
-	+ participation
+	+ add
+    + construction
 
 # 新建合同          ../contract/add-contract
 
@@ -44,7 +44,13 @@
 	+	管理 				/manage/manage 
 	+	详情 				/details/details 
 
-#	security_manage
+#	security
 	安全管理
-	+	提醒				/*/*
+	+	提醒				
 	+	
+    
+#   journal
+    日志管理
+
+#   patrol
+    
