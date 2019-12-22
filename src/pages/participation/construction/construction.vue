@@ -1,7 +1,9 @@
 <template>
-	<view class="container bg-two">
+	<view class="container">
 
-        <uni-nav-bar title="参建单位" left-icon="back"></uni-nav-bar>
+        <uni-nav-bar left-icon="back" title="参建单位">
+            <navigator class="right-btn" url="../add/add" slot="right">新建</navigator>
+        </uni-nav-bar>
 
 		<view class="construction">
 			<view class="construction-list">
@@ -15,9 +17,7 @@
                                 建设单位
                             </view>
                             <view class="construction-list-data">
-                                <span>
-                                    南京溧水万达
-                                </span>
+                                <view class="nums">单位<text>1</text>个</view>
                             </view>
                         </view>
                     </navigator>
@@ -32,9 +32,7 @@
                                 总包单位
                             </view>
                             <view class="construction-list-data">
-                                <span>
-                                    添加
-                                </span>
+                                <view class="nums">单位<text>1</text>个</view>
                             </view>
                         </view>
                     </navigator>
@@ -49,9 +47,7 @@
                                 设计单位
                             </view>
                             <view class="construction-list-data">
-                                <span>
-                                    添加
-                                </span>
+                                <view class="nums">单位<text>1</text>个</view>
                             </view>
                         </view>
                     </navigator>
@@ -66,9 +62,7 @@
                                 施工单位
                             </view>
                             <view class="construction-list-data">
-                                <span>
-                                    添加
-                                </span>
+                                <view class="nums">单位<text>1</text>个</view>
                             </view>
                         </view>
                     </navigator>
@@ -84,9 +78,7 @@
                                 分包单位
                             </view>
                             <view class="construction-list-data">
-                                <span>
-                                    添加
-                                </span>
+                                <view class="nums">单位<text>1</text>个</view>
                             </view>
                         </view>
                     </navigator>
@@ -101,9 +93,7 @@
                                 供货单位
                             </view>
                             <view class="construction-list-data">
-                                <span>
-                                    添加
-                                </span>
+                                <view class="nums">单位<text>1</text>个</view>
                             </view>
                         </view>
                     </navigator>
@@ -118,9 +108,7 @@
                                 监理单位
                             </view>
                             <view class="construction-list-data">
-                                <span>
-                                    添加
-                                </span>
+                                <view class="nums">单位<text>1</text>个</view>
                             </view>
                         </view>
                     </navigator>
@@ -135,9 +123,7 @@
                                 咨询单位
                             </view>
                             <view class="construction-list-data">
-                                <span>
-                                    添加
-                                </span>
+                                <view class="nums">单位<text>1</text>个</view>
                             </view>
                         </view>
                     </navigator>
@@ -152,9 +138,7 @@
                                 租赁单位
                             </view>
                             <view class="construction-list-data">
-                                <span>
-                                    添加
-                                </span>
+                                <view class="nums">单位<text>1</text>个</view>
                             </view>
                         </view>
                     </navigator>
@@ -165,7 +149,11 @@
 </template>
 
 <script>
+export default {
+
+}
 </script>
 
 <style>
+
 </style>

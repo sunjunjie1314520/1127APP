@@ -203,7 +203,7 @@
             margin-bottom 20upx
             padding 30upx
             border-radius 18upx
-            ty()
+            bs()
             .time
                 float left
                 width 100%
@@ -339,16 +339,17 @@
     float 0
     .money
         text-align center
-        color #fff
         .h2
             display block
+            color #fff
         .h3
             display block
             font-size 50upx
             margin-top 26upx
+            color #fff
             .small
                 font-size 30upx
-        
+                color #fff
     .wrap
         float 0
         background #fff
@@ -514,7 +515,7 @@
             border-radius 10upx
             float left
             margin-top 20upx
-            box-shadow 0 0 10px rgba(#b7cfff,.6)
+            bs()
             navigator
                 float 0
                 padding 0 20upx 30upx
@@ -563,12 +564,12 @@
             float 0
             &.box
                 background #fff
-                box-shadow 0 0 50px rgba(#b7cfff,.3)
+                bs()
             .navigator
                 padding 20upx
             navigator
                 background #fff
-                box-shadow 0 0 50px rgba(#b7cfff,.3)
+                bs()
                 padding 20upx
                 width 100%
                 display flex
@@ -714,3 +715,429 @@
             display inline-block
             vertical-align top
             margin-left 10upx
+
+.jurisdiction
+    float 0
+    .ul
+        .li
+            float left
+            width 100%
+            height 98upx
+            &.first
+                bs()
+                .span
+                    color #333
+            .span
+                float left
+                width 280upx
+                text-align center
+                font-size 32upx
+                color #666666
+                line-height 98upx
+            .fr
+                float right
+                width 360upx
+                display flex
+                .switch
+                    float left
+                    flex 1 1 auto
+                    display flex
+                    height 98upx
+                    align-items center
+                    justify-content center
+                    text
+                        line-height 98upx
+                        font-size 32upx
+
+.juri-manage
+    float 0
+    padding 0 20upx
+    .search
+        height 80upx
+        background #f5f5f5
+        border-radius 8upx
+        margin 20upx 0
+        .ico-sea
+            float left
+            height 100%
+            width 38upx
+            back1('268b7_28x33.png',28upx)
+            margin-left 37upx
+        input
+            float right
+            widthC 85upx
+            font-size 26upx
+            height 100%
+    .per-wrap
+        float 0
+        .h2
+            display block
+            font-size 36upx
+            line-height 92upx
+        .ul
+            .li
+                float left
+                width 100%
+                border-top 1px solid #eeeeee
+                .type-name
+                    float 0
+                    .h3
+                        font-size 36upx
+                        display block
+                        height 74upx
+                        line-height 74upx
+                        backi('9e3d3_35x29.png',45upx)
+                        background-size 35upx
+                        float left
+                    .ico-down
+                        float right
+                        height 74upx
+                        back1('cc456_17x9.png',17px)
+                        width 17upx
+                .show-item
+                    background #fff
+                    float 0
+                    .per-item
+                        float 0
+                        display flex
+                        border-bottom 0.5px solid #eeeeee
+                        padding 28upx 0
+                        .pic
+                            float left
+                            widthZ 90upx
+                            border-radius 50%
+                            overflow hidden
+                            flex-shrink 0
+                            image
+                                width 100%
+                                height 100%
+                        .user-box
+                            height 90upx
+                            display flex
+                            flex-direction column
+                            justify-content center
+                            flex 1
+                            margin-left 20upx
+                            .name-wrap
+                                .name
+                                    font-size 30upx
+                                    float left
+                                    line-height 34upx
+                                .tel
+                                    heightL 34upx
+                                    color c1
+                                    font-size 26upx
+                                    float left
+                                    backi('5732d_34x34.png',44upx)
+                                    background-size 34upx
+                                    margin-left 20px
+                            .comp-name
+                                display block
+                                font-size 26upx
+                                color #999
+                                margin-top 18upx
+                .total-per
+                    float 0
+                    color #999
+                    font-size 30upx
+                    padding-bottom 60upx
+                    line-height 1.6
+                    .num
+                        line-height 1.6
+                        color #3a89ff
+
+.top
+    height 94upx
+    background #3a89ff
+    text
+        display block
+        text-align center
+        color #fff
+        line-height 94upx
+        font-size 36upx
+
+.index-bann
+    height 230upx
+    image
+        width 100%
+        height 100%
+
+.index-four
+    padding 0 20upx
+    float 0
+    .ul
+        background #fff
+        float 0
+        .li
+            float left
+            width 50%
+            padding 25upx 0
+            display flex
+            &:nth-child(even)
+                .pict
+                    border-left 0.5px solid #eee
+                image
+                    margin-left 33upx
+            &.line
+                border-bottom 0.5px solid #eee
+            .pict
+                height 100upx
+                display flex
+                align-items center
+            image
+                float left
+                flex-shrink 0
+                width 70upx
+                height 70upx
+            .wrap
+                float left
+                margin-left 37upx
+                flex-shrink 0
+                flex 1
+                display flex
+                flex-direction column
+                justify-content center
+                .p
+                    display block
+                    font-size 30upx
+                    color #999
+                .b
+                    display block
+                    margin-top 22upx
+                    font-size 30upx
+                    .s
+                        color #666666
+                        font-size 30upx
+                        margin-left 15upx
+
+// 首页标题
+.index-title
+    display block
+    font-size 36upx
+    line-height 90upx
+    .fr
+        font-size 26upx
+        color #999
+        float right
+        line-height 90upx
+
+.statistics
+    padding 0 20upx
+    float 0
+    margin-top 20upx
+    .box
+        bs 1
+        float 0
+        padding-bottom 40upx
+    .projects-name
+        background #fff
+        border-radius 10upx
+        float 0
+        .titname
+            display inline-block
+            font-size 30upx
+            padding 0 30upx
+            heightL 80rpx
+            backi('451f8_15x8.png',0,25upx)
+            background-size 15upx
+            .ico
+                float left
+                width 44upx
+                height 80upx
+                back1('d878c_44x33.png',44upx)
+                margin-right 20upx
+        .scroll
+            float 0
+            padding-left 30upx
+            .ul
+                position relative
+                overflow auto hidden
+                white-space nowrap
+                width 100%
+                .li
+                    width 240upx
+                    padding 15upx 0 25upx
+                    margin-right 20upx
+                    display inline-block
+                    &.li1
+                        .box
+                            back('ac1ae_240x150.png')
+                    &.li2
+                        .box
+                            back('76f31_240x150.png')
+                    &.li3
+                        .box
+                            back('977c2_240x150.png')
+                    .box
+                        height 150upx
+                        padding 15upx 0
+                        display flex
+                        flex-direction column
+                        align-items center
+                        box-shadow 0 0 28upx rgba(#818181,.28)
+                        justify-content space-around
+                    .p
+                        color #fff
+                        opacity .8
+                    .b
+                        display block
+                        font-size 36upx
+                        color #fff
+    .echarts
+        text-align center
+        padding-top 62upx
+        float 0
+        image
+            width 627upx
+            height 385upx
+
+.chuqing
+.renwu
+.xunjian
+.rizhi
+    padding 0 20upx
+    float 0
+    .echarts
+        min-height 300upx
+        background #fff
+        bs()
+
+.null-footer
+    height 130upx
+    float 0
+
+.footer
+    position fixed
+    left 0
+    right 0
+    bottom 0
+    background #fff
+    border-top 1px solid #e6e8ec
+    .ul
+        .li
+            float left
+            width 25%
+            text-align center
+            navigator
+                display block
+                padding 15upx 0
+            .ico
+                width 100%
+                height 42upx
+                display block
+                &.ico-i1
+                    back1('98b4b_34x42.png',34upx)
+                &.ico-i2
+                    back1('ef684_43x37.png',43upx)
+                &.ico-i3
+                    back1('b600f_41x41.png',41upx)
+                &.ico-i4
+                    back1('25a55_40x40.png',40upx)
+            .s
+                display block
+                font-size 20upx
+                color #999
+                margin-top 8upx
+            &.active
+                .ico
+                    &.ico-i1
+                        back1('f027a_34x42.png',34upx)
+                    &.ico-i2
+                        back1('4b130_42x37.png',42upx)
+                    &.ico-i3
+                        back1('fb94f_41x41.png',41upx)
+                    &.ico-i4
+                        back1('a0bdf_40x40.png',40upx)
+                .s
+                    color #3a89ff
+                
+.alert
+    fixed 1 .6
+    .telbox
+        position absolute
+        width 500upx
+        height 424upx
+        background #fff
+        border-radius 10upx 10upx 20upx 20upx
+        left 50%
+        margin-left -250upx
+        top 50%
+        margin-top -212upx
+        .close
+            width 46rpx
+            height 46rpx
+            back('1ae4f_46x46.png')
+            position absolute
+            right 30upx
+            top 20upx
+        .h2
+            text-align center
+            font-size 30upx
+            color #333
+            display block
+            padding-top 70upx
+        .ul
+            margin-top 24upx
+            float 0
+            .li
+                height 70upx
+                margin-top 20upx
+                text
+                    color #ff0000
+                    font-size 30upx
+                    float left
+                    line-height 70upx
+                    width 60upx
+                    text-align center
+                input
+                    border .5px solid #cdcdcd
+                    height 70rpx
+                    padding 0 31upx
+                    width 403rpx
+                    border-radius 6upx
+        .btn
+            position absolute
+            left 0
+            right 0
+            bottom 0
+            heightL 82upx
+            background #3a89ff
+            color #fff
+            text-align center
+            border-radius 0 0 10upx 10upx
+    .select
+        position absolute
+        left 0
+        bottom 0
+        right 0
+        background #fff
+        padding-bottom 124upx
+        .h2
+            font-size 30upx
+            display block
+            padding 29upx 54upx 0
+        .ul
+            padding-top 45upx
+            .li
+                width 250upx
+                float left
+                text-align center
+                navigator
+                    display block
+                image
+                    width 88upx
+                    height 88upx
+                text
+                    display block
+                    font-size 30upx
+                    margin-top 18upx
+        .cancel
+            position absolute
+            left 0
+            right 0
+            bottom 0
+            background #ebebeb
+            heightL 80upx
+            text-align center
+
+

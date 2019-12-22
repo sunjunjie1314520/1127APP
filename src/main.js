@@ -8,7 +8,9 @@ import url from './tool/common/config.js' //接口地址配置
 
 // 注册组件
 import uniNavBar from "@/components/uni-nav-bar/uni-nav-bar.vue"
+import uniFooter from "@/components/uni-footer/uni-footer.vue";
 Vue.component('uni-nav-bar', uniNavBar)
+Vue.component('uni-footer', uniFooter)
 
 // 全局挂载
 Vue.prototype.$request = request

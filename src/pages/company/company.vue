@@ -1,7 +1,6 @@
 <template>
 	<view class="container">
 
-        <!-- 标题栏 -->
 		<uni-nav-bar left-icon="back" title="南京溧水智能化工程"></uni-nav-bar>
 
         <view class="company">
@@ -31,7 +30,7 @@
                             </navigator>
 						</view>
 						<view class="company-list-box">
-                            <navigator url="">
+                            <navigator url="../jurisdiction/manage/manage">
                                 <view class="company-list-img">
                                     <image src="../../static/img/ic4.png" mode=""></image>
                                 </view>
@@ -120,7 +119,7 @@
 							</navigator>
 						</view>
 						<view class="company-list-box">
-                            <navigator url="../patrol/manage/manage">
+                            <navigator url="../patrol/index/index">
                                 <view class="company-list-img">
                                     <image src="../../static/img/ic14.png" mode=""></image>
                                 </view>
@@ -232,6 +231,42 @@
 			</view>
 		</view>
 
+        <tel-input :show="false"></tel-input>
+        <tel-invite :show="false"></tel-invite>
     </view>
     
 </template>
+
+
+<script>
+import telInput from "../../components/transfer/tel-input.vue";
+import telInvite from "../../components/transfer/tel-invite";
+export default {
+    data(){
+        return {
+
+        }
+    },
+    onLoad(params){
+        uni.setStorage({
+            key: 'project_id',
+            data: params.project_id,
+            success: function () {
+                console.log('success');
+            }
+        });
+    },
+    created(){
+        uni.getStorage({
+            key:'project_id',
+            success(res){
+                console.log(res);
+            }
+        })
+    },
+    components:{
+        telInput,
+        telInvite
+    }
+}
+</script>

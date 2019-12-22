@@ -5,7 +5,7 @@ console.log(process.env);
 
 if(process.env.NODE_ENV === 'development'){
     // 开发环境
-	url_config = 'http://49.70.138.84:23957/api'
+	url_config = 'http://www.gczzz.cn:9990/api'
     
     // #ifdef H5
         url_config = 'dev/api'
@@ -13,7 +13,7 @@ if(process.env.NODE_ENV === 'development'){
 	
 }else{
     // 生产环境
-    url_config = 'http://49.70.138.84:23957/api'
+    url_config = 'http://www.gczzz.cn:9990/api'
 }
 
 export default url_config

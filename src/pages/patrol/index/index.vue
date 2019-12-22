@@ -2,13 +2,13 @@
 	<view class="container bg-one">
         
 		<uni-nav-bar left-icon="back" title="巡检管理">
-            <navigator class="right-btn" slot="right" url="../newly/newly">新建</navigator>
+            <navigator hover-class="hover" class="right-btn" slot="right" url="../newly/newly">新建</navigator>
 		</uni-nav-bar>
         
 		<view class="task-list">
             <view class="ul">
                 <view class="li">
-                    <navigator url="../task-inform/task-inform">
+                    <navigator url="../inform/inform">
                         <view class="fl-layout">
                             <text class="title">南京溧水万达室内装修工程</text>
                             <view class="wrap">
@@ -43,7 +43,7 @@
                     </navigator>
                 </view>
                 <view class="li">
-                    <navigator url="../task-inform/task-inform">
+                    <navigator url="../inform/inform">
                         <view class="fl-layout">
                             <text class="title">南京溧水万达室内装修工程</text>
                             <view class="wrap">
@@ -78,7 +78,7 @@
                     </view>
                 </view>
                 <view class="li">
-                    <navigator url="../task-inform/task-inform">
+                    <navigator url="../inform/inform">
                         <view class="fl-layout">
                             <text class="title">南京溧水万达室内装修工程</text>
                             <view class="wrap">

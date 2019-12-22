@@ -2,7 +2,7 @@
 node_modules/
 unpackage/
 dist/
-所有psd/
+新修改-word/
 # local env files
 .env.local
 .env.*.local

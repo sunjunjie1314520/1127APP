@@ -3,7 +3,7 @@ module.exports = {
 	devServer: {
 		proxy: {
 			'/dev': {
-				target: 'http://49.70.138.84:23957',
+				target: 'http://www.gczzz.cn:9990',
 				ws: true,
 				changeOrigin: true,
 				pathRewrite: {

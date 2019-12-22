@@ -1,14 +1,14 @@
 <template>
 	<view class="container bg-one">
-        <!-- 标题栏 -->
+
 		<uni-nav-bar left-icon="back" title="任务派发">
-			<view @tap="gotoNew" class="right-butn" slot="right">新建</view>
+            <navigator hover-class="hover-class" class="right-btn" url="../newly/newly" slot="right">新建</navigator>
 		</uni-nav-bar>
         
 		<view class="task-list">
             <view class="ul">
                 <view class="li">
-                    <navigator url="../task-inform/task-inform">
+                    <navigator url="../inform/inform">
                         <view class="fl-layout">
                             <text class="title">南京溧水万达室内装修工程</text>
                             <view class="wrap">
@@ -43,7 +43,7 @@
                     </navigator>
                 </view>
                 <view class="li">
-                    <navigator url="../task-inform/task-inform">
+                    <navigator url="../inform/inform">
                         <view class="fl-layout">
                             <text class="title">南京溧水万达室内装修工程</text>
                             <view class="wrap">
@@ -124,20 +124,14 @@
 			return {
 				list: '',
 			}
-		},
+        },
 		onLoad() {
             this.getinfo();
 		},
 		methods: {
             getinfo(){
                 console.log('init');
-                
-            },
-			gotoNew(){
-                uni.navigateTo({
-                    url:'../new/new'
-                })
-			}
+            }
 		}
 	}
 </script>

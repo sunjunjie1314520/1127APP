@@ -15,7 +15,7 @@
 					</view>
 					<view class="li">
 						<text class="ico ico-i3"></text>
-						<input v-model="password" placeholder-class="placeholder-class" type="text" password placeholder="请输入密码">
+						<input @keyup.enter="LoginHandle" v-model="password" placeholder-class="placeholder-class" type="text" password placeholder="请输入密码">
 					</view>
 					<view class="forpass">
 						<label>

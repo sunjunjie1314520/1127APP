@@ -1,8 +1,8 @@
 <template>
 	<view class="container">
-        <!-- 标题 -->
+
         <uni-nav-bar left-icon="back" title="合同列表">
-            <navigator slot="right" url="../newly/newly" class="right-butn">新建</navigator>
+            <navigator slot="right" url="../newly/newly" class="right-btn">新建</navigator>
         </uni-nav-bar>
 
         <view class="contract">

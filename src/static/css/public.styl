@@ -4,9 +4,10 @@ c1 = #3a89ff
 // 设计图
 .design
     text-align center
-    border-bottom 1px solid #ccc
     padding 60upx 0
     background #fff
+    margin-top 20upx
+    bs()
 
 .bg-one
     background #ecf3fc
@@ -34,13 +35,7 @@ c1 = #3a89ff
 
 // input
 .placeholder-class
-    color #b2b2b2
-.place-class
-    color #d4d4d4
-// navigator
-.hover-class
-    background c1
-    color #fff
+    color #c7c7c7
 
 .pub-button
     padding 20upx 20upx
@@ -54,13 +49,16 @@ c1 = #3a89ff
         text-align center
         border-radius 60upx
 
-// 新建按键
+// 新建
 .right-btn
     border solid .5px c1
     color c1
     padding 6upx 20upx
     border-radius 6upx
     font-size 26upx
+    &.hover
+        background c1
+        color #fff
 
 // 没有数据
 .nodata
@@ -69,3 +67,8 @@ c1 = #3a89ff
     margin-top 10px
     color #999
     ov 2
+
+.uni-navbar
+    position sticky
+    z-index 2
+    top 0

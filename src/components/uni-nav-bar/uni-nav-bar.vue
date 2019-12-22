@@ -113,7 +113,7 @@
 			onClickRight() {
 				this.$emit("clickRight");
 			}
-		}
+        }
 	};
 </script>
 

@@ -1,9 +1,10 @@
 <template>
 	<view class="container bg-one">
-        <!-- 标题栏 -->
-		<uni-nav-bar left-icon="back" title="任务详情"></uni-nav-bar>
+
+		<uni-nav-bar left-icon="back" title="巡检审批"></uni-nav-bar>
 
 		<view class="task-inform">
+
 			<view class="task-inform-inf">
 				<view class="task-inform-state">
 					<image src="../../../static/img/83f97_98x98.png" mode=""></image>
@@ -16,31 +17,36 @@
 						南京溧水万达室内装修工程
 					</view>
 				</view>
+
 				<view class="task-inform-box">
 					<view class="task-inform-tit">
-						实施人
+						巡检人
 					</view>
 					<view class="task-inform-txt">
 						张三
 					</view>
 				</view>
+
 				<view class="task-inform-box">
 					<view class="task-inform-tit">
-						任务位置
+						巡检地点
 					</view>
 					<view class="task-inform-txt">
 						4楼
 					</view>
 				</view>
+
 				<view class="task-inform-box">
 					<view class="task-inform-tit">
-						完成时间
+						巡检时间
 					</view>
 					<view class="task-inform-txt">
-						2019年7月15日 19点00分
+						2019-11-08 17:00
 					</view>
 				</view>
+
 			</view>
+
 			<view class="task-inform-data">
 				<view class="inform-data-inf">
 					<text class="tit">任务详情</text>
@@ -57,11 +63,51 @@
 			</view>
 			<view class="task-inform-feedback">
 				<view class="task-inform-title">
-					任务反馈
+					巡检任务指派
 				</view>
+
+                <view class="procurement-copy">
+                    <view class="procurement-data-label">
+                        任务指派
+                    </view>
+                    <view class="procurement-copy-col">
+                        <view class="procurement-copy-box">
+                            <view class="procurement-copy-img">
+                                <image src="../../../static/img/2f324_97x97.png" mode=""></image>
+                            </view>
+                        </view>
+                        <view class="procurement-copy-box">
+                            <view class="procurement-copy-img">
+                                <image src="../../../static/img/2f324_97x97.png" mode=""></image>
+                            </view>
+                        </view>
+                        <view class="procurement-copy-box">
+                            <view class="procurement-copy-img">
+                                <image src="../../../static/img/2f324_97x97.png" mode=""></image>
+                            </view>
+                        </view>
+                        <view class="procurement-copy-box">
+                            <view class="procurement-copy-file">
+                                <input type="file">
+                            </view>
+                        </view>
+                    </view>
+                </view>
+
+                <view class="task-inform-list">
+					<view class="task-inform-tit">
+						整改状态
+					</view>
+					<view class="task-inform-inform task-inform-select">
+						<picker @change="bindPickerChange" :value="index" :range="array">
+						     <view :class="['uni-input','index' + index]">{{array[index]}}</view>
+						 </picker>
+					</view>
+				</view>
+
 				<view class="task-inform-list">
 					<view class="task-inform-tit">
-						反馈时间
+						完成时间
 					</view>
 					<view class="task-inform-input task-inform-input-picker">
 						<picker mode="date" :value="date" :start="startDate" :end="endDate" @change="bindDateChange">
@@ -71,21 +117,25 @@
 				</view>
 				<view class="task-inform-list task-inform-list-none">
 					<view class="task-inform-tit">
-						任务详情
+						整改意见
 					</view>
 					<view class="task-inform-input">
-						<textarea value="" placeholder="请输入任务详情" />
-						</view>
+						<textarea placeholder-class="placeholder-class" value="" placeholder="请输入整改意见" />
+					</view>
 				</view>
+
 				<view class="task-inform-upload">
+                    <text>现场照片</text>
 					<view class="inform-upload-file" @tap="upload()">
 						<image src="../../../static/img/0c2f3_55x55.png" mode=""></image>
 					</view>
 				</view>
 			</view>
+
+            <!-- 3 -->
 			<view class="task-inform-approve">
 				<view class="task-inform-title">
-					任务审批
+					巡检任务整改反馈
 				</view>
 				<view class="task-inform-list">
 					<view class="task-inform-tit">
@@ -99,7 +149,7 @@
 				</view>
 				<view class="task-inform-list">
 					<view class="task-inform-tit">
-						修改完成时间
+						完成时间
 					</view>
 					<view class="task-inform-inform task-inform-picker">
 						<picker mode="date" :value="date" :start="startDate" :end="endDate" @change="bindDateChange">
@@ -107,7 +157,82 @@
 						</picker>
 					</view>
 				</view>
+
+                <view class="task-inform-data">
+                    <view class="inform-data-inf">
+                        <text class="tit">任务详情</text>
+                        <text>撒旦法师法师法师法规范涣发大号梵蒂冈黄金分割罕见的规范化号梵蒂冈黄金分割罕见的规范化。</text>
+                    </view>
+                    <view class="inform-data-photo">
+                        <view class="data-photo-box">
+                            <image src="../../../static/img/3fff4_150x150.png" mode=""></image>
+                        </view>
+                        <view class="data-photo-box">
+                            <image src="../../../static/img/3fff4_150x150.png" mode=""></image>
+                        </view>
+                    </view>
+			    </view>
+
+                <view class="procurement-copy">
+                    <view class="procurement-data-label">
+                        任务指派
+                    </view>
+                    <view class="procurement-copy-col">
+                        <view class="procurement-copy-box">
+                            <view class="procurement-copy-img">
+                                <image src="../../../static/img/2f324_97x97.png" mode=""></image>
+                            </view>
+                        </view>
+                        <view class="procurement-copy-box">
+                            <view class="procurement-copy-img">
+                                <image src="../../../static/img/2f324_97x97.png" mode=""></image>
+                            </view>
+                        </view>
+                        <view class="procurement-copy-box">
+                            <view class="procurement-copy-img">
+                                <image src="../../../static/img/2f324_97x97.png" mode=""></image>
+                            </view>
+                        </view>
+                        <view class="procurement-copy-box">
+                            <view class="procurement-copy-file">
+                                <input type="file">
+                            </view>
+                        </view>
+                    </view>
+                </view>
+
+                <view class="task-inform-list">
+					<view class="task-inform-tit">
+						整改状态
+					</view>
+					<view class="task-inform-inform task-inform-select">
+						<picker @change="bindPickerChange" :value="index" :range="array">
+						     <view class="uni-input">{{array[index]}}</view>
+						 </picker>
+					</view>
+				</view>
+
+				<view class="task-inform-list">
+					<view class="task-inform-tit">
+						完成时间
+					</view>
+					<view class="task-inform-input task-inform-input-picker">
+						<picker mode="date" :value="date" :start="startDate" :end="endDate" @change="bindDateChange">
+							<view class="uni-input">{{date}}</view>
+						</picker>
+					</view>
+				</view>
+				<view class="task-inform-list task-inform-list-none">
+					<view class="task-inform-tit">
+						整改意见
+					</view>
+					<view class="task-inform-input">
+						<textarea value="" placeholder="请输入整改意见" />
+					</view>
+				</view>
+                
 				<view class="task-inform-upload">
+                    <text>现场照片</text>
 					<view class="inform-upload-file" @tap="upload()">
 						<image src="../../../static/img/0c2f3_55x55.png" mode=""></image>
 					</view>
@@ -155,7 +280,7 @@
 	            })
 	            return {
 	                title: 'picker',
-	                array: ['请选择任务状态','中国', '美国', '巴西', '日本'],
+	                array: ['请选择任务状态','待整改', '美国', '巴西', '日本'],
 	                index: 0,
 	                date: currentDate,
 	                time: '12:01'
@@ -213,6 +338,20 @@
 	            day = day > 9 ? day : '0' + day;
 	            return `${year}-${month}-${day}`;
 	        }
-	    }
+        },
+        onPageScroll(res){
+            console.log(res.scrollTop);//距离页面顶部距离
+        },
 	}
 </script>
+
+<style lang="scss" scoped>
+    .procurement-data-label{
+        height: auto;
+        line-height: 1;
+    }
+    .procurement-copy-col{
+        padding: 29upx 0 38upx;
+        border-bottom: 0.5px solid #ededed;
+    }
+</style>
