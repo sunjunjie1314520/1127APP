@@ -8,15 +8,14 @@ request.globalRequest = (url, method, data, power) => {
     switch (power){
         case 1:
             const user = uni.getStorageSync('user');
-            console.log(user);
 			if (user) {
 				headers['Authorization'] = user.cookie
 			}else{
-				headers['Authorization'] = '...'
+                headers['Authorization'] = '...'
 			}
             break;
         default:
-            headers['Authorization'] = 'no'
+            headers['Authorization'] = 'Need to log in'
             break;
     }
     return uni.request({
@@ -57,6 +56,61 @@ request.globalRequest = (url, method, data, power) => {
                 return Promise.reject()
         }
 　　})
- } 
+}
+
+request.globalChooseImage = (url, data = {}, power) => {
+    switch (power) {
+        case 1:
+            const user = uni.getStorageSync('user');
+            if (user) {
+                headers['Authorization'] = user.cookie
+            } else {
+                headers['Authorization'] = '...'
+            }
+            break;
+        default:
+            headers['Authorization'] = 'Need to log in'
+            break;
+    }
+
+
+    return new Promise((resolve) => {
+        uni.chooseImage({
+            success: (chooseImageRes) => {
+                const tempFilePaths = chooseImageRes.tempFilePaths;
+                uni.showLoading({
+                    title: '上传中',
+                    mask: true
+                })
+                uni.uploadFile({
+                    url: url_config + url,
+                    filePath: tempFilePaths[0],
+                    name: 'file',
+                    formData: data,
+                    header: headers,
+                    success: (uploadFileRes) => {
+                        let data = JSON.parse(uploadFileRes.data)
+                        if(data.code){
+                            uni.showToast({
+                                "title": '上传成功',
+                            })
+                        }else{
+                            uni.showToast({
+                                "title": '文件名重复',
+                            })
+                        }
+
+                        resolve(data)
+                    },
+                });
+            },
+            error:function(){
+                console.log('select imgage error ~~~');
+            }
+        });
+
+    })
+    
+}
 
 export default request

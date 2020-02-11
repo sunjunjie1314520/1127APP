@@ -1,5 +1,9 @@
 <template>
     <view class="container bg-three">
+        
+        <view class="status_bar bg1">
+          <!-- 这里是状态栏 -->
+        </view>
 
         <view class="top">
             <text>首页</text>
@@ -146,7 +150,3 @@ export default {
     }
 }
 </script>
-
-<style>
-
-</style>

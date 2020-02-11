@@ -5,80 +5,120 @@
 
         <view class="list-invoices">
             <view class="ul">
-                <view class="li box">
-                    <view class="navigator">
-                        <view class="pict">
-                            <image src="../../../static/img/8c538_148x148.png" mode=""></image>
-                        </view>
-                        <view class="text">
-                            <view class="h2">
-                                <text class="name">南京溧水智能化工程合同</text>
-                                <text class="label c1">工程合同</text></view>
-                            <view class="wrap">
-                                <text class="p"><text class="c1">合同金额：</text>34343.00万元</text>
-                                <text class="p"><text class="c1">签订日期：</text>2019-08-13</text>
+                <template v-for="item in contract_filter">
+                    <view :key="item.id" class="li box">
+                        <view class="navigator">
+                            <view class="pict">
+                                <image :src="http + item.contract_scan_img_path" mode=""></image>
+                            </view>
+                            <view class="text">
+                                <view class="h2">
+                                    <text class="name">{{item.contract_name}}</text>
+                                    <text class="label c1">{{item.contract_kind}}</text></view>
+                                <view class="wrap">
+                                    <text class="p"><text class="c1">乙方名称：</text>{{item.party_B_company}}</text>
+                                    <text class="p"><text class="c1">合同金额：</text>{{item.contract_money}}元</text>
+                                    <text class="p"><text class="c1">签订日期：</text>{{item.contract_sign_date}}</text>
+                                </view>
                             </view>
                         </view>
-                    </view>
-                    <view class="step">
-                        <view class="box">
-                            <view class="date">
-                                <text class="b">2019</text>
-                                <text class="p">05-11</text>
+                        <view class="step" v-if="contract_invoices.length>0">
+                            <view class="box" v-for="item in contract_invoices" :key="item.id">
+                                <view class="date">
+                                    <text class="b">{{item.created_at | year}}</text>
+                                    <text class="p">{{item.created_at | date}}</text>
+                                </view>
+                                <view class="fr">
+                                    <view class="icon">
+                                    </view>
+                                    <view class="p">
+                                        <text class="c">发票名称：</text>
+                                        <text>{{item.invoice_name}}</text>
+                                    </view>
+                                    <view class="p">
+                                        <text class="c">发票金额：</text>
+                                        <text>{{item.invoice_money}}.00元</text>
+                                    </view>
+                                    <view class="p">
+                                        <text class="c">发票税率：</text>
+                                        <text>{{item.invoice_ratio}}</text>
+                                    </view>
+                                </view>
                             </view>
+                        </view>
+                        <div class="new-add">
                             <view class="fr">
-                                <view class="icon"></view>
-                                <view class="p">
-                                    <text class="c">发票名称：</text>
-                                    <text>预付款</text>
-                                </view>
-                                <view class="p">
-                                    <text class="c">发票金额：</text>
-                                    <text>1341.00万元</text>
-                                </view>
-                                <view class="p">
-                                    <text class="c">发票税率：</text>
-                                    <text>9%</text>
-                                </view>
+                                <navigator :url="'../newly/newly?id=' + contract_id">
+                                    <text class="icon"></text>
+                                    <text class="txt">新增发票</text>
+                                </navigator>
                             </view>
-                        </view>
-                        <view class="box">
-                            <view class="date">
-                                <text class="b">2019</text>
-                                <text class="p">05-11</text>
-                            </view>
-                            <view class="fr">
-                                <view class="icon"></view>
-                                <view class="p">
-                                    <text class="c">发票名称：</text>
-                                    <text>预付款</text>
-                                </view>
-                                <view class="p">
-                                    <text class="c">发票金额：</text>
-                                    <text>1341.00万元</text>
-                                </view>
-                                <view class="p">
-                                    <text class="c">发票税率：</text>
-                                    <text>9%</text>
-                                </view>
-                            </view>
-                        </view>
+                        </div>
                     </view>
-                    <div class="new-add">
-                        <view class="fr">
-                            <text class="icon"></text>
-                            <text class="txt">新增发票</text>
-                        </view>
-                    </div>
-                </view>
+                </template>
             </view>
         </view>
+
     </view>
 </template>
 
 <script>
+import { serverURL } from "@/tool/common/config";
+import assist from "../../../tool/utils/play.js";
 export default {
+    data(){
+        return {
+            http:serverURL,
+            
+            project_id:null,
+            contract_id:null,
 
+            contract_invoices:[],
+            contract:[],
+
+        }
+    },
+    computed: {
+        contract_filter(){
+            return this.contract.filter(item=>item.id == this.contract_id)
+        }
+    },
+    onShow(){
+        this.getNetData()
+
+    },
+    onLoad(params){
+
+        this.contract_id = params.id
+
+        this.project_id = uni.getStorageSync('project_id')
+        this.contract = uni.getStorageSync('contract')
+
+    },
+    methods:{
+        getNetData(){
+            let _this = this;
+            this.$api.basicSet.allInvoice({
+                project_id:this.project_id,
+                contract_id:this.contract_id
+            })
+            .then(res=>{
+                console.log(res);
+                this.contract_invoices = res.data.contract_invoices
+          
+                uni.setStorageSync('invoices',res.data.contract_invoices)
+            })
+        }
+    },
+    //定义过滤器
+    filters:{
+        year(v){
+            return assist.formatTime(v,'Y')   
+        },
+        date(v){
+            return assist.formatTime(v,'M-D')   
+        }
+    }
 }
 </script>
 

@@ -10,7 +10,10 @@ input
     box-sizing border-box
     font-size 30upx
     color #333
+    line-height 1
 
+navigator
+    box-sizing border-box
 checkbox
     padding 0
     margin 0
@@ -21,11 +24,20 @@ button
     margin 0
     padding 0
     box-sizing border-box
+    
 
 ::-webkit-scrollbar
     width 0
     height 0
     background-color transparent
 
+// 阴影
 bs()
     box-shadow 0 0 50px rgba(#b7cfff,.3)
+
+// 状态栏
+.status_bar
+    height: var(--status-bar-height);
+    width: 100%;
+    &.bg1
+        background #3a89ff

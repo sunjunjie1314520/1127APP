@@ -1,18 +1,20 @@
 {
 	"pages": [
-        // 首页
-        {
-            "path": "pages/index/index"
-        },
         {
             "path": "pages/login/login"
         },
         {
+            "path": "pages/index/index",
+            "style": {
+                "navigationBarTextStyle": "white"
+            }
+        },
+        {
+            "path": "pages/register/register"
+        },
+        {
             "path": "pages/company/company"
         },
-		{
-			"path": "pages/register/register"
-		},
 		{
 			"path": "pages/task-distribution/index/index"
 		},
@@ -40,29 +42,43 @@
 		},
 		{
 			"path": "pages/attendanceManagement/manage/manage"
-		},
+        },
+        // 人员管理
 		{
-			"path": "pages/personnel/index/index"
-		},
+			"path": "pages/personnel/manage/manage"
+        },
+        // 项目管理
 		{
 			"path": "pages/project/details/details"
+        },
+		{
+			"path": "pages/project/modify/modify"
         },
         {
 			"path": "pages/project/newly/newly"
 		},
 		{
-			"path": "pages/project/manage/manage"
+            "path": "pages/project/manage/manage",
+            "style": {
+                "enablePullDownRefresh": true
+            }
         },
         // 添加新建单位
         {
-            "path": "pages/participation/construction/construction"
+            "path": "pages/participation/construction/construction",
+            "style":{
+                "enablePullDownRefresh":true
+            }
         },
 		{
 			"path": "pages/participation/add/add"
         },
         // 合同管理
         {
-            "path": "pages/contract/manage/manage"
+            "path": "pages/contract/manage/manage",
+            "style": {
+                "enablePullDownRefresh": true
+            }
 		},
         {
             "path": "pages/contract/newly/newly"
@@ -87,8 +103,7 @@
         //零星采购
         {
             "path": "pages/purchase/list/list"
-        },
-        {
+        },{
             "path": "pages/purchase/detail/detail"
         },
         //成本管理
@@ -148,13 +163,25 @@
         {
             "path": "pages/jurisdiction/modify/modify"
         },
+
+        // 工具管理
+        {
+            "path": "pages/two_tool/one"
+        },
+        {
+            "path": "pages/two_tool/two"
+        },
+        {
+            "path": "pages/two_tool/three"
+        },
+        {
+            "path": "pages/two_tool/four"
+        },
         // 简单测试
         {
             "path" : "pages/test/test"
         }
         
-
-
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
@@ -164,17 +191,22 @@
         "navigationStyle": "custom"
 	},
 	"condition" : {
-		"current": 1,
+		"current": 2,
 		"list": [
             {
                 "name": "主入口",
-				"path": "pages/index/index",
+				"path": "pages/login/login",
 				"query": ""
 			},
             {
                 "name": "项目",
-                "path": "pages/patrol/inform/inform",
-                "query": "abc=1564&efg=1052"
+                "path": "pages/company/company",
+                "query": "project_id=001577721280335cd75c7854fd64848b774b59370ffae37&title=ee"
+            },
+            {
+                "name": "项目2",
+                "path": "pages/invoices/newly/newly",
+                "query": "id=0015777610868424725a466cad34f8da90e66a031423d80"
             }
 		]
 	}

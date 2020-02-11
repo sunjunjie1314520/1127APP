@@ -2,26 +2,29 @@
 // 登录注册
 import login from "./login";
 
+// 基本设置
+import basicSet from "./basicSet";
+
 // 任务派发
 import task from "./task";
 
-// 项目详情
-import project from "./project";
-// 参建单位
-import participation from "./participation";
-// 合同管理
-import contract from "./contract";
+// 上传图片
+import publib from "./publib";
+
 
 const api = {
-    ...login,
-    ...task,
-    ...project,
     ...{
-        participation
+        login
     },
     ...{
-        contract
-    }
+        basicSet
+    },
+    ...{
+        task
+    },
+    ...{
+        publib
+    },
 }
 
 console.log(api);

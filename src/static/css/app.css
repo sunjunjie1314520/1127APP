@@ -470,28 +470,53 @@
 	padding: 0 20upx;
     width: 100%;
 }
+
 .construction-list-box{
 	width: 100%;
 	background-color: #fff;
-	border-radius: 5upx;
+    border-radius: 5upx;
+    float: left;
+    width: 100%;
+    margin-top: 15upx;
+    padding:0 15upx;
 }
-.construction-list-box navigator{
+
+.construction-list-box .fr{
+    width: calc(100% - 65upx);
+    float: right;
+}
+.construction-list-box .fr .wrap{
+    width: 100%;
+    float: left;
     display: flex;
     justify-content: space-between;
-    width: 100%;
-    height: 100%;
 }
 .construction-list-img{
 	width: 56upx;
-	height: 80upx;
+    height: 108upx;
+    float: left;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
 .construction-list-inf{
-    width: calc(100% - 56upx);
-    padding: 0 0 25upx 20upx;
-    border-bottom: 1px solid #eee;
+    width: 80%;
+    float: left;
+    display: flex;
+	justify-content: center;
+    flex-direction:column;
+}
+
+.construction-list-add{
+    float: right;
+    background: url("../img/5bd83_40x40.png") center/40upx no-repeat;
+    width: 40upx;
+    height: 108upx;
+    flex-shrink: 0;
+}
+
+.construction-list-add navigator{
+    height: 100%;
 }
 
 .construction-list-img image{
@@ -500,13 +525,15 @@
 }
 .construction-list-tit{
     display: block;
-    line-height: 80upx;
-    background:url(../img/a148f_25x25.png) right center/25upx no-repeat;
+}
+.construction-list-tit navigator{
+    display: block;
+    background: none;
 }
 .construction-list-data{
 	color: #999999;
-	padding-right: 30upx;
-	position: relative;
+    position: relative;
+    margin-top: 15upx;
 }
 .construction-list-data .nums{
     color: #999999;
@@ -516,15 +543,7 @@
     color: #3a89ff;
     margin:0 5upx;
 }
-.construction-list-data::after{
-	content: '';
-	position: absolute;
-    right: 0;
-    top: 0;
-	width: 17upx;
-	height: 100%;
-	background: url(../../static/img/cc456_17x9.png) right center/17upx no-repeat;
-}
+
 .contract{
 	
 }
@@ -548,7 +567,8 @@
 	width: 148upx;
 	height: 148upx;
 	border-radius: 5upx;
-	overflow: hidden;
+    overflow: hidden;
+    background: #f5f5f5;
 }
 .contract-list-img image{
 	width: 100%;
@@ -871,201 +891,7 @@
 	font-size: 26upx;
 	color: #3a89ff;
 }
-.personnel{
-	width: 100%;
-	display: table;
-	background-color: #f5f5f5;
-}
-.personnel-search{
-	width: 100%;
-	padding: 16upx 20upx;
-}
-.personnel-search-col{
-	width: 100%;
-	height: 80upx;
-	background-color: #eeeeee;
-	border-radius: 5upx;
-	padding: 0 15upx;
-	display: flex;
-	justify-content: flex-start;
-	align-items: center;
-}
-.personnel-search-ico{
-	width:74upx ;
-	height: 80upx;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-.personnel-search-ico image{
-	width: 28upx;
-	height: 34upx;
-}
-.personnel-search-input input{
-	width: 400upx;
-	height: 80upx;
-	line-height: 40upx;
-	padding: 20upx 0;
-	font-size: 28upx;
-}
-.personnel-type{
-	width: 100%;
-	display: table;
-	padding: 25upx 20upx;
-	display: table;
-	display: flex;
-	justify-content: space-between;
-	padding-left: 10upx;
-}
-.personnel-type-add{
-	width: 42upx;
-	height: 48upx;
-	background: #007eff url(../../static/img/ic39.png) center no-repeat;
-	border-radius: 8upx;
-	background-size: 28upx 28upx;
-}
-.personnel-type-list{
-	width: calc(100% - 42upx);
-}
-.personnel-type-list text{
-	width: auto;
-	height: 48upx;
-	line-height: 44upx;
-	border: 1upx solid #999999;
-	display: inline-block;
-	font-size: 24upx;
-	padding: 0 16upx;
-	border-radius: 5upx;
-	margin: 0 10upx;
-}
-.personnel-type-list text.active{
-	background-color: #007eff;
-	color: #fff;
-	border: 1upx solid #007eff;
-}
-.personnel-list{
-	width: 100%;
-	height: calc(100vh - 410upx);
-	overflow-y: scroll;
-	padding: 0 20upx;
-}
-.container-none{
-	height: auto;
-	min-height: inherit;
-}
-.personnel-list-content{
-	width: 100%;
-	display: table;
-}
-.personnel-list-number{
-	width: 100%;
-	height: 42upx;
-	font-size: 30upx;
-	color: #333;
-	line-height: 42upx;
-}
-.personnel-list-col{
-	width: 100%;
-	display: table;
-	min-height: 100upx;
-	background-color: #fff;
-	border-radius: 5upx;
-}
-.personnel-list-box{
-	width: 100%;
-	height: 110upx;
-	display: flex;
-	justify-content: space-between;
-	border-bottom: 1upx solid #f5f5f5;
-}
-.personnel-list-img{
-	width: 130upx;
-	height: 110upx;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-.personnel-list-img image{
-	width: 90upx;
-	height: 90upx;
-}
-.personnel-list-inf{
-	width: calc(100% - 130upx);
-	height: 110upx;
-	padding: 15upx 0;
-}
-.personnel-list-inf-name{
-	width: 100%;
-	height: 40upx;
-	line-height: 40upx;
-}
-.personnel-list-inf-name text{
-	font-size: 28upx;
-	color: #111;
-	
-}
-.personnel-list-inf-name text.label{
-	display: inline-block;
-	width: auto;
-	padding: 0 10upx;
-	height: 30upx;
-	color: #fff;
-	font-size: 20upx;
-	line-height: 30upx;
-	background-color: #007eff;
-	margin-left: 20upx;
-}
-.personnel-list-inf-tel{
-	width: 100%;
-	line-height: 40upx;
-	color: #666;
-	font-size: 26upx;
-}
-.personnel-list-inf-name text.label.green{
-	background-color: #08ca4c;
-}
-.personnel-list-inf-name text.label.yellow{
-	background-color: #f0980c;
-}
-.personnel-list-inf-name text.label.blue{
-	background-color: #08cab5;
-}
-.personnel-btn{
-	width: 100%;
-	background-color: #f5f5f5;
-	min-height: 126upx;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-.personnel-btn button{
-	width: 200upx;
-	height: 70upx;
-	background-color: #3a89ff;
-	border-radius: 35upx;
-	color: #fff;
-	font-size: 28upx;
-	line-height: 70upx;
-}
-.personnel-guide{
-	width: 40upx;
-	height: 100vh;
-	position: fixed;
-	right: 15upx;
-	color: #007eff;
-	bottom: 0;
-	line-height: 40upx;
-	display: flex;
-	font-size: 22upx;
-	justify-content: center;
-	align-items: center;
-	flex-wrap: wrap;
-	flex-direction: column;
-	padding-top: 100upx;
-}
-.personnel-guide text{
-	line-height: 36upx;
-}
+
 .new{
 	width:100%;
 	padding: 0 20upx;
@@ -1550,7 +1376,8 @@
 	min-height: 100upx;
 	border-radius: 10upx;
 	margin-top: 20upx;
-	padding: 0 20upx;
+    padding: 0 20upx 20upx;
+    display: table;
 }
 .project-photo-tit{
 	width: 100%;
@@ -1559,7 +1386,6 @@
 }
 .project-photo-file{
 	width: 100%;
-	padding-bottom: 60upx;
 }
 .photo-file-box{
 	width: 330upx;
@@ -1632,8 +1458,8 @@
 }
 .management-list{
 	width: 100%;
-	display: table;
-	padding: 0 20upx;
+    display: table;
+    overflow: hidden;
 }
 
 .management-list navigator{
@@ -1650,9 +1476,6 @@
 	border-radius: 10upx;
 	min-height: 100upx;
 	margin-top: 20upx;
-	
-	
-    box-shadow: 0 0 10px rgba(183,207,255,.3);
 }
 
 .management-list-img{
@@ -1676,16 +1499,7 @@
 	width: 22upx;
 	margin-left: 6upx;
 }
-.management-list-inf-link navigator{
-	width: 112upx;
-	height: 52upx;
-	background-color: #3a89ff;
-	border-radius: 27upx;
-	text-align: center;
-	line-height: 52upx;
-	color: #fff;
-	font-size: 26upx;
-}
+
 .management-list-inf-txt{
 	width: 100%;
 	display: flex;
@@ -1776,12 +1590,12 @@
 }
 .participation-inf-txt textarea{
 	width: 100%;
-	height: 200upx;
-	padding: 20upx 0;
-	line-height:60upx;
+    height: 200upx;
+    padding: 32upx 0;
 }
 .participation-inf-txt input{
     height: 100%;
+    line-height: 100upx;
 }
 .participation-inf-textarea{
 	width: 100%;
@@ -1960,13 +1774,13 @@
 	background: url(../../static/img/e1acb_14x10.png) right center no-repeat;
 	background-size: 14upx 10upx;
 }
-.contract-inform-txt .uni-list-cell-db uni-picker{
+.contract-inform-txt .uni-list-cell-db picker{
 	line-height: 60upx;
 	display: block;
 	width: 100%;
 	height: 60upx;
 }
-.contract-inform-txt .uni-list-cell-db uni-picker .uni-input{
+.contract-inform-txt .uni-list-cell-db .uni-input{
 	line-height: 60upx;
 	display: block;
 	width: 100%;
@@ -2005,15 +1819,15 @@
 	height: 60upx;
 	line-height: 60upx;
 }
-.contact-txt uni-picker{
+.contact-txt picker{
 	line-height: 60upx;
 	display: block;
 	width: 100%;
 	height: 60upx;
-	background: url(../../static/img/e1acb_14x10.png) right center no-repeat;
-	background-size: 14upx 10upx;
+	background: url(../../static/img/e9b15_49x49.png) right center no-repeat;
+	background-size: 49upx 49upx;
 }
-.contact-txt uni-picker .uni-input{
+.contact-txt .uni-input{
 	line-height: 60upx;
 	display: block;
 	width: 100%;
@@ -2078,7 +1892,7 @@
 .contact-txt textarea{
 	width: 100%;
 	height: 200upx;
-	line-height: 60upx;
+	margin-top: 16upx;
 }
 .list-textarea{
 	display: flex;
@@ -2124,7 +1938,13 @@
 	border-radius: 10upx;
 	display: flex;
 	justify-content: center;
-	align-items: center;
+    align-items: center;
+    float: left;
+    margin-right: 20upx;
+}
+
+.file-list-box.mr0{
+    margin-right: 0;
 }
 .file-list-box image{
 	width: 55upx;
@@ -2166,7 +1986,7 @@
 	justify-content: space-between;
 }
 .invoice-list-box{
-	width: 50%;
+	width: 45%;
 	display: table;
 	position: relative;
 }
@@ -2176,9 +1996,9 @@
 .invoice-list-box:after{
 	content: '';
 	position: absolute;
-	right: 20upx;
+	right: -38upx;
 	top: 36upx;
-	width: 1px;
+	width: .5px;
 	height: 80upx;
 	background-color: #efefef;
 }
@@ -2194,9 +2014,14 @@
 	height: 68upx;
 	display: flex;
 	align-items: center;
-	justify-content: flex-start;
+    justify-content: flex-start;
+    background: url(../../static/img/e1acb_14x10.png) right center no-repeat;
+    background-size: 14upx 10upx;
 }
-.invoice-list-sele uni-picker{
+.invoice-list-sele.last{
+    background: url(../../static/img/e9b15_49x49.png) right center/49upx no-repeat;
+}
+.invoice-list-sele picker{
 	width: 100%;
 	height: 68upx;
 	line-height: 68upx;
@@ -2204,7 +2029,7 @@
 	justify-content: flex-start;
 	align-items: center;
 }
-.invoice-list-sele uni-picker .uni-view{
+.invoice-list-sele picker .uni-view{
 	width: 100%;
 	height: 68upx;
 }
@@ -2214,9 +2039,8 @@
 	color: #bebebe;
 }
 .invoice-list-name-sele{
-	background: url(../../static/img/e1acb_14x10.png) right center no-repeat;
-	background-size: 14upx 10upx;
-	width: 90%;
+	
+	width: 100%;
 }
 .invoice-list-sele input{
 	width: 50%;
@@ -2226,10 +2050,10 @@
 .invoice-list-sele text.num{
 	color: #111;
 }
-.invoice-list-time{
+/* .invoice-list-time{
 	background: url(../../static/img/e9b15_49x49.png) right center no-repeat;
 	background-size: 50upx 50upx;
-}
+} */
 .invoice-button{
 	width: 100%;
 	padding: 20upx 0;

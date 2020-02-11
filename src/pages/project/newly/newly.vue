@@ -10,7 +10,7 @@
 						项目名称
 					</div>
 					<div class="project-inform-inf">
-						<input type="text" v-model="name" placeholder="请输入工程项目" placeholder-class="place-class"/>
+						<input type="text" v-model="page.project_name" placeholder="请输入工程项目" placeholder-class="placeholder-class"/>
 					</div>
 				</view>
 				<view class="project-inform-box">
@@ -18,7 +18,7 @@
 						项目地址
 					</div>
 					<div class="project-inform-inf">
-						<input type="text" v-model="address" placeholder="请输入项目地址" placeholder-class="place-class"/>
+						<input type="text" v-model="page.project_address" placeholder="请输入项目地址" placeholder-class="placeholder-class"/>
 					</div>
 				</view>
 				<view class="project-inform-box">
@@ -26,7 +26,7 @@
 						项目经理
 					</div>
 					<div class="project-inform-inf">
-						<input type="text" v-model="manager" placeholder="请输入项目经理" placeholder-class="place-class"/>
+						<input type="text" v-model="page.project_manager" placeholder="请输入项目经理" placeholder-class="placeholder-class"/>
 					</div>
 				</view>
 				<view class="project-inform-box">
@@ -34,8 +34,8 @@
 						中标时间
 					</div>
 					<div class="project-inform-inf task-inform-picker">
-						<picker mode="date" :value="date1" :start="startDate" :end="endDate" @change="bindDateChange1">
-							<view class="uni-input">{{date1}}</view>
+						<picker mode="date" :value="page.project_get_date"  @change="bindDateChange1">
+							<view class="uni-input">{{page.project_get_date}}</view>
 						</picker>
 					</div>
 				</view>
@@ -44,8 +44,8 @@
 						开工时间
 					</div>
 					<div class="project-inform-inf task-inform-picker">
-						<picker mode="date" :value="date2" :start="startDate" :end="endDate" @change="bindDateChange2">
-							<view class="uni-input">{{date2}}</view>
+						<picker mode="date" :value="page.project_start_date"  @change="bindDateChange2">
+							<view class="uni-input">{{page.project_start_date}}</view>
 						</picker>
 					</div>
 				</view>
@@ -54,8 +54,8 @@
 						竣工时间
 					</div>
 					<div class="project-inform-inf task-inform-picker">
-						<picker mode="date" :value="date3" :start="startDate" :end="endDate" @change="bindDateChange3">
-							<view class="uni-input">{{date3}}</view>
+						<picker mode="date" :value="page.project_complete_date" @change="bindDateChange3">
+							<view class="uni-input">{{page.project_complete_date}}</view>
 						</picker>
 					</div>
 				</view>
@@ -65,105 +65,149 @@
 					项目详情
 				</view>
 				<view class="project-input-col">
-					<textarea v-model="bid_time" placeholder="请输入项目详情" placeholder-class="place-class"/>
+					<textarea v-model="page.project_description" placeholder="请输入项目详情" placeholder-class="placeholder-class"/>
 				</view>
 			</view>
 			<view class="project-photo">
 				<view class="project-photo-tit">
 					现场照片
 				</view>
-				<view class="project-photo-file">
-					<view class="photo-file-box" @tap="upload()">
-						<view class="photo-file-img">
-							<image src="../../static/img/im10.png" mode=""></image>
-						</view>
-						<view class="photo-file-txt">
-							（点击拍照或者上传）
-						</view>
-					</view>
-				</view>
+
+                <view class="pub-load">
+                    <view class="pub-picture-wrap">
+                        <view class="box" v-for="item in imgList" :key="item.id">
+                            <image :src="url + item" mode="widthFix"></image>
+                            <text>删除</text>
+                        </view>
+                        <view class="box" @tap="uploadImg">
+                            
+                        </view>
+                    </view>
+                </view>
 			</view>
 			<view class="project-button">
-				<button type="primary" @tap="register">确定</button>
+				<button type="primary" @tap="postLocData">确定</button>
 			</view>
 		</view>
 	</view>
 </template>
 <script>
+    import { serverURL } from "@/tool/common/config.js";
+    import assist from "../../../tool/utils/play";
 	export default {
 	    data() {
 	        const currentDate = this.getDate({
 	            format: true
 	        })
 	        return {
-				name:'',
-                address:'',
-                manager:'',
-	            date1: currentDate,
-	            date2: currentDate,
-	            date3: currentDate,
-				bid_time:''
-	        }
-	    },
-	    computed: {
-	        startDate() {
-	            return this.getDate('start');
-	        },
-	        endDate() {
-	            return this.getDate('end');
+				url:serverURL,
+                page:{
+                    project_name:'', // 项目名称
+                    project_address:'',
+                    project_manager :'',
+                    project_get_date :currentDate,
+                    project_start_date :currentDate,
+                    project_complete_date :currentDate,
+                    project_description :'',
+                    project_img_path :[]
+                },
+                imgList:[],
 	        }
 	    },
 	    methods: {
-			register(){
-				this.$api.project({
-					"project_name":this.name,
-					"project_address":this.address,
-                    "project_longitude":this.date1,
-                    "manager":this.manager,
-					// "project_latitude":'1052',
-					// "project_radius":'1052',
-					// "project_get_date":'1052',
-					// "project_start_date":'1052',
-					// "project_complete_date":'1052',
-					// "project_description":'1052',
-				})
+
+            getPrevNetData(){
+                this.$api.basicSet.MyProjects(this.page)
+                .then(res=>{
+                    this.projects = res.data
+                    uni.setStorageSync('projects',res.data)
+                    uni.navigateBack()
+                })
+            },
+
+			postLocData(){
+
+                var project_get_date= Date.parse(this.page.project_get_date)
+                var project_start_date= Date.parse(this.page.project_start_date)
+                var project_complete_date= Date.parse(this.page.project_complete_date)
+                
+                // console.log(project_get_date);
+                // console.log(project_start_date);
+                // console.log(project_complete_date);
+                
+                const {project_name, project_address,project_manager} = this.page
+
+                const yz = [
+                    {
+                        type:'null',
+                        val:project_name,
+                        msg:'请输入项目名称'
+                    },
+                    {
+                        type:'null',
+                        val:project_address,
+                        msg:'请输入项目地址'
+                    },
+                    {
+                        type:'null',
+                        val:project_manager,
+                        msg:'请输入项目经理'
+                    },
+                ]
+
+                assist.ver(yz)
+
+                if(project_start_date <= project_get_date){
+                    uni.showToast({
+                        title:'开工时间不能小于中标时间',
+                        icon:'none'
+                    })
+                    return ;
+                }else if(project_complete_date <= project_start_date || project_complete_date <= project_get_date){
+                    uni.showToast({
+                        title:'竣工时间不能小于中标时间或开工时间',
+                        icon:'none'
+                    })
+                    return ;
+                }
+
+                uni.showLoading()
+				this.$api.basicSet.NewProject(this.page)
 				.then(res=>{
-                    console.log(res);
                     if(res.code){
                         uni.showToast({
-                            'title':'创建成功'
+                            'title':'项目创建成功'
+                        })
+                        this.getPrevNetData()
+                        
+                    }else{
+                        uni.showToast({
+                            'title':res.msg
                         })
                     }
 				})
-			},
-			upload(){
-				uni.chooseImage({
-				    success: (chooseImageRes) => {
-				        const tempFilePaths = chooseImageRes.tempFilePaths;
-				        uni.uploadFile({
-				            url: 'https://www.example.com/upload', //仅为示例，非真实的接口地址
-				            filePath: tempFilePaths[0],
-				            name: 'file',
-				            formData: {
-				                'user': 'test'
-				            },
-				            success: (uploadFileRes) => {
-				                console.log(uploadFileRes.data);
-				            }
-				        });
-				    }
-				});
-			},
+            },
+            
+			uploadImg(){
+				this.$api.publib.uploadFile()
+                .then(res=>{
+                    if(res.code){
+                        this.imgList.push(res.data.file_path)
+                        this.page.project_img_path = this.imgList
+                    }
+                })
+            },
 
 	        bindDateChange1: function(e) {
-	            this.date1 = e.target.value
+	            this.page.project_get_date = e.target.value
 	        },
-			bindDateChange2: function(e) {
-	            this.date2 = e.target.value
+	        bindDateChange2: function(e) {
+	            this.page.project_start_date = e.target.value
 	        },
-			bindDateChange3: function(e) {
-	            this.date3 = e.target.value
-	        },
+	        bindDateChange3: function(e) {
+	            this.page.project_complete_date = e.target.value
+            },
+            
 	        getDate(type) {
 	            const date = new Date();
 	            let year = date.getFullYear();

@@ -32,11 +32,29 @@ c1 = #3a89ff
             margin-left 15upx
             ml 0
             back1('0c2f3_55x55.png',55upx)
+            overflow hidden
+            position relative
+            display flex
+            justify-content center
+            align-items center
+            image
+                width 100%
+                height 100%
+            text
+                position absolute
+                left 0
+                right 0
+                bottom 0
+                color #fff
+                line-height 1.6
+                background rgba(#000,.6)
+                text-align center
+                font-size 24upx
 
 // input
 .placeholder-class
     color #c7c7c7
-
+    
 .pub-button
     padding 20upx 20upx
     float 0
@@ -56,6 +74,8 @@ c1 = #3a89ff
     padding 6upx 20upx
     border-radius 6upx
     font-size 26upx
+    white-space nowrap
+    line-height 1
     &.hover
         background c1
         color #fff
@@ -68,7 +88,20 @@ c1 = #3a89ff
     color #999
     ov 2
 
+// 导航栏悬浮
 .uni-navbar
     position sticky
     z-index 2
     top 0
+
+// 选择默认的颜色
+.select-active
+    color #bebebe
+
+// navigaror 无背景
+.hover-class
+    background none
+
+// 图片底色
+.pub-img-back
+    background #e5e5e5

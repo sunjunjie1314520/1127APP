@@ -4,37 +4,51 @@
 			<image src="../../static/img/img2.jpg" mode="widthFix"></image>
 		</view>
 		<view class="login-wrap">
-			<div class="wrapper">
+			<view class="wrapper">
 				<view class="title">
 					<text>登录</text>
 				</view>
 				<view class="ul">
 					<view class="li">
 						<text class="ico ico-i1"></text>
-						<input v-model="phone" placeholder-class="placeholder-class" type="number" placeholder="请输入手机号" maxlength="11">
+						<input
+                        v-model="page.phone"
+                        placeholder-class="placeholder-class"
+                        type="number"
+                        placeholder="请输入手机号"
+                        maxlength="11"
+                        >
 					</view>
 					<view class="li">
 						<text class="ico ico-i3"></text>
-						<input @keyup.enter="LoginHandle" v-model="password" placeholder-class="placeholder-class" type="text" password placeholder="请输入密码">
+						<input
+                        @keyup.enter="LoginHandle"
+                        v-model="page.password"
+                        placeholder-class="placeholder-class"
+                        type="text"
+                        password placeholder="请输入密码"
+                        >
 					</view>
 					<view class="forpass">
-						<label>
-							<checkbox value="cb" checked="true" />记住密码
-						</label>
+                        <checkbox-group @change="checkHandle">
+                            <label>
+                                <checkbox value="check" :checked="isChecked" />记住密码
+                            </label>
+                        </checkbox-group>
 					</view>
 				</view>
-				<div class="login-btn">
+				<view class="login-btn">
 					<button type="primary" @tap="LoginHandle">登录</button>
 					<view class="tips">
-						<text>已有账号？</text>
+						<text>没有账号？</text>
 						<navigator class="color" url="../register/register">立即注册</navigator>
 					</view>
-				</div>
-			</div>
+				</view>
+			</view>
 		</view>
-        <div class="login-back">
+        <view class="login-back">
             <image src="../../static/img/img6.png" mode="widthFix"></image>
-        </div>
+        </view>
 	</view>
 </template>
 	
@@ -42,41 +56,70 @@
     export default {
         data(){
             return {
-                phone : '',
-                password : ''
+                page:{
+                    phone : '',
+                    password : ''
+                },
+                isChecked:false,
             }
         },
         onLoad(){
-            
+            var password = uni.getStorageSync('password')
+            var account = uni.getStorageSync('account')
+            if(password && account){
+                this.isChecked = true
+                this.page = account
+            }
         },
         methods:{
+
             LoginHandle(){
-                this.$api.login(
+                const yz = [
                     {
-                        'phone':this.phone,
-                        'password':this.password,
-                    }
-                )
+                        type:'phone',
+                        val:this.page.phone,
+                    },
+                    {
+                        type:'null',
+                        val:this.page.password,
+                        msg:'请输入密码'
+                    },
+                ]
+
+                this.$assist.ver(yz)
+
+                this.$api.login.sign(this.page)
                 .then(res => {
-                    console.log(res);
-					if(res.code){
-						try {
-						    uni.setStorageSync('user', res.data.user);
-							uni.redirectTo({
-							    url: '../../pages/company/company'
-							});
-						} catch (e) {
-						    console.log(e);
-						}
-					}else{
-                        uni.showToast({
-            　　　　　　　  title: res.msg,
-            　　　　　　　　icon: 'none'
-            　　　　　　　})
+                    if(this.$assist.msg(res)){
+                        uni.setStorageSync('user', res.data.user);
+                        this.$store.commit('signToggle',true)
+                        this.forPass()
+                        uni.redirectTo({
+                            url: '../../pages/index/index'
+                        });
                     }
+                    
                 })
             },
-            
+
+            checkHandle(e){
+                var arr = e.detail.value.length
+                if(arr){
+                    this.isChecked = true
+                }else{
+                    this.isChecked = false
+                }
+            },
+
+            forPass(){
+                if(this.isChecked){
+                    uni.setStorageSync('password',true)
+                    uni.setStorageSync('account',this.page)
+                }else{
+                    uni.removeStorageSync('password');
+                    uni.removeStorageSync('password');
+                }
+            }
         }
     }
 

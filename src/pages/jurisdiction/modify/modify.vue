@@ -14,124 +14,24 @@
                         </view>
                     </view>
                 </view>
-                <view class="li">
-                    <text class="span">项目详情</text>
+                <view class="li" v-for="(item,index) in permissions" :key="item.id">
+                    <text class="span">{{item.permission_name}}</text>
                     <view class="fr">
                         <view class="switch">
-                            <switch data-detail="0" checked @change="switch1Change" />
+                            <switch
+                            :data-permission_id="item.id"
+                            :data-index="index"
+                            :data-level="1"
+                            :checked="item.permission_level == 1 || item.permission_level == 2"
+                            @change="switch1Change" />
                         </view>
                         <view class="switch">
-                            <switch data-detail="1" @change="switch2Change" />
-                        </view>
-                    </view>
-                </view>
-                <view class="li">
-                    <text class="span">人员管理</text>
-                    <view class="fr">
-                        <view class="switch">
-                            <switch />
-                        </view>
-                        <view class="switch">
-                            <switch checked />
-                        </view>
-                    </view>
-                </view>
-                <view class="li">
-                    <text class="span">出勤管理</text>
-                    <view class="fr">
-                        <view class="switch">
-                            <switch />
-                        </view>
-                        <view class="switch">
-                            <switch checked />
-                        </view>
-                    </view>
-                </view>
-                <view class="li">
-                    <text class="span">参建单位</text>
-                    <view class="fr">
-                        <view class="switch">
-                            <switch />
-                        </view>
-                        <view class="switch">
-                            <switch checked />
-                        </view>
-                    </view>
-                </view>
-                <view class="li">
-                    <text class="span">合同管理</text>
-                    <view class="fr">
-                        <view class="switch">
-                            <switch />
-                        </view>
-                        <view class="switch">
-                            <switch checked />
-                        </view>
-                    </view>
-                </view>
-                <view class="li">
-                    <text class="span">材料管理</text>
-                    <view class="fr">
-                        <view class="switch">
-                            <switch />
-                        </view>
-                        <view class="switch">
-                            <switch checked />
-                        </view>
-                    </view>
-                </view>
-                <view class="li">
-                    <text class="span">工具管理</text>
-                    <view class="fr">
-                        <view class="switch">
-                            <switch />
-                        </view>
-                        <view class="switch">
-                            <switch checked />
-                        </view>
-                    </view>
-                </view>
-                <view class="li">
-                    <text class="span">进度管理</text>
-                    <view class="fr">
-                        <view class="switch">
-                            <switch />
-                        </view>
-                        <view class="switch">
-                            <switch checked />
-                        </view>
-                    </view>
-                </view>
-                <view class="li">
-                    <text class="span">任务派发</text>
-                    <view class="fr">
-                        <view class="switch">
-                            <switch />
-                        </view>
-                        <view class="switch">
-                            <switch checked />
-                        </view>
-                    </view>
-                </view>
-                <view class="li">
-                    <text class="span">巡检管理</text>
-                    <view class="fr">
-                        <view class="switch">
-                            <switch />
-                        </view>
-                        <view class="switch">
-                            <switch checked />
-                        </view>
-                    </view>
-                </view>
-                <view class="li">
-                    <text class="span">日志管理</text>
-                    <view class="fr">
-                        <view class="switch">
-                            <switch />
-                        </view>
-                        <view class="switch">
-                            <switch checked />
+                            <switch
+                            :data-permission_id="item.id"
+                            :data-index="index"
+                            :data-level="2"
+                            :checked="item.permission_level == 2"
+                            @change="switch1Change" />
                         </view>
                     </view>
                 </view>
@@ -144,18 +44,87 @@
 export default {
     data(){
         return{
+            list:[],
+            query:{
+                data_index:-1,
+                permission_index:-1,
+            },
+            project_id:null,
+            permissions:[]
+        }
+    },
+    onLoad(e){
 
+        this.project_id = uni.getStorageSync('project_id')
+
+        let data = uni.getStorageSync('jurisdiction')
+        this.list = data
+        console.log(data);
+        this.query = e
+        
+        if(this.list.length>0){
+            const { project_persons } = this.list[this.query.data_index]
+            this.permissions =  project_persons[this.query.permission_index].permissions
         }
     },
     methods:{
         switch1Change: function (e) {
-            console.log(e);
+
+            let con_level = null
+
+            console.log(this.permissions);
             
-            console.log('switch1 发生 change 事件，携带值为', e.target.value)
+
+            const { permission_id, index, level } = e.currentTarget.dataset
+            const { project_id, project_person_id } = this.query
+            
+            // console.log(e.target.value);
+            // console.log(index);
+            
+            if(level=='1'){
+
+                if(e.target.value){
+                    con_level = 1
+                }else{
+                    con_level = 0
+                    this.permissions[index*1].permission_level = 0
+                }
+
+            }else{
+
+                if(e.target.value){
+                    con_level = 2
+                    this.permissions[index*1].permission_level = 2
+                }else{
+                    con_level = 0
+                    this.permissions[index*1].permission_level = 0
+                }
+
+            }
+
+            console.log(con_level);
+            
+            
+            this.$api.basicSet.UpdateSee({
+                project_id,
+                project_person_id,
+                project_person_permission_id:permission_id,
+                permission_level:con_level
+            })
+            .then(res=>{
+                if(this.$assist.msg(res,'设置权限成功'))
+                this.getNetData()
+            })
         },
-        switch2Change: function (e) {
-            console.log('switch2 发生 change 事件，携带值为', e.target.value)
-        }
+        // 网络数据
+        getNetData(){
+            this.$api.basicSet.Person({
+                project_id:this.project_id
+            })
+            .then(res=>{
+                uni.setStorageSync('jurisdiction',res.data.project_person_groups)
+            })
+        },
     }
 }
 </script>
