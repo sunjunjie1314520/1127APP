@@ -58,10 +58,7 @@
 			"path": "pages/project/newly/newly"
 		},
 		{
-            "path": "pages/project/manage/manage",
-            "style": {
-                "enablePullDownRefresh": true
-            }
+            "path": "pages/project/manage/manage"
         },
         // 添加新建单位
         {
@@ -205,7 +202,7 @@
             },
             {
                 "name": "项目2",
-                "path": "pages/invoices/newly/newly",
+                "path": "pages/project/manage/manage",
                 "query": "id=0015777610868424725a466cad34f8da90e66a031423d80"
             }
 		]

@@ -3,14 +3,14 @@ let assist = {}
 // 播放音频
 assist.play = function () {
     const innerAudioContext = uni.createInnerAudioContext();
-        innerAudioContext.autoplay = true;
-        innerAudioContext.src = '../../static/video/click.mp3';
-        innerAudioContext.onPlay(() => {
-            setTimeout(()=>{
-                innerAudioContext.destroy()
-            },1000)
-        });
-        innerAudioContext.onError((res) => {
+    innerAudioContext.autoplay = true;
+    innerAudioContext.src = '../../../static/video/click.mp3';
+    innerAudioContext.onPlay(() => {
+        setTimeout(() => {
+            innerAudioContext.destroy()
+        }, 1000)
+    });
+    innerAudioContext.onError((res) => {
         console.log(res.errMsg);
         console.log(res.errCode);
     });
@@ -115,7 +115,7 @@ assist.ver = function (yz) {
 // 提示消息
 assist.msg = function (res, message, isReturn = false) {
     if (res.code === 1) {
-        toast(message, 'success')
+        if (message) toast(message, 'success')
         if (isReturn) {
             setTimeout(function () {
                 uni.navigateBack()

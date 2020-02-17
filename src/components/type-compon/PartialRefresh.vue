@@ -1,5 +1,6 @@
 <template>
 	<view
+    class="loadding-wrapper"
 	@touchstart="refreshStart"
 	@touchmove="refreshMove"
 	@touchend="refreshEnd"
@@ -7,8 +8,9 @@
 	>
 		<view class="loadding-two">
 			<view class="wrap">
-				<image v-if="move.refreshText == '正在刷新'" src="../../static/img/6b046_39x233.gif" mode=""></image>
-				<image v-else src="../../static/img/0abb9_32x32.png" mode=""></image>
+				<image v-if="move.refreshText == '正在刷新'" src="../../../static/img/50c5e_12x32.gif" mode=""></image>
+				<image v-else-if="move.refreshText == '刷新完成'" src="../../../static/img/e73a1_200x200.png" mode=""></image>
+				<image v-else src="../../../static/img/0abb9_32x32.png" mode=""></image>
 				<text>{{move.refreshText}}</text>
 			</view>
 		</view>
@@ -42,7 +44,7 @@
 					this.move.duration = 0
 					const { clientY } = e.changedTouches[0]
 					this.move.start_clientY = clientY
-					this.move.refreshText = '可拉刷新'
+					this.move.refreshText = '下拉刷新'
 				}
 			},
 			refreshMove(e){
@@ -71,10 +73,15 @@
 							this.move.refreshText = '正在刷新'
 						},150)
 						setTimeout(()=>{
-							this.$assist.play()
-							this.move.move_current = 0
-							this.$emit('shua')
-							this.move.refreshText = '可拉刷新'
+                            this.$emit('shua')
+                            this.move.refreshText = '刷新完成'
+                            this.$assist.play()
+                            setTimeout(()=>{
+                                this.move.move_current = 0
+                                setTimeout(()=>{
+                                    this.move.refreshText = '下拉刷新'
+                                }, 500);
+                            }, 200);
 						},1000)
 					}
 				}
@@ -84,7 +91,10 @@
 	}
 </script>
 
-<style>
+<style scoped>
+    .loadding-wrapper{
+        height: 100%;
+    }
 	.loadding-two {
         position: absolute;
         left: 0;
@@ -92,13 +102,12 @@
         top: 0;
         margin-top: -50px;
         text-align: center;
-        background-color: #fff;
-        }
+    }
     .loadding-two.transparent {
         background: none;
     }
     .loadding-two.transparent .wrap text {
-    color: #fff;
+        color: #fff;
     }
     .loadding-two .wrap {
         min-height: 50px;
@@ -113,8 +122,8 @@
         color: #fff;
     }
     .loadding-two image {
-        width: 52upx;
-        height: 64upx;
+        width: 32upx;
+        height: 32upx;
         margin-right: 10upx;
     }
 </style>

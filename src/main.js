@@ -12,9 +12,12 @@ import assist from './tool/utils/play.js'
 import uniNavBar from "@/components/uni-nav-bar/uni-nav-bar.vue"
 import uniFooter from "@/components/uni-footer/uni-footer.vue";
 import uniPartialRefresh from "@/components/type-compon/PartialRefresh.vue";
+import AcionOptions from '@/components/type-compon/AcionOptions.vue'
+
 Vue.component('uni-nav-bar', uniNavBar)
 Vue.component('uni-footer', uniFooter)
 Vue.component('uni-refresh', uniPartialRefresh)
+Vue.component('uni-action', AcionOptions)
 
 // 全局挂载
 Vue.prototype.$api = api

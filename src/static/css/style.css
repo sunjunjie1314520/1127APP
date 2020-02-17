@@ -149,6 +149,11 @@ button {
 .pub-img-back {
   background: #e5e5e5;
 }
+.status {
+  text-align: center;
+  padding: 100upx 0;
+  color: #ccc;
+}
 .container {
   float: left;
   width: 100%;
@@ -1471,7 +1476,7 @@ button {
   box-shadow: 0 0 50px rgba(183,207,255,0.3);
 }
 .null-footer {
-  height: 130upx;
+  height: 100upx;
   float: left;
   width: 100%;
 }
@@ -1482,6 +1487,7 @@ button {
   bottom: 0;
   background: #fff;
   border-top: 0.5px solid #e6e8ec;
+  height: 100upx;
 }
 .footer .ul .li {
   float: left;
@@ -1784,15 +1790,17 @@ button {
 }
 .pub-slide {
   display: flex;
+  width: 100%;
 }
 .pub-slide .flex-left-wrap {
   flex-shrink: 0;
+  width: 100%;
 }
 .pub-slide .flex-right-wrap {
   flex-shrink: 0;
+  display: flex;
 }
 .pub-slide .flex-right-wrap .edit {
-  display: block;
   color: #fff;
   height: 100%;
   width: 150upx;

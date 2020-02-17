@@ -1425,7 +1425,8 @@
 }
 .management{
 	width: 100%;
-	display: table;
+    float: left;
+    height:calc(100vh - 264upx);
 }
 .management-tab{
 	width: 100%;
@@ -1434,13 +1435,15 @@
 	background-color: #fff;
 	padding: 0 115upx;
 	display: flex;
-	justify-content: space-between;
+    justify-content: space-between;
+    position: relative;
+    z-index: 1;
 }
 .management-tab text{
 	margin: 0 42upx;
 	line-height: 84upx;
 	display: inline-block;
-	font-size: 28upx;
+	font-size: 30upx;
 	color: #999999;
 	position: relative;
 }
@@ -1458,7 +1461,6 @@
 }
 .management-list{
 	width: 100%;
-    display: table;
     overflow: hidden;
 }
 
@@ -1492,12 +1494,24 @@
     padding: 20upx 0 20upx 20upx;
 }
 .management-list-inf-name{
-	line-height: 54upx;
+    line-height: 54upx;
+    width: 100%;
 }
 .management-list-inf-name image{
 	height: 22upx;
 	width: 22upx;
 	margin-left: 6upx;
+}
+
+.management-list-name-fr{
+    float: right;
+    color: #fff;
+    background: #3a89ff;
+    width: 112upx;
+    line-height: 52upx;
+    text-align: center;
+    font-size: 26upx;
+    border-radius: 48upx;
 }
 
 .management-list-inf-txt{

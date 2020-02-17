@@ -87,9 +87,15 @@
                 ]
 
                 this.$assist.ver(yz)
+                
+                uni.showLoading({
+                    title:'登录中',
+                    mask:true
+                })
 
                 this.$api.login.sign(this.page)
                 .then(res => {
+                    uni.hideLoading()
                     if(this.$assist.msg(res)){
                         uni.setStorageSync('user', res.data.user);
                         this.$store.commit('signToggle',true)
