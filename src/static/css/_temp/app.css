@@ -478,7 +478,7 @@
     float: left;
     width: 100%;
     margin-top: 15upx;
-    padding:0 15upx;
+    padding-left:15upx;
 }
 
 .construction-list-box .fr{
@@ -490,6 +490,7 @@
     float: left;
     display: flex;
     justify-content: space-between;
+    padding-right: 15upx;
 }
 .construction-list-img{
 	width: 56upx;
@@ -739,7 +740,7 @@
 .att-manage-tab{
 	width: 100%;
 	height: 88upx;
-	border-bottom: 1upx solid #e8e9eb;
+	border-bottom: .5px solid #e8e9eb;
 	background-color: #fff;
 }
 .att-manage-tab text{
@@ -767,16 +768,15 @@
 }
 .att-manage-content{
 	width: 100%;
-	display: table;
+	float: left;
 }
 .att-manage-list{
 	width: 100%;
-	display: table;
+	float: left;
 	padding: 0 20upx;
 }
 .att-manage-list-box{
 	width:710upx;
-	display: table;
 	min-height: 200upx;
 	background-color: #fff;
 	border-radius: 10upx;
@@ -876,7 +876,7 @@
 .att-manage-list-over .manage-list-tit-sub button{
 	background-color: #dfe3ea;
 }
-.att-manage-content uni-swiper{
+.att-manage-content swiper{
 	height: calc(100vh - 88upx);
 }
 .manage-list-inf-txt{
@@ -1464,6 +1464,7 @@
     overflow: hidden;
 }
 
+.management-list .left-wrap,
 .management-list navigator{
     display: block;
     width: 100%;
@@ -1477,7 +1478,8 @@
 	background-color: #fff;
 	border-radius: 10upx;
 	min-height: 100upx;
-	margin-top: 20upx;
+    margin-top: 20upx;
+    float: left;
 }
 
 .management-list-img{
@@ -1628,7 +1630,8 @@
 	justify-content: space-between;
 }
 .contact-title-txt{
-	font-size: 30upx;
+    font-size: 30upx;
+    line-height: 54upx;
 }
 .contact-title-func{
 	display: flex;
@@ -1637,15 +1640,14 @@
 	height: 54upx;
 }
 .contact-title-func text{
-	width: 62upx;
-	height: 32upx;
 	border: .5px solid #0255ff;
-	font-size: 20upx;
+	font-size: 26upx;
 	text-align: center;
-	line-height: 28upx;
 	color: #0054ff;
 	border-radius: 5upx;
-	margin-right: 32upx;
+    margin-right: 32upx;
+    padding: 0upx 15upx;
+    line-height: 36upx;
 }
 .contact-title-func image{
 	width: 36upx;
@@ -1656,7 +1658,8 @@
 	display: table;
 	background-color: #fff;
 	border-radius: 10upx;
-	padding: 0 20upx;
+    padding: 0 20upx;
+    margin-top: 20upx;
 }
 .participation-contact-list-inf{
 	width: 100%;
@@ -1678,12 +1681,15 @@
 	padding-left: 30upx;
 }
 .contact-list-inf-name{
-	line-height: 48upx;
-	height: 48upx;
-	width: 100%;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
+    width: 80%;
+    height: 100%;
+    float: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.contact-list-inf-name-fl{
+
 }
 .contact-list-inf-name text.label{
 	display: inline-block;
@@ -1697,26 +1703,27 @@
 	margin-left: 20upx;
 }
 .contact-list-inf-name-tel{
-	height: 48upx;
 	display: flex;
 	justify-content: center;
-	align-items: center;
+    align-items: center;
+    height: 100%;
 }
 .contact-list-inf-name-tel image{
-	width: 40upx;
-	height: 40upx;
+	width: 41upx;
 }
 .contact-list-inf-txt{
-	line-height: 42upx;
 	font-size: 24upx;
-	color: #666666;
+    color: #666666;
+    float: left;
+    width: 100%;
 }
 .participation-contact-list-num{
 	width: 100%;
 	padding-left: 120upx;
 	height: 52upx;
 	display: flex;
-	justify-content: flex-start;
+    justify-content: flex-start;
+    
 	align-items: center;
 	font-size: 30upx;
 	color: #007eff;
@@ -1881,7 +1888,7 @@
 	position: absolute;
 	left: 0upx;
 	top: 20upx;
-	width: 1px;
+	width: .5px;
 	height: 84upx;
 	background-color: #ededed;
 }
@@ -1942,7 +1949,7 @@
 .file-list-col{
 	width: 100%;
 	display: table;
-	padding-bottom: 40upx;
+	padding-bottom: 20upx;
 	
 }
 .file-list-box{
@@ -1955,14 +1962,19 @@
     align-items: center;
     float: left;
     margin-right: 20upx;
+    overflow: hidden;
+    margin-bottom: 20upx;
 }
 
 .file-list-box.mr0{
     margin-right: 0;
 }
 .file-list-box image{
-	width: 55upx;
-	height: 55upx;
+	width: 100%;
+}
+.file-list-box image.add{
+    width: 55upx;
+    height: 55upx;
 }
 .contract-submit{
 	width: 100%;
@@ -2031,6 +2043,9 @@
     justify-content: flex-start;
     background: url(../../static/img/e1acb_14x10.png) right center no-repeat;
     background-size: 14upx 10upx;
+}
+.invoice-list-sele.noback{
+    background: none;
 }
 .invoice-list-sele.last{
     background: url(../../static/img/e9b15_49x49.png) right center/49upx no-repeat;

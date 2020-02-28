@@ -26,11 +26,11 @@
                             </view>
 
                             <view class="show-data" v-if="item.isshow && item.project_companys.length > 0">
-                                <view class="ul">
-                                    <view class="li" v-for="item1 in item.project_companys" :key="item1.id">
-                                        <text>{{item1.company_name}}</text>
-                                    </view>
-                                </view>
+                                <uni-swipe-action class="ul">
+                                    <uni-swipe-action-item class="li"  v-for="item1 in item.project_companys" :key="item1.id" :options="options" @click="onClick($event,item1.id)" @change="change">
+                                        <view class='cont'>{{item1.company_name}}</view>
+                                    </uni-swipe-action-item>
+                                </uni-swipe-action>
                             </view>
                         </view>
                     </view>
@@ -54,13 +54,38 @@
 </template>
 
 <script>
+
 import addGroup from "../../../components/transfer/add-group";
+import uniSwipeAction from '@/components/uni-swipe-action/uni-swipe-action.vue'
+import uniSwipeActionItem from '@/components/uni-swipe-action-item/uni-swipe-action-item.vue'
+
 export default {
     data(){
         return {
             show1:false,
             project_id:null,
-            list:[]
+            list:[],
+
+            options:[
+                {
+                    text: '查看',
+                    style: {
+                        backgroundColor: '#f60'
+                    }
+                },
+                {
+                    text: '修改',
+                    style: {
+                        backgroundColor: '#007aff'
+                    }
+                },
+                {
+                    text: '删除',
+                    style: {
+                        backgroundColor: '#dd524d'
+                    }
+                }
+            ]
         }
     },
     onLoad(){
@@ -70,8 +95,15 @@ export default {
         this.readLocData()
     },
     methods:{
+        onClick(e, id){
+            console.log(id);
+            
+            console.log('当前点击的是第'+e.index+'个按钮，点击内容是'+e.content.text)
+        },
+        change(open){
+            console.log('当前开启状态：'+ open)
+        },
         filename(v){
-            console.log(v);
             switch (v) {
                 case '总包单位':
                     return 'ic26'
@@ -131,7 +163,7 @@ export default {
                 })
             }
         },
-  
+        
         readLocData(){
             var data = uni.getStorageSync('participation')
             if (data){
@@ -140,6 +172,7 @@ export default {
                 this.getNetData()
             }
         },
+
         getNetData(){
             this.$api.basicSet.allParticipation({project_id:this.project_id})
             .then(res=>{
@@ -157,7 +190,9 @@ export default {
         this.getNetData()
     },
     components:{
-        addGroup
+        addGroup,
+        uniSwipeAction,
+        uniSwipeActionItem
     },
     filters:{
         

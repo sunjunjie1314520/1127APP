@@ -69,10 +69,17 @@
                     </view>
                     <view class="management-list" v-if="tab_index==2">
                         <template v-if="projects.join_projects.length > 0">
-                            <uni-action class="management-list-box" v-for="(item,index) in projects.join_projects" :item=item :index=index :key="item.id" :moveHandle="moveDataJoin">
-                                <navigator
-                                hover-class="hover-class"
-                                :url="'../../company/company?project_id=' + item.id + '&title=' + item.project_name"
+                            <uni-action
+                            class="management-list-box"
+                            v-for="(item,index) in projects.join_projects"
+                            :item="item"
+                            :index="index"
+                            :key="item.id"
+                            :moveHandle="moveDataJoin">
+                              
+                                <view class="left-wrap"
+                                @tap="selectProject"
+                                :data-index="index"
                                 >
                                     <view class="management-list-img pub-img-back">
                                         <template v-if="item.project_img_path">
@@ -104,7 +111,7 @@
                                             </view>
                                         </view>
                                     </view>
-                                </navigator>
+                                </view>
                                 <block slot="right">
                                     <view @touchstart.prevent="getEditId" :data-id="item.id" :data-index="index" class="edit c1">编辑</view>
                                 </block>
@@ -168,6 +175,12 @@
                 this.$store.commit('my_projects_move',{data:'join_projects',index,move,open,all:true});
             },
 
+            selectProject(e){
+                console.log(e);
+                uni.navigateTo({
+                    url:'../../_partake/index/index'
+                })
+            },
 			toggleTabs(e){
                 this.tab_index = e.currentTarget.id
                 this.$store.commit('my_projects_move',{data:'my_projects',all:false});

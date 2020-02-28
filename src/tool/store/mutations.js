@@ -22,4 +22,8 @@ config.my_projects_move = (state, pyload) => {
     }
 }
 
+config.set_participation = (state, pyload) => {
+    state.basicSet.participation = pyload
+}
+
 export default config

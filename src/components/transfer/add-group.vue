@@ -1,5 +1,5 @@
 <template>
-    <view class="alert" v-if="show">
+    <view class="alert" v-show="show">
         <view class="add-group">
             <text @tap="hide" class="close"></text>
             <text class="h2" v-text="title"></text>

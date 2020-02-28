@@ -114,7 +114,7 @@
 	};
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 	.uni-rate {
 		/* #ifndef APP-NVUE */
 		display: flex;

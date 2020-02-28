@@ -56,10 +56,16 @@
                         <view class="text">
                             <view class="h2">
                                 <text class="name">{{item.contract_name}}</text>
-                                <text class="label c1">{{item.contract_kind}}</text></view>
+                                <text class="label c1">{{item.contract_kind}}</text>
+                            </view>
                             <view class="wrap">
-                                <text class="p"><text class="c1">合同金额：</text>{{item.contract_money}}元</text>
-                                <text class="p"><text class="c1">签订日期：</text>{{item.contract_sign_date}}</text>
+                                <template v-if="item.contract_name !='其他发票专用'">
+                                    <text class="p"><text class="c1">合同金额：</text>{{item.contract_money}}元</text>
+                                    <text class="p"><text class="c1">签订日期：</text>{{item.contract_sign_date}}</text>
+                                </template>
+                                <template v-else>
+                                    <text class="p hei"><text class="c1">合同总额：</text>{{item.contract_money}}元</text>
+                                </template>
                             </view>
                         </view>
                     </navigator>
@@ -135,6 +141,8 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+    .hei{
+        height: 80upx;
+    }
 </style>

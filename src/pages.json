@@ -36,10 +36,6 @@
 		{
 			"path": "pages/material/archive/archive"
 		},
-
-		{
-			"path": "pages/attendance/attendance"
-		},
 		{
 			"path": "pages/attendanceManagement/manage/manage"
         },
@@ -174,9 +170,15 @@
         {
             "path": "pages/two_tool/four"
         },
-        // 简单测试
+
+        // 参与模块-------------------------------------------------------------------------
+        // 主界面
         {
-            "path" : "pages/test/test"
+            "path": "pages/_partake/index/index"
+        },
+        // 考勤签到
+        {
+            "path": "pages/_partake/attendance/attendance"
         }
         
     ],
@@ -201,9 +203,9 @@
                 "query": "project_id=001577721280335cd75c7854fd64848b774b59370ffae37&title=ee"
             },
             {
-                "name": "项目2",
-                "path": "pages/project/manage/manage",
-                "query": "id=0015777610868424725a466cad34f8da90e66a031423d80"
+                "name": "AAAA",
+                "path": "pages/contract/newly/newly",
+                "query": ""
             }
 		]
 	}

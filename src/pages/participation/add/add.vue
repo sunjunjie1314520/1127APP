@@ -61,7 +61,7 @@
 					</view>
 					<view class="contact-title-func">
 						<text @tap="show1=true">添加</text>
-						<image src="../../../static/img/ic40.png" mode=""></image>
+						<image @tap="getPhoneHandle" src="../../../static/img/ic40.png" mode=""></image>
 					</view>
 				</view>
 				<view class="participation-contact-list">
@@ -75,13 +75,14 @@
 									<text>{{item[0]}}</text>
 									<!-- <text class="label">木工</text> -->
 								</view>
-								<view class="contact-list-inf-name-tel">
-									<image src="../../../static/img/ic41.png" mode=""></image>
+                                <view class="contact-list-inf-txt">
+                                    {{item[1]}}
+                                </view>
+							</view>
+							
+                            <view class="contact-list-inf-name-tel" @tap="callPhone" :data-phone="item[1]">
+									<image src="../../../static/img/ic41.png" mode="widthFix"></image>
 								</view>
-							</view>
-							<view class="contact-list-inf-txt">
-								{{item[1]}}
-							</view>
 						</view>
 					</view>
 					<view class="participation-contact-list-num" v-if="false">
@@ -125,6 +126,7 @@
 </template>
 
 <script>
+    import nativeCommon from "../../../tool/common/getPhoneNumber.js";
     export default {
         data(){
             return {
@@ -156,8 +158,8 @@
         },
         methods:{
             addHandle(){
-                var arr = []
                 if(this.name !='' &&  this.phone != ''){
+                    var arr = []
                     arr.push(this.name)
                     arr.push(this.phone)
                     this.page.company_contacts.push(arr)
@@ -190,7 +192,28 @@
                     uni.setStorageSync('participation',res.data.project_company_groups)
                     uni.navigateBack()
                 })
-            }
+            },
+            getPhoneHandle(){
+                console.log('正在读取');
+                // #ifdef APP-PLUS
+                    const _this = this
+                    nativeCommon.nativeCommon.contacts.getContact(function callBack(name, phoneNumber){
+                       var arr = []
+                       arr.push(name)
+                       arr.push(phoneNumber.replace(/\s|-+/g,""))
+                       _this.page.company_contacts.push(arr)
+                    });
+                // #endif
+            },
+            callPhone(e){
+                const { phone } = e.currentTarget.dataset
+                uni.makePhoneCall({
+                    "phoneNumber":phone,
+                    success:(res) => {
+                        console.log(JSON.stringify(res));
+                    }
+                })
+            },
         }
     }
 </script>

@@ -24,7 +24,9 @@
 						</view>
 						<view class="invoice-list-sele">
 							<picker @change="bindPickerChange1" :value="index1" :range="array1">
-								<view :class="['uni-input',{'select-active':index1==0}]">{{array1[index1]}}</view>
+								<view :class="['uni-input',{'select-active':index1==-1}]">
+                                    {{array1[index1] || '请选择发票类型'}}
+                                </view>
 							</picker>
 						</view>
 					</view>
@@ -34,7 +36,9 @@
 						</view>
 						<view class="invoice-list-sele">
 							<picker @change="bindPickerChange2" :value="index2" :range="array2">
-								<view :class="['uni-input',{'select-active':index2==0}]">{{array2[index2]}}</view>
+								<view :class="['uni-input',{'select-active':index2==-1}]">
+                                    {{array2[index2] || '请选择锐率'}}
+                                </view>
 							</picker>
 						</view>
 					</view>
@@ -44,7 +48,7 @@
 						<view class="invoice-list-name">
 							发票金额
 						</view>
-						<view class="invoice-list-sele">
+						<view class="invoice-list-sele noback">
 							<input type="number"
                             placeholder="请输入金额"
                             placeholder-class="placeholder-class"
@@ -103,10 +107,10 @@
 					</view>
 					<view class="file-list-col">
 						<view class="file-list-box" v-for="item in page.invoice_scan_img_path" :key="item.id">
-							<image :src="url + item" mode=""></image>
+							<image :src="url + item" mode="widthFix"></image>
 						</view>
 						<view class="file-list-box mr0" @tap="uploadImg">
-							<image src="../../../static/img/0c2f3_55x55.png" mode=""></image>
+							<image class="add" src="../../../static/img/0c2f3_55x55.png" mode=""></image>
 						</view>
 					</view>
 				</view>
@@ -127,11 +131,11 @@
 	        })
 	        return {
 	            url : serverURL,
-				index1: 0,
-                array1: ['请选择发票类型','增值税专用发票', '增值税普通发票', '增值税电子普通发票', '机动车销售统一发票'],
+				index1: -1,
+                array1: ['增值税专用发票', '增值税普通发票', '增值税电子普通发票', '机动车销售统一发票'],
                 
-				index2: 0,
-                array2: ['请选择锐率','13%', '9%', '6%', '3%'],
+				index2: -1,
+                array2: ['13%', '9%', '6%', '3%'],
                             
                 page:{
                     project_id:null, // 项目 id

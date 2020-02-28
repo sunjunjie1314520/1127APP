@@ -49,9 +49,10 @@
                                 @touchmove.prevent="move"
                                 @touchend="end"
                                 :id="index"
+                                :data-index="index1"
                                 :data-isopen="item.isopen"
                                 :data-nums="item1.status == '已离职' ? 2 : 3"
-                                :style="{transform:`translate3d(${item.move_x_resut},0,0)`,transitionDuration:`${delay}ms`}"
+                                :style="{transform:`translate3d(${item1.move_x_resut},0,0)`,transitionDuration:`${delay}ms`}"
                                 >
                                     <view class="per-item flex-left-wrap">
                                         <template v-if="item1.user">
@@ -61,7 +62,7 @@
                                             <view class="user-box">
                                                 <view class="name-wrap">
                                                     <text class="name">{{item1.user_name || '姓名'}}</text>
-                                                    <text class="tel">{{item1.user.phone || '手机号未填写'}}</text>
+                                                    <text @tap="callPhone" :data-phone="item1.user.phone" class="tel">{{item1.user.phone || '手机号未填写'}}</text>
                                                 </view>
                                                 <text class="comp-xinzi">
                                                     <text class="t1">薪资：<text class="c">{{item1.salary}}</text></text>
@@ -77,7 +78,7 @@
                                             <view class="user-box">
                                                 <view class="name-wrap">
                                                     <text class="name">{{item1.user_name || '姓名'}}</text>
-                                                    <text class="tel">{{item1.user_id || item1.salary_method || '手机号未填写'}}</text>
+                                                    <text @tap="callPhone" :data-phone="item1.user_id" class="tel">{{item1.user_id || item1.salary_method || '手机号未填写'}}</text>
                                                 </view>
                                                 <text class="comp-xinzi">
                                                     <text class="t1">薪资：<text class="c">{{item1.salary}}</text></text>
@@ -90,7 +91,6 @@
 
                                     <view class="flex-right-wrap">
 
-                                        
                                         <view
                                         @touchstart.stop="moveGroup" 
                                         :data-index="index1"
@@ -222,7 +222,6 @@
         >
         </add-group>
 
-    
         <add-group
         :show="show3"
         @event1="event3"
@@ -230,8 +229,6 @@
         title="修改分组"
         >
         </add-group>
-
-        
 
     </view>
 </template>
@@ -276,6 +273,9 @@ export default {
             index3: 0,
 
             move_config:{},
+            
+            prevIndex:-1,
+            showIndex:-1,
 
             start_x: 0,
             move_x: 0,
@@ -291,7 +291,15 @@ export default {
         toggleHandle(e){
             let dex = e.currentTarget.dataset.index
             this.$set(this.list[dex],'isshow',!this.list[dex].isshow)
-            
+            this.resetMove()
+        },
+        resetMove(){
+            console.log('clear');
+            const { showIndex, prevIndex } = this
+            if(showIndex != -1 || prevIndex != -1){
+                this.$set(this.list[prevIndex]['project_persons'][showIndex],'move_x_resut','0upx')
+                this.$set(this.list[prevIndex]['project_persons'][showIndex],'isopen',0)
+            }
         },
         modifyHandle(e){
             this.show3 = true
@@ -495,6 +503,7 @@ export default {
             this.move_config['project_person_id'] = id
         },
 
+        // 分组成功
         bindPickerChange3(e){
            this.move_config['project_person_group_id'] = this.list[e.detail.value].id
             this.$api.basicSet.moveLeave(this.move_config)
@@ -507,7 +516,17 @@ export default {
                 }
             })
         },
-
+        callPhone(e){
+            const { phone } = e.currentTarget.dataset
+            console.log(phone);
+            
+            uni.makePhoneCall({
+                "phoneNumber":phone,
+                success:(res) => {
+                    console.log(res);
+                }
+            })
+        },
         start(e){
             this.start_x = e.changedTouches[0].clientX
         },
@@ -515,18 +534,22 @@ export default {
             this.move_x = e.changedTouches[0].clientX - this.start_x
         },
         end(e){
-            const { isopen, nums} = e.currentTarget.dataset
-
+            const { isopen, nums, index} = e.currentTarget.dataset
+            const { id } = e.currentTarget            
             if(this.move_x < -75 && isopen==undefined || isopen=='0'){
-                this.$set(this.list[e.currentTarget.id],'move_x_resut',-93*nums + 'upx')
-                this.$set(this.list[e.currentTarget.id],'isopen',1)
+                this.resetMove()
+                this.$set(this.list[id*1]['project_persons'][index*1],'move_x_resut',-93*nums + 'upx')
+                this.$set(this.list[id*1]['project_persons'][index*1],'isopen',1)
+                this.prevIndex = id * 1
+                this.showIndex = index * 1
+
             }else if(this.move_x < -75 && isopen=='0'){
-                this.$set(this.list[e.currentTarget.id],'move_x_resut','0upx')
-                this.$set(this.list[e.currentTarget.id],'isopen',0)
+                this.$set(this.list[id*1]['project_persons'][index*1],'move_x_resut','0upx')
+                this.$set(this.list[id*1]['project_persons'][index*1],'isopen',0)
             }
             if(this.move_x > 0){
-                this.$set(this.list[e.currentTarget.id],'move_x_resut','0upx')
-                this.$set(this.list[e.currentTarget.id],'isopen',0)
+                this.$set(this.list[id*1]['project_persons'][index*1],'move_x_resut','0upx')
+                this.$set(this.list[id*1]['project_persons'][index*1],'isopen',0)
             }
         }
     },

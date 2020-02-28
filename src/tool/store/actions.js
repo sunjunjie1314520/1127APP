@@ -23,5 +23,11 @@ config.projects = (context, pyload) => {
     })
 }
 
-
+config.participationAction = ({commit}, pyload) => {
+    $api.basicSet.allParticipation(pyload)
+    .then(res => {
+        commit('set_participation',res.data.project_company_groups)
+    })
+}
+    
 export default config

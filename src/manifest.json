@@ -16,7 +16,9 @@
             "delay" : 3
         },
         /* 模块配置 */
-        "modules" : {},
+        "modules" : {
+            "Contacts" : {}
+        },
         /* 应用发布信息 */
         "distribute" : {
             /* android打包配置 */
@@ -52,10 +54,9 @@
                 "oauth" : {}
             }
         },
-		"compatible":{       
-			"ignoreVersion":true
-		}
-
+        "compatible" : {
+            "ignoreVersion" : true
+        }
     },
     /* 快应用特有相关 */
     "quickapp" : {},

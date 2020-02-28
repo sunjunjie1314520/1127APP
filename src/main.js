@@ -29,8 +29,7 @@ Vue.prototype.$assist = assist
 console.log('接口地址:', url)
 
 // 全局样式
-import 'static/css/style.css'
-import 'static/css/app.css'
+import 'static/css/style.min.css'
 
 Vue.config.productionTip = false
 

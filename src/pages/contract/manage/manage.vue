@@ -9,7 +9,7 @@
 			<view class="contract-list">
                 <template v-if="list.length>0">
 
-                    <view class="contract-list-box" v-for="item in list" :key="item.id" v-show="item.contract_name != '其它发票专用'">
+                    <view class="contract-list-box" v-for="item in list" :key="item.id" v-show="item.contract_name != '其他发票专用'">
                         <view class="contract-list-img">
                             <template v-if="item.contract_scan_img_path">
                                 <image :src="url + item.contract_scan_img_path[0]" mode=""></image>
@@ -72,6 +72,8 @@ export default {
     methods:{
         readLocData(){
             let contract = uni.getStorageSync('contract')
+            console.log(contract);
+            
             if(contract){
                 this.list = contract
             }else{

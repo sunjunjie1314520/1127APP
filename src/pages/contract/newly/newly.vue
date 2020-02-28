@@ -36,10 +36,11 @@
 						<view class="uni-list">
 							<view class="uni-list-cell">
 								<view class="uni-list-cell-db">
+                                    <!-- 请选择合同类型 -->
 									<picker
                                     @change="bindPickerChange" :value="contract_kind_index" :range="array">
-										<view :class="['uni-input',{'select-active':!contract_kind_index}]">
-                                            {{array[contract_kind_index]}}
+										<view :class="['uni-input',{'select-active':contract_kind_index==-1}]">
+                                            {{array[contract_kind_index] || '请选择合同类型'}}
                                         </view>
 									</picker>
 								</view>
@@ -53,10 +54,20 @@
 					<view class="titles">
 						甲方单位
 					</view>
-					<view class="contact-txt">
-						<view class="uni-list-cell-db">
-							<input type="text" placeholder-class="placeholder-class" placeholder="请输入单位" v-model="page.party_A_company">
-						</view>
+					<view class="contract-inform-txt">
+						<view class="uni-list-cell">
+                            <view class="uni-list-cell-db">
+                                
+                                <picker
+                                    @change="bindPickerChange1"
+                                    :value="party_A_company_index"
+                                    :range="array1">
+                                        <view :class="['uni-input',{'select-active':party_A_company_index==-1}]">
+                                            {{array1[party_A_company_index] || '请选择甲方单位'}}
+                                        </view>
+                                </picker>
+						    </view>
+                        </view>
 					</view>
 				</view>
 				<view class="contract-party-list">
@@ -76,7 +87,9 @@
 					<view class="party-list-tel">
 						<view class="party-list-name-tit">
 							联系电话
-							<image src="../../../static/img/ic42.png" mode=""></image>
+                            <view class="phone-num" @tap="getPhoneHandle1"> 
+                                <image src="../../../static/img/ic42.png" mode=""></image>
+                            </view>
 						</view>
 						<view class="party-list-name-txt">
 							<input
@@ -116,10 +129,9 @@
 					<view class="party-list-tel">
 						<view class="party-list-name-tit">
 							联系电话
-							<image
-                            src="../../../static/img/ic42.png"
-                            mode="">
-                            </image>
+                            <view class="phone-num" @tap="getPhoneHandle2"> 
+                                <image src="../../../static/img/ic42.png" mode=""></image>
+                            </view>
 						</view>
 						<view class="party-list-name-txt">
 							<input
@@ -193,9 +205,12 @@
 						合同电子文本上传
 					</view>
 					<view class="file-list-col">
+                        <view class="file-list-box" v-for="(item, index) in page.contract_file_path" :key="index">
+                            <image :src="http + item" mode="widthFix"></image>
+                        </view>
 						<view class="file-list-box"
                         @click="upload1()">
-							<image src="../../../static/img/0c2f3_55x55.png" mode=""></image>
+							<image class="add" src="../../../static/img/0c2f3_55x55.png" mode=""></image>
 						</view>
 					</view>
 				</view>
@@ -204,9 +219,12 @@
 						合同扫描件上传
 					</view>
 					<view class="file-list-col">
+                        <view class="file-list-box" v-for="(item, index) in page.contract_scan_img_path" :key="index">
+                            <image :src="http + item" mode="widthFix"></image>
+                        </view>
 						<view class="file-list-box"
                         @tap="upload2()">
-							<image src="../../../static/img/0c2f3_55x55.png" mode=""></image>
+							<image class="add" src="../../../static/img/0c2f3_55x55.png" mode=""></image>
 						</view>
 					</view>
 				</view>
@@ -215,9 +233,12 @@
 						合同清单上传
 					</view>
 					<view class="file-list-col">
+                        <view class="file-list-box" v-for="(item, index) in page.contract_list_path" :key="index">
+                            <image :src="http + item" mode="widthFix"></image>
+                        </view>
 						<view class="file-list-box"
                         @tap="upload3()">
-							<image src="../../../static/img/0c2f3_55x55.png" mode=""></image>
+							<image class="add" src="../../../static/img/0c2f3_55x55.png" mode=""></image>
 						</view>
 					</view>
 				</view>
@@ -230,6 +251,7 @@
 </template>
 <script>
     import { serverURL } from "../../../tool/common/config.js";
+    import nativeCommon from "../../../tool/common/getPhoneNumber.js";
 	export default {
 		data() {
 			const currentDate = this.getDate({
@@ -258,13 +280,18 @@
 
                 },
                 // 合同类型
-                array: ['请选择合同类型', '工程合同', '分包合同', '采购合同', '租赁合同'],
-                contract_kind_index:0,
-                url:serverURL
+                array: ['工程合同', '分包合同', '采购合同', '租赁合同'],
+                contract_kind_index:-1,
+                // 服务器地址
+                http:serverURL,
+                // 甲方单位
+                party_A_company_index:-1
 			}
         },
         onLoad(){
-            this.page.project_id = uni.getStorageSync('project_id')
+            const project_id = uni.getStorageSync('project_id')
+            this.page.project_id = project_id
+            this.$store.dispatch('participationAction',{project_id});
         },
 		computed: {
 			startDate() {
@@ -272,10 +299,18 @@
 			},
 			endDate() {
 				return this.getDate('end');
-			}
+            },
+            array1(){
+                const { participation } = this.$store.state.basicSet
+                var arr = []
+                participation.forEach(item=>{
+                    arr.push(item.group_name)
+                })
+                return arr
+            }
 		},
 		methods: {
-
+            
 			upload1(){
                 this.$api.publib.uploadFile()
                 .then(res=>{
@@ -336,6 +371,11 @@
                 this.contract_kind_index = e.target.value
                 this.page.contract_kind = this.array[e.target.value]
             },
+
+			bindPickerChange1: function(e) {
+                this.party_A_company_index = e.target.value
+                this.page.party_A_company = this.array1[e.target.value]
+            },
             
 			bindDateChange: function(e) {
 				this.page.contract_sign_date = e.target.value
@@ -355,7 +395,36 @@
 				month = month > 9 ? month : '0' + month;;
 				day = day > 9 ? day : '0' + day;
 				return `${year}-${month}-${day}`;
-			}
+            },
+            getPhoneHandle1(){
+                console.log('正在读取1');
+                // #ifdef APP-PLUS
+                    const _this = this
+                    nativeCommon.nativeCommon.contacts.getContact(function callBack(name, phoneNumber){
+                       _this.page.party_A_person = name
+                       _this.page.party_A_phone = phoneNumber.replace(/\s|-+/g,"")
+                    });
+                // #endif
+            },
+            getPhoneHandle2(){
+                console.log('正在读取2');
+                // #ifdef APP-PLUS
+                    const _this = this
+                    nativeCommon.nativeCommon.contacts.getContact(function callBack(name, phoneNumber){
+                        _this.page.party_B_person = name
+                        _this.page.party_B_phone = phoneNumber.replace(/\s|-+/g,"")
+                    });
+                // #endif
+            },
 		}
 	}
 </script>
+
+<style scoped>
+    .phone-num{
+        height: 100%;
+        display: flex;
+        align-items: center;
+        padding: 0 12upx;
+    }
+</style>

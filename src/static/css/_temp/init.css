@@ -1,0 +1,40 @@
+view,
+text {
+  line-height: 1;
+  box-sizing: border-box;
+  font-size: 30upx;
+  color: #333;
+}
+textarea,
+input {
+  box-sizing: border-box;
+  font-size: 30upx;
+  color: #333;
+  line-height: 1;
+}
+navigator {
+  box-sizing: border-box;
+}
+checkbox {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  line-height: 1;
+}
+button {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  background-color: transparent;
+}
+.status_bar {
+  height: var(--status-bar-height);
+  width: 100%;
+}
+.status_bar.bg1 {
+  background: #3a89ff;
+}

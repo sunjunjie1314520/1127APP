@@ -1,176 +1,275 @@
-﻿var gulp = require('gulp');
-var stylus = require('gulp-stylus');
-var browserSync = require('browser-sync').create();
-var reload = browserSync.reload;
-var autoprefixer = require('gulp-autoprefixer');
-var pxtorem = require('gulp-pxtorem');
-var crypto = require('crypto');
-var fs = require('fs');
-var getPixels = require("get-pixels") //获取图片的宽高
-var sourcemaps  = require('gulp-sourcemaps');
-const { exec } = require('child_process');
-const iconv = require('iconv-lite');
-var base64 = require('gulp-base64');
-// 配置
-const config={
-    img:["img","images"],
-    // 是否开启 压缩
-    yasuo:false,
-    // 是否开启 转换
-    pxto:false,
+var config = {
+	query:'px',
+    replace:'upx',
+    watch: './src/*.styl',
+    min:1,
+	browser:{
+        open:false,
+        notify: false,
+		injectChanges: true,
+		server: {
+			baseDir: './',
+			index: 'index.html'
+		}
+	}
 }
 
-gulp.task('serve', function() {
-	browserSync.init({
-		server: "./"
-	});
-});
+const styles = {
+    'bold'          : ['\x1B[1m%s\x1B[22m'],
+    'italic'        : ['\x1B[3m%s\x1B[23m'],
+    'underline'     : ['\x1B[4m%s\x1B[24m'],
+    'inverse'       : ['\x1B[7m%s\x1B[27m'],
+    'strikethrough' : ['\x1B[9m%s\x1B[29m'],
+    'white'         : ['\x1B[37m%s\x1B[39m'],
+    'grey'          : ['\x1B[90m%s\x1B[39m'],
+    'black'         : ['\x1B[30m%s\x1B[39m'],
+    'blue'          : ['\x1B[34m%s\x1B[39m'],
+    'cyan'          : ['\x1B[36m%s\x1B[39m'],
+    'green'         : ['\x1B[32m%s\x1B[39m'],
+    'magenta'       : ['\x1B[35m%s\x1B[39m'],
+    'red'           : ['\x1B[31m%s\x1B[39m'],
+    'yellow'        : ['\x1B[33m%s\x1B[39m'],
+    'whiteBG'       : ['\x1B[47m%s\x1B[49m'],
+    'greyBG'        : ['\x1B[49;5;8m%s\x1B[49m'],
+    'blackBG'       : ['\x1B[40m%s\x1B[49m'],
+    'blueBG'        : ['\x1B[44m%s\x1B[49m'],
+    'cyanBG'        : ['\x1B[46m%s\x1B[49m'],
+    'greenBG'       : ['\x1B[42m%s\x1B[49m'],
+    'magentaBG'     : ['\x1B[45m%s\x1B[49m'],
+    'redBG'         : ['\x1B[41m%s\x1B[49m'],
+    'yellowBG'      : ['\x1B[43m%s\x1B[49m']
+};
 
-gulp.task('watch', function() {
-    gulp.watch("./css/*.styl",['stylus']);
-    gulp.watch("./*.html").on('change', reload);
-    gulp.watch("./js/*.js").on('change', reload);
-    gulp.watch("./css/*.css").on('change', reload);
-})
 
-gulp.task('stylus', function () {
-    return gulp.src(['./css/style.styl','./css/mobMedia.styl','./css/sjj.styl','./css/css.styl'])
-    .pipe(sourcemaps.init())
-    .pipe(stylus({ compress: config.yasuo}))
+const fs = require('fs')
+const crypto = require('crypto');
+const { watch, series, src, dest, parallel } = require('gulp');
+const stylus = require('gulp-stylus');
+const getPixels = require("get-pixels")
+const { exec } = require('child_process');
+const { encode } = require('iconv-lite');
+const browserSync = require('browser-sync').create();
+const base64 = require('gulp-base64');
 
-    .on('error', swallowError)
+const autoprefixer = require('gulp-autoprefixer');
+const concat = require('gulp-concat');
+const rename = require('gulp-rename');
+const cssmin = require('gulp-clean-css');
+const reload = browserSync.reload;
+const minimist = require('minimist');
 
-    // .pipe(autoprefixer({
-    //     browsers: ['last 20 versions'],
-    //     cascade: true, //是否美化属性值 默认：true
-    //     remove: false, //是否去掉不必要的前缀 默认：true
-    // }))
-    .pipe(base64())
-    .on('error', swallowError)
+var temporary = ''
 
+var knownOptions = {
+    string: 'path',
+    default: {
+        path: false,
+    }
+};
+
+var options = minimist(process.argv.slice(2), knownOptions);
+
+config.output = options.path  ? SmallProgram(options.path) : options.path
+
+function SmallProgram(name) {
+    return `./pages/${name}/${name}.wxss`
+}
+
+console.log(config.output);
+
+exports.default = gulp_watch
+exports.build = gulp_build
+
+function gulp_watch(cb){
     
-    //--------------------------------------------------
+    // 编译styl文件
+    watch(config.watch ,gulp_stylus).on('change', setpath)
+    // 图片处理
+	watch(['./*.jpg','./*.png','./*.gif']).on('add', gulp_images)
+    // 生成文件后替换单位
+    watch('./src/dist/*.css', gulp_concat).on("change", gulp_replace)
     
-    .pipe(pxtorem({
-            rootValue: 100,
-            unitPrecision: 5,
-            propList: config.pxto ? ['*'] : [],
-            selectorBlackList: [],
-            replace: true,
-            mediaQuery: false,
-            minPixelValue: 2
-        },
-        {
-            map: false
-        }
-    ))
+    if (config.browser.open) {
+        // 刷新浏览器
+        watch(['./*.html', './css/*.css']).on('change', reload)
+        // 启动服务器
+        browserSync.init(config.browser)
+    }
     
-    //--------------------------------------------------
+	cb();
+}
 
-    .pipe(sourcemaps.write('./'))
-    .pipe(gulp.dest('./css'))
-});
-
-// 启动任务
-gulp.task('default', ['config','serve','watch']);
-
-
-var ImgPath='' // 设置图片目录
-var fileTwo='';
-
-var img=config.img;
-
-gulp.task('config',function(){
-    img.forEach(function(v){
-        var path=__dirname+"\\"+v+"\\"
-        fs.exists(path,function(exists){
-            if(exists){
-                // console.log(path+'存在')
-                ImgPath=path
-                watch()
-                return
-            }else{
-                console.log(path+'不存在')
-            }
-        })
+// 合并CSS
+function gulp_concat(){
+    return src(['./css/_temp/*.css'], {
+        ignore: ['style.min.css','animate.min.css']
     })
-})
+    .pipe(concat('style.css'))
+    .pipe(cssmin({
+        keepSpecialComments:'',
+        sourceMap: true,
+        compatibility: 'ie8'
+    }))
+    .pipe(rename({
+        suffix: '.min'
+    }))
+    .pipe(dest('./css/'))
+}
 
+function gulp_images(path){
+	setTimeout(async ()=>{
+		const hash = createFileHash256Sync(path)
+		const six = hash.substring(hash.length - 6)
+		const pixels  = await getImagesPixels(path)
+		renameFile(path,six.concat(pixels))
+	},1000)
+}
+
+function gulp_stylus() {
+	return src(temporary,{
+        sourcemaps:true
+    })
+    .pipe(stylus())
+    .pipe(autoprefixer({
+        cascade: false
+    }))
+	.on('error', swallowError)
+	.pipe(base64())
+    .pipe(dest('./src/dist/'))
+}
+
+function gulp_replace(path){
+    var handpath = pathHandle(path)
+    var syncpath = handpath.replace('src/dist','css/_temp')
+    fs.readFile(handpath, 'utf-8', function (err, data) {
+        if(err){
+            throw err
+        }
+        const content = convertHandle(String(data))			
+        try {
+            fs.writeFile(syncpath, content, function (err) {
+                if (err) throw err
+                console.log(`${styles.grey[0]}`,`-------------------------------------`);
+                console.log(`	%s ${styles.magenta[0]}`, '读取：', handpath);
+                console.log(`	%s ${styles.blue[0]}`, '方式：', `${config.query} => ${config.replace}   |   min：${config.min}px`);
+                console.log(`${styles.grey[0]}`,`-------------------------------------`);
+
+                if(config.output){
+                    fs.writeFile(config.output, content, function(err) {
+                        if (err) throw err
+                        console.log(`	%s ${styles.magenta[0]}    ${styles.green[0]}`, '输出：', config.output, 'success ~');
+                    })
+                }
+            })
+
+        } catch (error) {
+            console.log(error);
+        }
+    })
+
+}
+
+function gulp_build(cb) {
+    deleteFolder('./css/_temp/')
+    deleteFolder('./src/')
+    cb()
+}
+
+function deleteFolder(path) {
+    let files = [];
+    if (fs.existsSync(path)) {
+        files = fs.readdirSync(path);
+        files.forEach(function (file, index) {
+            let curPath = path + "/" + file;
+            if (fs.statSync(curPath).isDirectory()) {
+                deleteFolder(curPath);
+            } else {
+                fs.unlinkSync(curPath);
+            }
+        });
+        fs.rmdirSync(path);
+    }
+}
+
+function convertHandle(content){
+	const reg = new RegExp('(\\:|: )+(.)+(px)','gi')
+	const replace_str = content.replace(reg, function(_str){
+		const result = _str.replace(/(\d)+(px)/g, function(_num){
+            var number = _num.replace(/px/g,'')
+            if(number==1){
+                return '.5px'
+            }
+			return number <= config.min ? `${number}${config.query}` : unitHandle(number)
+		})
+		return result
+	})
+	return replace_str
+}
+
+// 设置临时目录
+function setpath(path) {
+    temporary = pathHandle(path)
+}
+
+// 单位计算
+function unitHandle(num){
+	const to_res = config.replace
+	switch (to_res){
+		case 'rem':
+			return `${num/100}${to_res}`
+		default:
+			return `${num}${to_res}`
+	}
+}
+
+function createFileHash256Sync(filePath) { 
+    //读取一个Buffer
+    const buffer = fs.readFileSync(filePath);
+    const fsHash = crypto.createHash('sha256');
+ 
+    fsHash.update(buffer);
+    const md5 = fsHash.digest('hex');
+	return md5
+}
+
+function getImagesPixels(filePath){
+	return new Promise((resolve, reject) => {
+		getPixels(filePath, function(err, pixels) {
+			if(err) {	
+				console.log("Bad image path")
+				reject(err)
+			}else{
+				var info = "_"+pixels.shape[0]+'x'+pixels.shape[1]
+				resolve(info)
+			}
+		})
+	})
+}
+
+// 改文件名
+function renameFile(filepath,newname){
+	const _last = filepath.lastIndexOf('\\');
+	const _path = filepath.substring(0,_last+1)
+    const _suffix = filepath.substring(filepath.length-4)
+    const _filename = newname.concat(_suffix)
+	const newfilepath = _path.concat('img\\', _filename)
+	fs.rename(filepath,newfilepath,function(err){
+		if(err){
+			throw err
+		}
+		// console.log(filepath);
+		console.log(`Starting '${styles.blue[0]}' 提示： ${styles.green[0]}	${styles.underline[0]}`,'gulp_images',_filename,'可按 Ctrl + V 粘贴')
+        exec('clip').stdin.end(encode(_filename, 'gbk'));
+	})
+}
+
+// 错误提示
 function swallowError(error) {
     console.error(error.toString())
     this.emit('end')
 }
 
-function watch(){
-    fs.watch(ImgPath,function(event, filename){
-        if(event=='change'){
-            if (filename.indexOf('_tmp')==-1 && filename.indexOf('crdownload')==-1) {
-                // console.log("事件:"+event,'名称:'+filename)
-                if (fileTwo==''){
-                    fileTwo=filename
-                    var rs = fs.createReadStream(ImgPath+filename);
-                    var hash = crypto.createHash('md5');
-                    rs.on('data', hash.update.bind(hash));
-                    rs.on('end', function() {
-                        newFilename=hash.digest('hex').slice(0,5); //获取文件哈希值
-                        getImgInfo(ImgPath+filename,newFilename);
-                    });
-                }
-            }
-        }
-    })
+// 路径字符串处理
+function pathHandle(_str){
+    return './' + _str.replace(/\\/g,'/')
 }
-
-function rename(filename,newFilename){
-    var patt=new RegExp(/\w{36,}/);
-    var result=patt.test(filename)
-    if(!result){
-        fs.rename(filename,newFilename,function(err){
-            if(err){
-                console.log(filename+" => 文件重命名失败");
-                return
-            }
-            var source=filename.match(/(?:[^\\]+)(?:\.[^\(]+)/i);
-            console.log('\nSourceName => '+source[0]);
-            console.log('NewName => '+newFilename.match(/\w{5,}\.(?:jpg|png)$/i));
-            GetSize(newFilename);
-        })
-    }
-}
-
-function getImgInfo(filename,newName){  //获取图片宽高
-    getPixels(filename, function(err, pixels) {
-        if(err) {
-            console.log(filename+" => 不是图片文件!");
-            fileTwo=''
-            return
-        }
-        info = "_"+pixels.shape[0]+'x'+pixels.shape[1]
-
-        var newName1=filename.replace(/([^\\]+)(\.[^\(]+)/i,newName)+info+filename.match(/\.\w+$/)
-
-        rename(filename,newName1);
-        //+filename.match(/\.\w+$/) // 后缀名
-        exec('clip').stdin.end(iconv.encode(newName+info+filename.match(/\.\w+$/), 'gbk'));
-    })
-    
-}
-
-function GetSize(filename){ // 获取文件大小
-    fs.stat(filename,function(err,state){
-        if(err){
-            console.log(err.message)
-            return
-        }
-        var size=state.size/1024
-        console.log('FileSize => '+size.toFixed(1)+' KB')
-        fileTwo=''
-    })
-}
-
-
-
-// 嵌套输出方式 nested
-// 展开输出方式 expanded 
-// 紧凑输出方式 compact 
-// 压缩输出方式 compressed
