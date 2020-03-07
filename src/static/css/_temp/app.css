@@ -1,11 +1,8 @@
-*{
-	box-sizing: border-box;
-}
 .bg{
 	background-color: #f9fbfc;
 }
 .outbound{
-	width: 100vw;
+	width: 100%;
 	min-height: 100vh;
 	background-color: #f9fbfc;
 }
@@ -242,7 +239,7 @@
 	width: 30upx;
 }
 .product{
-	width: 100vw;
+	width: 100%;
 	display: table;
 	min-height: 100vh;
 	background-color: #f3f8fc;
@@ -411,10 +408,7 @@
 }
 
 .company{
-	width: 100vw;
-	display: table;
-	min-height: 100vh;
-	background-color: #f3f8fc;
+	width: 100%;
 }
 .company-list{
 	width: 100%;

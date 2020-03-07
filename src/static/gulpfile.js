@@ -2,16 +2,7 @@ var config = {
 	query:'px',
     replace:'upx',
     watch: './src/*.styl',
-    min:1,
-	browser:{
-        open:false,
-        notify: false,
-		injectChanges: true,
-		server: {
-			baseDir: './',
-			index: 'index.html'
-		}
-	}
+    min:1
 }
 
 const styles = {
@@ -48,15 +39,13 @@ const stylus = require('gulp-stylus');
 const getPixels = require("get-pixels")
 const { exec } = require('child_process');
 const { encode } = require('iconv-lite');
-const browserSync = require('browser-sync').create();
 const base64 = require('gulp-base64');
-
 const autoprefixer = require('gulp-autoprefixer');
 const concat = require('gulp-concat');
 const rename = require('gulp-rename');
 const cssmin = require('gulp-clean-css');
-const reload = browserSync.reload;
 const minimist = require('minimist');
+const connect = require('gulp-connect');
 
 var temporary = ''
 
@@ -89,14 +78,21 @@ function gulp_watch(cb){
     // 生成文件后替换单位
     watch('./src/dist/*.css', gulp_concat).on("change", gulp_replace)
     
-    if (config.browser.open) {
-        // 刷新浏览器
-        watch(['./*.html', './css/*.css']).on('change', reload)
-        // 启动服务器
-        browserSync.init(config.browser)
-    }
+    // 刷新浏览器
+    watch(['./*.html', './css/*.css']).on('change', reload)
+
+    // 启动服务器
+    connect.server({
+        livereload: true,
+        port:9000,
+    })
     
 	cb();
+}
+
+function reload() {
+    src(['./*.html','./js/*.js'])
+    .pipe(connect.reload());
 }
 
 // 合并CSS
@@ -252,15 +248,32 @@ function renameFile(filepath,newname){
 	const _path = filepath.substring(0,_last+1)
     const _suffix = filepath.substring(filepath.length-4)
     const _filename = newname.concat(_suffix)
-	const newfilepath = _path.concat('img\\', _filename)
+	const newfilepath = pathHandle(_path.concat('img\\', _filename))
 	fs.rename(filepath,newfilepath,function(err){
 		if(err){
 			throw err
 		}
-		// console.log(filepath);
-		console.log(`Starting '${styles.blue[0]}' 提示： ${styles.green[0]}	${styles.underline[0]}`,'gulp_images',_filename,'可按 Ctrl + V 粘贴')
-        exec('clip').stdin.end(encode(_filename, 'gbk'));
+        console.log(`Starting '${styles.blue[0]}' 路径： ${styles.green[0]}  ${styles.underline[0]}`, 'gulp_images', newfilepath, '可按 Ctrl + V 粘贴')
+        getSize(newfilepath)
+        exec('clip').stdin.end(encode(newfilepath, 'gbk'));
 	})
+}
+
+// 获取文件大小
+function getSize(filename) {
+    fs.stat(filename, function (err, state) {
+        if (err) {
+            console.log(err.message)
+            return
+        }
+        var size = state.size / 1024
+        var suffix = 'KB'
+        if(size > 1024){
+            size = size / 1024
+            suffix = 'MB'
+        }
+        console.log(`%s ${styles.green[0]} %s`, '图片文件大小 =>', size.toFixed(2), suffix)
+    })
 }
 
 // 错误提示

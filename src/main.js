@@ -11,13 +11,17 @@ import assist from './tool/utils/play.js'
 // 注册组件
 import uniNavBar from "@/components/uni-nav-bar/uni-nav-bar.vue"
 import uniFooter from "@/components/uni-footer/uni-footer.vue";
+// 自定义组件
 import uniPartialRefresh from "@/components/type-compon/PartialRefresh.vue";
 import AcionOptions from '@/components/type-compon/AcionOptions.vue'
+import NavBar from '@/components/type-compon/NavBar.vue'
 
 Vue.component('uni-nav-bar', uniNavBar)
 Vue.component('uni-footer', uniFooter)
+
 Vue.component('uni-refresh', uniPartialRefresh)
 Vue.component('uni-action', AcionOptions)
+Vue.component('uni-navbar', NavBar)
 
 // 全局挂载
 Vue.prototype.$api = api

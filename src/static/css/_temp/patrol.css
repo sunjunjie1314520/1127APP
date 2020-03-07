@@ -1,0 +1,67 @@
+/* 日常巡检 */
+.patrol-wrapper {
+  float: left;
+  width: 100%;
+  padding: 0 20upx;
+}
+.patrol-wrapper .ul .li {
+  float: left;
+  width: 100%;
+  background: #fff;
+  box-shadow: 0 4upx 70upx rgba(72,137,247,0.1);
+  margin-top: 20upx;
+  padding: 36upx 20upx;
+  border-radius: 8upx;
+}
+.patrol-wrapper .ul .li .title {
+  float: left;
+  width: 100%;
+}
+.patrol-wrapper .ul .li .title .h2 {
+  float: left;
+  font-size: 36upx;
+}
+.patrol-wrapper .ul .li .layout {
+  float: left;
+  width: 100%;
+  margin-top: 32upx;
+}
+.patrol-wrapper .ul .li .layout .pict {
+  float: left;
+  overflow: hidden;
+  border-radius: 10upx;
+  width: 148upx;
+  height: 148upx;
+}
+.patrol-wrapper .ul .li .layout .pict image {
+  width: 100%;
+}
+.patrol-wrapper .ul .li .layout .text {
+  float: right;
+  width: calc(100% - 168upx);
+  height: 148upx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
+}
+.patrol-wrapper .ul .li .layout .text .p {
+  float: left;
+  width: 100%;
+}
+.patrol-wrapper .ul .li .layout .text .p text {
+  float: left;
+  font-size: 26upx;
+}
+.patrol-wrapper .ul .li .layout .text .p .s1 {
+  color: #999;
+}
+.patrol-wrapper .ul .li .layout .text .p .s2 {
+  margin-left: 25upx;
+  color: #999;
+}

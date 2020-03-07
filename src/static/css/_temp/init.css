@@ -31,10 +31,3 @@ button {
   height: 0;
   background-color: transparent;
 }
-.status_bar {
-  height: var(--status-bar-height);
-  width: 100%;
-}
-.status_bar.bg1 {
-  background: #3a89ff;
-}

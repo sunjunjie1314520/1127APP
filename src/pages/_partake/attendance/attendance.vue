@@ -1,7 +1,7 @@
 <template>
     <view class="container">
 
-		<uni-nav-bar class="boxs" left-icon="back" title="考勤签到"></uni-nav-bar>
+        <uni-navbar>考勤签到</uni-navbar>
 
         <view class="pername">
             <view class="pict">
@@ -244,9 +244,5 @@ export default {
         background: url('../../../static/img/5732d_34x34.png') left center/34upx no-repeat;
         padding-left: 44upx;
     }
-    .boxs{
-        box-shadow: 0 0 21upx rgba(183, 207, 255, .3)
-    }
-
 
 </style>

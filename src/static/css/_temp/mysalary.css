@@ -1,8 +1,98 @@
-.page {
-  float: left;
-  font-size: 40upx;
-}
-.salary {
+/*我的工资*/
+.mysalary-wrapper {
   float: left;
   width: 100%;
+  padding: 20upx;
+}
+.mysalary-wrapper .layout {
+  box-shadow: 0 0 50upx rgba(183,207,255,0.46);
+  float: left;
+  width: 100%;
+}
+.mysalary-wrapper .one {
+  font-size: 36upx;
+  float: left;
+  width: 100%;
+  padding: 25upx 25upx;
+}
+.mysalary-wrapper .two {
+  float: left;
+  width: 100%;
+  padding: 0 25upx;
+}
+.mysalary-wrapper .two .pict {
+  width: 148upx;
+  height: 148upx;
+  float: left;
+  overflow: hidden;
+  border-radius: 10upx;
+}
+.mysalary-wrapper .two .pict image {
+  width: 100%;
+}
+.mysalary-wrapper .two .text {
+  float: right;
+  width: calc(100% - 168upx);
+  height: 148upx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  padding: 10upx 0;
+}
+.mysalary-wrapper .two .text text {
+  font-size: 26upx;
+}
+.mysalary-wrapper .two .text .p {
+  float: left;
+  width: 100%;
+}
+.mysalary-wrapper .two .text .p .s1 {
+  color: #999;
+  width: 150upx;
+  display: inline-block;
+}
+.mysalary-wrapper .two .text .p .s2 {
+  color: #ff3838;
+}
+.mysalary-wrapper .two .text .p .s3 {
+  position: relative;
+}
+.mysalary-wrapper .three {
+  float: left;
+  width: 100%;
+  margin-top: 30upx;
+}
+.mysalary-wrapper .three .ul .li {
+  float: left;
+  width: 100%;
+  border-top: .5px solid #e7e7e7;
+}
+.mysalary-wrapper .three .ul .li:first-child {
+  border-top: none;
+}
+.mysalary-wrapper .three .ul .li.first {
+  background: #eee;
+}
+.mysalary-wrapper .three .ul .li text {
+  float: left;
+  height: 60upx;
+  line-height: 60upx;
+  border-left: .5px solid #e7e7e7;
+  text-align: center;
+  font-size: 26upx;
+}
+.mysalary-wrapper .three .ul .li text:first-child {
+  border-left: none;
+}
+.mysalary-wrapper .three .ul .li text.w1 {
+  width: 10%;
+}
+.mysalary-wrapper .three .ul .li text.w2 {
+  width: 18%;
 }

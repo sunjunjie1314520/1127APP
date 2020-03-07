@@ -172,14 +172,34 @@
         },
 
         // 参与模块-------------------------------------------------------------------------
-        // 主界面
-        {
-            "path": "pages/_partake/index/index"
-        },
-        // 考勤签到
-        {
-            "path": "pages/_partake/attendance/attendance"
-        }
+
+        {"path": "pages/_partake/index/index"},
+        {"path": "pages/_partake/attendance/attendance"},
+        {"path": "pages/_partake/mysalary/mysalary"},
+
+        {"path": "pages/_partake/mytask/mytask"},
+        {"path": "pages/_partake/mytask/routine_task_detail"},
+        {"path": "pages/_partake/mytask/rectify_task_detail"},
+
+        {"path": "pages/_partake/consolog/consolog"},
+        {"path": "pages/_partake/consolog/newly_add_consolog"},
+        {"path": "pages/_partake/consolog/log_details"},
+
+        {"path": "pages/_partake/patrol/patrol"},
+        {"path": "pages/_partake/patrol/new_inspection"},
+
+        {"path": "pages/_partake/collection/collection"},
+        {"path": "pages/_partake/collection/material_return"},
+        {"path": "pages/_partake/collection/material_collection"},
+
+        {"path": "pages/_partake/purchase/purchase"},
+        {"path": "pages/_partake/purchase/procurement_details"},
+
+        {"path": "pages/_partake/remind/remind"},
+        {"path": "pages/_partake/remind/remind_me"},
+        {"path": "pages/_partake/remind/my_reminder"},
+
+        {"path": "pages/_partake/costapplication/costapplication"}
         
     ],
 	"globalStyle": {
@@ -190,7 +210,7 @@
         "navigationStyle": "custom"
 	},
 	"condition" : {
-		"current": 2,
+		"current": 0,
 		"list": [
             {
                 "name": "主入口",

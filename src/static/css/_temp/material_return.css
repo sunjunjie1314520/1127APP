@@ -1,0 +1,58 @@
+.material-warpper {
+  background: #fff;
+  border-radius: 8upx;
+  float: left;
+  width: 100%;
+  box-shadow: 0 4upx 50upx rgba(183,207,255,0.3);
+}
+.material-warpper .one {
+  float: left;
+  width: 100%;
+  padding: 38upx 24upx;
+}
+.material-warpper .one .h2 {
+  font-size: 36upx;
+}
+.material-warpper .one .p {
+  margin-top: 29upx;
+  display: block;
+}
+.material-warpper .one .p text {
+  font-size: 26upx;
+}
+.material-warpper .one .p .s1 {
+  color: #999;
+}
+.material-warpper .two {
+  float: left;
+  width: 100%;
+  overflow-x: auto;
+  padding-bottom: 20upx;
+}
+.material-warpper .two .ul .li {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  border-bottom: .5px solid #e7e7e7;
+}
+.material-warpper .two .ul .li:nth-child(1) text {
+  background: #eee;
+}
+.material-warpper .two .ul .li .text,
+.material-warpper .two .ul .li text {
+  -webkit-flex-shrink: 0;
+  flex-shrink: 0;
+  float: left;
+  width: 200upx;
+  text-align: center;
+  line-height: 60upx;
+  height: 60upx;
+  border-left: .5px solid #e7e7e7;
+}
+.material-warpper .two .ul .li .text:first-child,
+.material-warpper .two .ul .li text:first-child {
+  border-left: none;
+}
+.material-warpper .two .ul .li .w1 {
+  width: 100upx;
+}

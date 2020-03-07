@@ -1,13 +1,7 @@
 <template>
     <view class="container bg-three">
-        
-        <view class="status_bar bg1">
-          <!-- 这里是状态栏 -->
-        </view>
-
-        <view class="top">
-            <text>首页</text>
-        </view>
+    
+        <uni-navbar :back="false" :blue="true">首页</uni-navbar>
         
         <view class="index-bann">
             <image src="../../static/img/d676d_750x230.jpg" mode=""></image>

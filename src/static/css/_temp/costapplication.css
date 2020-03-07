@@ -1,0 +1,153 @@
+/* 费用申请 */
+.costapp-wrapper {
+  float: left;
+  width: 100%;
+  padding: 0 20upx;
+}
+.costapp-wrapper .ul .li {
+  float: left;
+  width: 100%;
+  background: #fff;
+  border-radius: 10upx;
+  margin-top: 20upx;
+  box-shadow: 0 4upx 50upx rgba(183,207,255,0.3);
+  padding: 30upx 20upx;
+}
+.costapp-wrapper .ul .li .pict {
+  float: left;
+  width: 148upx;
+  height: 148upx;
+  border-radius: 8upx;
+  overflow: hidden;
+}
+.costapp-wrapper .ul .li .pict image {
+  width: 100%;
+}
+.costapp-wrapper .ul .li .text {
+  width: calc(100% - 168upx);
+  float: right;
+  height: 148upx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+}
+.costapp-wrapper .ul .li .text .wrap .p {
+  margin-top: 15upx;
+}
+.costapp-wrapper .ul .li .text .wrap .p:nth-of-type(1) {
+  margin-top: 0;
+}
+.costapp-wrapper .ul .li .text .p {
+  float: left;
+  width: 100%;
+}
+.costapp-wrapper .ul .li .text .p .s1 {
+  color: #999;
+  font-size: 24upx;
+}
+.costapp-wrapper .ul .li .text .p .s2 {
+  color: #3a89ff;
+}
+.costapp-price {
+  float: left;
+  width: 100%;
+  position: relative;
+  margin-top: 20upx;
+  overflow: hidden;
+  padding: 0 20upx;
+}
+.costapp-price .back {
+  position: absolute;
+  left: 0;
+  top: -45upx;
+  width: 100%;
+}
+.costapp-price .one {
+  float: left;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  padding: 55upx 0 40upx;
+}
+.costapp-price .one .box {
+  float: left;
+  width: 50%;
+  padding-left: 38upx;
+}
+.costapp-price .one .box .p {
+  color: #fff;
+  font-size: 26upx;
+}
+.costapp-price .one .box .wrap {
+  padding-top: 24upx;
+}
+.costapp-price .one .box .wrap .h2 {
+  color: #fff;
+  font-size: 56upx;
+}
+.costapp-price .one .box .wrap .small {
+  color: #fff;
+  font-size: 26upx;
+}
+.costapp-price .two {
+  float: left;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  background: #fff;
+  border-radius: 10upx;
+  padding: 20upx 10upx 40upx;
+  box-shadow: 0 4upx 50upx rgba(183,207,255,0.3);
+}
+.costapp-price .two .ul .li {
+  width: 50%;
+  float: left;
+  margin-top: 20upx;
+}
+.costapp-price .two .ul .li:nth-child(even) {
+  position: relative;
+  padding-left: 20upx;
+}
+.costapp-price .two .ul .li:nth-child(even):after {
+  content: '';
+  position: absolute;
+  width: .5px;
+  height: 41upx;
+  background: #adb2b8;
+  left: -10upx;
+  top: 24upx;
+}
+.costapp-price .two .ul .li image {
+  width: 100upx;
+  float: left;
+}
+.costapp-price .two .ul .li .text {
+  width: calc(100% - 100upx);
+  float: right;
+  height: 100upx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+}
+.costapp-price .two .ul .li .text .span {
+  color: #999;
+  display: block;
+  font-size: 26upx;
+}
+.costapp-price .two .ul .li .text .strong {
+  font-size: 32upx;
+  display: block;
+}

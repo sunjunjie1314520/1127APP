@@ -1,3 +1,4 @@
+@import "F:\Sourse\网页模版\fn\fn.styl"
 
 c1 = #3a89ff
 
@@ -18,6 +19,9 @@ c1 = #3a89ff
 .bg-three
     background #f9fbfc
 
+.bg-four
+    background #f3f8fc
+
 .linear-color-one
     backgroundL #4ccafa #5a90f3
 
@@ -34,7 +38,6 @@ c1 = #3a89ff
             float left
             margin-left 15upx
             ml 0
-            back1('0c2f3_55x55.png',55upx)
             overflow hidden
             position relative
             display flex
@@ -53,7 +56,8 @@ c1 = #3a89ff
                 background rgba(#000,.6)
                 text-align center
                 font-size 24upx
-
+            &.last-add
+                back1('./img/0c2f3_55x55.png',55upx)
 // input
 .placeholder-class
     color #c7c7c7
@@ -61,6 +65,11 @@ c1 = #3a89ff
 .pub-button
     padding 20upx 20upx
     float 0
+    &.fixed
+        position fixed
+        left 0
+        right 0
+        bottom 0
     text
         heightL 70rpx
         background c1
@@ -105,6 +114,7 @@ c1 = #3a89ff
 // navigaror 无背景
 .hover-class
     background none
+    opacity 1
 
 // 图片底色
 .pub-img-back
@@ -114,3 +124,125 @@ c1 = #3a89ff
     text-align center
     padding 100upx 0
     color #ccc
+
+// 返回
+.icon-return
+    back1('./img/f54b12_17x30.png',17px)
+    height 100%
+    width 100px
+
+.fl
+    float left
+
+.fr
+    float right
+
+.flex-page
+    display flex
+    flex-direction column
+    .shrink
+        flex-shrink 0
+    .grow
+        flex-grow 1
+        display flex
+        flex-direction column
+        .flex
+            flex-grow 1
+
+.pub-page-form
+    float 0
+    background #fff
+    border-radius 8px
+    margin-top 20px
+    mt 0
+    .ul
+        padding-left 20px
+        .li
+            border-top 1px solid #ededed
+            padding 30px 20px 30px 0
+            float 0
+            border-topN 1
+            .span
+                float left
+                width 230px
+                color #666
+                line-height 1.6
+            .p
+                widthC 250px
+                line-height 1.6
+                text-align justify
+            .pict
+                float 0
+                margin-top 20px
+                border-radius 8px
+                overflow hidden
+                border-top 1px solid #ededed
+                padding-top 30px
+                height 296px
+                image
+                    width 100%
+            .fr
+                widthC 250px
+                padding-top 8px
+                input
+                textarea
+                    width 100%
+                    &.h105
+                        height 105px
+                    &.h205
+                        height 205px
+                    
+.mt20
+    margin-top 20px
+.mt40
+    margin-top 40px
+.mt60
+    margin-top 60px
+.pub-page-card
+    float 0
+    background #fff
+    border-radius 8px
+    padding 49px 20px 0 20px
+    margin-top 20px
+    .h2
+        font-size 36px
+        display block
+
+.pub-textarea
+    display block
+    margin-top 50px
+    height 192px
+    width 100%
+
+.pub-add-per
+    float 0
+    padding 30px 0
+    .item-box
+        float left
+        widthZ 98px
+        border-radius 50%
+        overflow hidden
+        margin-bottom 20px
+        margin-left 40px
+        ml 0 5
+        image
+            width 100%
+        &.last-add
+            border 1px dashed #ccc
+            display flex
+            justify-content center
+            align-items center
+            image
+                width 40px
+    
+.pub-wid
+    padding 0 20px
+    float 0
+    margin-top 20px
+
+.pub-select
+    height 100%
+    .option
+        color #bbbbbb
+        display block
+        background url('../img/451f8_15x8.png') right center/20px no-repeat

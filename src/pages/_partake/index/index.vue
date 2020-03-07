@@ -1,16 +1,16 @@
 <template>
-    <view class="container">
+    <view class="container bg-four">
 
-		<uni-nav-bar left-icon="back" :title="title"></uni-nav-bar>
+		<uni-navbar :none="true">项目名称</uni-navbar>
 
         <view class="company">
 			<view class="company-bann">
-				<image src="../../../static/img/bann1.jpg" mode=""></image>
+				<image src="../../../static/img/bann1.jpg" mode="widthFix"></image>
 			</view>
 
             <view class="current">
                 <view class="pict">
-                    <image src="../../../static/img/2c322_132x132.png" mode=""></image>
+                    <image src="../../../static/img/2c322_132x132.png" mode="widthFix"></image>
                 </view>
                 <view class="text">
                     <view class="comp-name">
@@ -39,7 +39,7 @@
 					</view>
 					<view class="company-list-col">
 						<view class="company-list-box">
-							<navigator url="'../project/details/details">
+							<navigator url="../mysalary/mysalary">
 								<view class="company-list-img">
 									<image src="../../../static/img/ic20.png" mode=""></image>
 								</view>
@@ -63,7 +63,7 @@
                             </navigator>
 						</view>
 						<view class="company-list-box">
-                            <navigator url="../attendanceManagement/manage/manage">
+                            <navigator url="../mytask/mytask">
                                 <view class="company-list-img">
                                     <image src="../../../static/img/35412_92x92.png" mode=""></image>
                                 </view>
@@ -71,7 +71,7 @@
                             </navigator>
 						</view>
 						<view class="company-list-box">
-                            <navigator url="../participation/construction/construction">
+                            <navigator url="../consolog/consolog">
                                 <view class="company-list-img">
                                     <image src="../../../static/img/ic7.png" mode=""></image>
                                 </view>
@@ -79,7 +79,7 @@
                             </navigator>
 						</view>
 						<view class="company-list-box">
-                            <navigator url="../contract/manage/manage">
+                            <navigator url="../patrol/patrol">
                                 <view class="company-list-img">
                                     <image src="../../../static/img/2cf15_91x92.png" mode=""></image>
                                 </view>
@@ -87,7 +87,7 @@
                             </navigator>
 						</view>
 						<view class="company-list-box">
-                            <navigator url="../invoices/manage/manage">
+                            <navigator url="../collection/collection">
                                 <view class="company-list-img">
                                     <image src="../../../static/img/ic10.png" mode=""></image>
                                 </view>
@@ -103,15 +103,15 @@
                             </navigator>
 						</view>
 						<view class="company-list-box">
-                            <navigator url="../invoices/manage/manage">
+                            <navigator url="../costapplication/costapplication">
                                 <view class="company-list-img">
                                     <image src="../../../static/img/90191_92x92.png" mode=""></image>
                                 </view>
-                                <view class="company-list-txt">费用报销</view>
+                                <view class="company-list-txt">费用申请</view>
                             </navigator>
 						</view>
 						<view class="company-list-box">
-                            <navigator url="../invoices/manage/manage">
+                            <navigator url="../purchase/purchase">
                                 <view class="company-list-img">
                                     <image src="../../../static/img/68e34_92x92.png" mode=""></image>
                                 </view>
@@ -119,11 +119,11 @@
                             </navigator>
 						</view>
 						<view class="company-list-box">
-                            <navigator url="../invoices/manage/manage">
+                            <navigator url="../remind/remind">
                                 <view class="company-list-img">
                                     <image src="../../../static/img/f02f3_92x92.png" mode=""></image>
                                 </view>
-                                <view class="company-list-txt">特别提醒</view>
+                                <view class="company-list-txt">安全提醒</view>
                             </navigator>
 						</view>
 					</view>

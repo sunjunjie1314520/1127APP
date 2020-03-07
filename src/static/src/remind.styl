@@ -1,0 +1,111 @@
+@import "F:\Sourse\网页模版\fn\fn.styl"
+
+/* 安全提醒 */
+
+.remind-tabs-two
+    float 0
+    background #fff
+    border-bottom 1px solid rgba(#000,.1)
+    position fixed
+    left 0
+    right 0
+    z-index 2
+    .ul
+        display flex
+        justify-content space-around
+        .li
+            line-height 80px
+            &.acti
+                position relative
+                color #0054ff
+                &:after
+                    content ''
+                    position absolute
+                    bottom 0
+                    height 4px
+                    background #0054ff
+                    width 100%
+                    left 0
+
+.remind-tabs-two-null
+    height 80px
+
+.position
+    position relative
+    
+.remind-wrapper
+    position absolute
+    left 0
+    right 0
+    bottom 0
+    top 0
+    padding-top 10px
+
+    swiper
+        height 100%
+    swiper-item
+        overflow-y auto
+    .ul
+        float 0
+        padding 0 20px 20px
+        .title
+            float 0
+            padding 30px 0 10px
+        .li
+            float 0
+            background #fff
+            box-shadow 0 4px 70px rgba(#4889f7,.1)
+            margin-top 20px
+            padding 36px 20px
+            border-radius 8px
+            .time
+                float 0
+                .fl
+                    font-size 24px
+                    color #999
+                    line-height 36px
+                .fr
+                    font-size 24px
+                    color #fff
+                    display flex
+                    align-items center
+                    justify-content center
+                    border-radius 6px
+                    width 92px
+                    height 36px
+                    &.c1
+                        background #ff6569
+                    &.c2
+                        background #3a89ff
+            .layout
+                float 0
+                margin-top 37px
+            .pict
+                float left
+                overflow hidden
+                border-radius 8px
+                widthZ 132px
+                image
+                    width 100%
+            .text
+                float right
+                widthC 152px
+                height 132px
+                display flex
+                flex-direction column
+                justify-content space-around
+                .title
+                    float 0
+                    .h2
+                        float left
+                .p
+                    float 0
+                    display flex
+                    text
+                        font-size 26px
+                        float left
+                    .s1
+                        color #999
+                        flex-shrink 0
+                    .s2
+                        ov 1

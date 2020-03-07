@@ -1,0 +1,66 @@
+.collection-wrapper {
+  float: left;
+  width: 100%;
+  padding: 0 20upx;
+}
+.collection-wrapper .ul .li {
+  float: left;
+  width: 100%;
+  background: #fff;
+  box-shadow: 0 4upx 70upx rgba(72,137,247,0.1);
+  margin-top: 20upx;
+  padding: 36upx 20upx;
+  border-radius: 8upx;
+}
+.collection-wrapper .ul .li .pict {
+  float: left;
+  overflow: hidden;
+  border-radius: 10upx;
+  width: 148upx;
+  height: 148upx;
+}
+.collection-wrapper .ul .li .pict image {
+  width: 100%;
+}
+.collection-wrapper .ul .li .text {
+  float: right;
+  width: calc(100% - 168upx);
+  height: 148upx;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+.collection-wrapper .ul .li .text .title {
+  float: left;
+  width: 100%;
+}
+.collection-wrapper .ul .li .text .title .h2 {
+  float: left;
+  font-size: 36upx;
+}
+.collection-wrapper .ul .li .text .wrap {
+  float: left;
+  width: 100%;
+}
+.collection-wrapper .ul .li .text .wrap .p {
+  float: left;
+  width: 100%;
+  margin-top: 10upx;
+}
+.collection-wrapper .ul .li .text .wrap .p:nth-of-type(1) {
+  margin-top: 0;
+}
+.collection-wrapper .ul .li .text .wrap .p text {
+  font-size: 26upx;
+  float: left;
+}
+.collection-wrapper .ul .li .text .wrap .p .s1 {
+  color: #999;
+}
